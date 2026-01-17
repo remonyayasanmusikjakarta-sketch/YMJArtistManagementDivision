@@ -1,0 +1,1754 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YMJ Performance & Artist Management Division</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #1a365d;
+            --secondary: #d4af37;
+            --accent: #9e2b25;
+            --bg-light: #f8f9fa;
+            --text-dark: #2d3748;
+            --text-light: #718096;
+            --border: #e2e8f0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-img {
+            height: 50px;
+            width: auto;
+            transition: transform 0.3s ease;
+        }
+
+        .logo-img:hover {
+            transform: scale(1.05);
+        }
+
+        .logo-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-menu a {
+            color: var(--text-dark);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-weight: 500;
+        }
+
+        .nav-menu a:hover {
+            color: var(--accent);
+        }
+
+        .language-selector {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .lang-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: transform 0.3s ease;
+        }
+
+        .lang-btn:hover {
+            transform: scale(1.2);
+        }
+
+        .lang-btn.active {
+            color: var(--accent);
+        }
+
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 80px;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, var(--primary) 0%, #2c5282 100%);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('assets/images/hero/hero-background.jpg') center/cover;
+            opacity: 0.2;
+            transition: opacity 0.5s ease;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            color: white;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            font-weight: 300;
+            animation: fadeInUp 1s ease 0.2s;
+            animation-fill-mode: both;
+        }
+
+        .hero-description {
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            animation: fadeInUp 1s ease 0.4s;
+            animation-fill-mode: both;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 1s ease 0.6s;
+            animation-fill-mode: both;
+        }
+
+        .btn {
+            padding: 12px 30px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: var(--secondary);
+            color: var(--primary);
+        }
+
+        .btn-primary:hover {
+            background: #b8941f;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        /* Section Styles */
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--secondary);
+        }
+
+        /* Mission Section */
+        .mission {
+            background: white;
+        }
+
+        .mission-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .mission-highlight {
+            color: var(--accent);
+            font-weight: 700;
+            font-size: 1.3rem;
+            margin: 2rem 0;
+        }
+
+        /* Featured Project */
+        .featured-project {
+            background: var(--bg-light);
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .project-image {
+            height: 300px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .project-card:hover .project-image img {
+            transform: scale(1.05);
+        }
+
+        .project-content {
+            padding: 2rem;
+        }
+
+        .project-title {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .project-description {
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        /* Artists Section */
+        .artists-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .artist-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .artist-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .artist-image {
+            height: 250px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .artist-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .artist-card:hover .artist-image img {
+            transform: scale(1.1);
+        }
+
+        .artist-info {
+            padding: 1.5rem;
+        }
+
+        .artist-name {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+
+        .artist-role {
+            color: var(--text-light);
+            margin-bottom: 1rem;
+        }
+
+        .artist-bio {
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .artist-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .artist-links a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .artist-links a:hover {
+            color: var(--primary);
+        }
+
+        /* Gallery Section */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            height: 200px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.02);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            color: white;
+            padding: 1rem;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            transform: translateY(0);
+        }
+
+        /* Community Section */
+        .community {
+            background: white;
+        }
+
+        .community-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .community-card {
+            text-align: center;
+            padding: 2rem;
+            border-radius: 10px;
+            background: var(--bg-light);
+            transition: all 0.3s ease;
+        }
+
+        .community-card:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-5px);
+        }
+
+        .community-card i {
+            font-size: 3rem;
+            color: var(--secondary);
+            margin-bottom: 1rem;
+        }
+
+        .community-card:hover i {
+            color: white;
+        }
+
+        .community-card h3 {
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .community-card:hover h3 {
+            color: white;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: var(--primary);
+            color: white;
+        }
+
+        .contact .section-title {
+            color: white;
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .contact-item i {
+            font-size: 1.5rem;
+            color: var(--secondary);
+        }
+
+        .contact-form {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            color: var(--text-dark);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--border);
+            border-radius: 5px;
+            font-family: inherit;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+
+        /* Image Guide Section */
+        .image-guide {
+            background: #f0f4f8;
+            padding: 60px 0;
+        }
+
+        .guide-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .guide-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .guide-card h4 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .guide-card ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .guide-card li {
+            padding: 5px 0;
+            border-bottom: 1px solid var(--border);
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+        }
+
+        .guide-card li:last-child {
+            border-bottom: none;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--text-dark);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--secondary);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: white;
+                flex-direction: column;
+                padding: 1rem;
+                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+            }
+
+            .nav-menu.active {
+                display: flex;
+            }
+
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 200px;
+            }
+        }
+
+        /* Hidden content for different languages */
+        .content-en, .content-id, .content-zh {
+            display: none;
+        }
+
+        .content-en.active, .content-id.active, .content-zh.active {
+            display: block;
+        }
+
+        /* Image Modal */
+        .image-modal {
+            display: none;
+            position: fixed;
+            z-index: 20000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.9);
+            animation: fadeIn 0.3s ease;
+        }
+
+        .image-modal-content {
+            margin: auto;
+            display: block;
+            max-width: 90%;
+            max-height: 90%;
+            margin-top: 5%;
+            border-radius: 10px;
+        }
+
+        .image-modal-close {
+            position: absolute;
+            top: 20px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .image-modal-close:hover {
+            color: var(--secondary);
+        }
+
+        @keyframes fadeIn {
+            from {opacity: 0}
+            to {opacity: 1}
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <div class="logo-container">
+                <img class="logo-img" src="assets/images/logo/logo.png" alt="YMJ Logo">
+                <a href="#" class="logo-text">YMJ</a>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home" data-lang="nav-home">Home</a></li>
+                <li><a href="#about" data-lang="nav-about">About</a></li>
+                <li><a href="#artists" data-lang="nav-artists">Artists</a></li>
+                <li><a href="#beethoven" data-lang="nav-beethoven">Beethoven 2027</a></li>
+                <li><a href="#gallery" data-lang="nav-gallery">Gallery</a></li>
+                <li><a href="#community" data-lang="nav-community">Community</a></li>
+                <li><a href="#contact" data-lang="nav-contact">Contact</a></li>
+                <li><a href="#image-guide" data-lang="nav-guide">📁 Image Guide</a></li>
+            </ul>
+            <div class="language-selector">
+                <button class="lang-btn active" data-lang="en">🇬🇧</button>
+                <button class="lang-btn" data-lang="id">🇮🇩</button>
+                <button class="lang-btn" data-lang="zh">🇨🇳</button>
+            </div>
+            <button class="mobile-menu-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-bg"></div>
+        <div class="container">
+            <div class="hero-content">
+                <!-- English Content -->
+                <div class="content-en active">
+                    <h1>YMJ Performance & Artist Management Division</h1>
+                    <p class="hero-subtitle">Curating Artist-Led Classical Music Projects Worldwide</p>
+                    <p class="hero-description">
+                        Welcome to YMJ Performance & Artist Management Division — an artist-driven platform where musicians are supported, guided, and connected, from Indonesia to the world. We do not simply manage careers. We accompany artistic journeys, develop meaningful projects, and build bridges between creative vision and global stages.
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="#projects" class="btn btn-primary">Explore Our Projects</a>
+                        <a href="#community" class="btn btn-secondary">Join Our Community</a>
+                    </div>
+                </div>
+
+                <!-- Indonesian Content -->
+                <div class="content-id">
+                    <h1>YMJ Performance & Artist Management Division</h1>
+                    <p class="hero-subtitle">Mengkurasi Proyek Musik Klasik Berbasis Seniman di Panggung Internasional</p>
+                    <p class="hero-description">
+                        Selamat datang di YMJ Performance & Artist Management Division — sebuah platform yang digerakkan oleh seniman untuk mendukung musisi, mengembangkan proyek bermakna, dan menghubungkan visi artistik dengan panggung dunia. Kami tidak sekadar mengelola karier. Kami mendampingi perjalanan artistik, membangun kolaborasi jangka panjang.
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="#projects" class="btn btn-primary">Jelajahi Proyek Kami</a>
+                        <a href="#community" class="btn btn-secondary">Bergabung dengan Komunitas</a>
+                    </div>
+                </div>
+
+                <!-- Chinese Content -->
+                <div class="content-zh">
+                    <h1>YMJ 表演与艺术家管理部</h1>
+                    <p class="hero-subtitle">策划以艺术家为核心的国际古典音乐项目</p>
+                    <p class="hero-description">
+                        欢迎来到 YMJ 表演与艺术家管理部 —— 一个以艺术家为本，致力于支持音乐家成长、发展深度项目，并将艺术愿景与国际舞台相连的平台。我们并非只从事演出或职业管理。我们陪伴艺术旅程，培育长期合作关系。
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="#projects" class="btn btn-primary">探索我们的项目</a>
+                        <a href="#community" class="btn btn-secondary">加入我们的社区</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission Section -->
+    <section id="about" class="mission">
+        <div class="container">
+            <h2 class="section-title" data-lang="mission-title">Our Mission</h2>
+            
+            <!-- English Content -->
+            <div class="content-en active">
+                <div class="mission-content">
+                    <p>As part of Yayasan Musik Jakarta, YMJ Performance & Artist Management Division is dedicated to cultivating artistic excellence and championing Indonesian artists internationally, while welcoming global collaboration into Indonesia.</p>
+                    <p class="mission-highlight">Together, we advance artistry.<br>Together, we elevate Indonesia.</p>
+                    <p>We believe music is a calling, not a commodity. Sustainable artistic careers are built through meaningful relationships — between artists, presenters, institutions, and audiences.</p>
+                </div>
+            </div>
+
+            <!-- Indonesian Content -->
+            <div class="content-id">
+                <div class="mission-content">
+                    <p>Sebagai bagian dari Yayasan Musik Jakarta, YMJ Performance & Artist Management Division berdedikasi untuk menumbuhkan keunggulan artistik dan memajukan seniman Indonesia di panggung internasional, sambil menyambut kolaborasi global ke Indonesia.</p>
+                    <p class="mission-highlight">Bersama, kita memajukan seni.<br>Bersama, kita mengangkat Indonesia.</p>
+                    <p>Kami percaya bahwa musik adalah panggilan, bukan komoditas. Karier artistik yang berkelanjutan tumbuh melalui kepercayaan, tujuan bersama, dan relasi yang bermakna.</p>
+                </div>
+            </div>
+
+            <!-- Chinese Content -->
+            <div class="content-zh">
+                <div class="mission-content">
+                    <p>作为雅加达音乐基金会（Yayasan Musik Jakarta）的一部分，YMJ 表演与艺术家管理部致力于在推动艺术卓越的同时，促进印度尼西亚与世界之间的艺术对话。</p>
+                    <p class="mission-highlight">携手同行，我们推进艺术。<br>携手同行，我们让印度尼西亚走向世界。</p>
+                    <p>我们相信，音乐是一份使命，而非商品；艺术的道路源于信任、共同愿景与真诚的关系。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Project -->
+    <section id="projects" class="featured-project">
+        <div class="container">
+            <h2 class="section-title" data-lang="project-title">Featured Project</h2>
+            
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="assets/images/projects/beethoven-project.jpg" alt="Beethoven Project">
+                </div>
+                <div class="project-content">
+                    <!-- English Content -->
+                    <div class="content-en active">
+                        <h3 class="project-title">Beethoven Bicentennial Memorial Concert Series (2027–2028)</h3>
+                        <p class="project-description">
+                            A global performance cycle commemorating the 200th anniversary of the death of Ludwig van Beethoven, presenting the complete violin and piano repertoire through carefully curated concert programs. Rather than a single commemorative event, the project is designed as a flexible, modular cycle.
+                        </p>
+                        <a href="#beethoven" class="btn btn-primary">View Project Details</a>
+                    </div>
+
+                    <!-- Indonesian Content -->
+                    <div class="content-id">
+                        <h3 class="project-title">Seri Konser Peringatan Dua Abad Wafatnya Beethoven (2027–2028)</h3>
+                        <p class="project-description">
+                            Siklus pertunjukan global memperingati 200 tahun wafatnya Ludwig van Beethoven, menyajikan repertoar lengkap biola dan piano melalui program konser yang dikurasi dengan cermat. Bukan sebagai satu peristiwa peringatan tunggal, proyek ini dirancang sebagai siklus yang fleksibel dan modular.
+                        </p>
+                        <a href="#beethoven" class="btn btn-primary">Lihat Detail Proyek</a>
+                    </div>
+
+                    <!-- Chinese Content -->
+                    <div class="content-zh">
+                        <h3 class="project-title">贝多芬逝世二百周年纪念音乐会系列（2027–2028）</h3>
+                        <p class="project-description">
+                            为纪念路德维希·范·贝多芬逝世二百周年而举办的全球演出周期，通过精心策划的音乐会节目呈现完整的小提琴与钢琴曲目。该项目并非作为一次性的纪念活动，而是设计为灵活、模块化的周期。
+                        </p>
+                        <a href="#beethoven" class="btn btn-primary">查看项目详情</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="featured-project">
+        <div class="container">
+            <h2 class="section-title" data-lang="gallery-title">Gallery</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="assets/images/gallery/gallery-1.jpg" alt="Gallery 1" onclick="openImageModal(this.src)">
+                    <div class="gallery-overlay">
+                        <h4>Concert Performance</h4>
+                        <p>Live performance at concert hall</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="assets/images/gallery/gallery-2.jpg" alt="Gallery 2" onclick="openImageModal(this.src)">
+                    <div class="gallery-overlay">
+                        <h4>Rehearsal Session</h4>
+                        <p>Behind the scenes rehearsal</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="assets/images/gallery/gallery-3.jpg" alt="Gallery 3" onclick="openImageModal(this.src)">
+                    <div class="gallery-overlay">
+                        <h4>Masterclass</h4>
+                        <p>Educational masterclass session</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="assets/images/gallery/gallery-4.jpg" alt="Gallery 4" onclick="openImageModal(this.src)">
+                    <div class="gallery-overlay">
+                        <h4>Collaboration</h4>
+                        <p>International collaboration project</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Artists Section -->
+    <section id="artists" class="artists">
+        <div class="container">
+            <h2 class="section-title" data-lang="artists-title">Our Artists</h2>
+            
+            <div class="artists-grid">
+                <!-- Jap-Yeo Duo -->
+                <div class="artist-card fade-in">
+                    <div class="artist-image">
+                        <img src="assets/images/artists/jap-yeo-duo.jpg" alt="Jap-Yeo Duo">
+                    </div>
+                    <div class="artist-info">
+                        <!-- English Content -->
+                        <div class="content-en active">
+                            <h3 class="artist-name">Jap–Yeo Duo</h3>
+                            <p class="artist-role">Violin & Piano Duo</p>
+                            <p class="artist-bio">
+                                Bringing together violinist Jap Tji Kien and pianist Dr. Kuei Pin Yeo in a partnership dedicated to chamber music of depth, clarity, and intellectual engagement.
+                            </p>
+                            <div class="artist-links">
+                                <a href="#" data-lang="bio">Biography</a>
+                                <a href="#" data-lang="repertoire">Repertoire</a>
+                                <a href="#" data-lang="media">Media</a>
+                            </div>
+                        </div>
+
+                        <!-- Indonesian Content -->
+                        <div class="content-id">
+                            <h3 class="artist-name">Jap–Yeo Duo</h3>
+                            <p class="artist-role">Biola & Piano</p>
+                            <p class="artist-bio">
+                                Mempertemukan pemain biola Jap Tji Kien dan pianis Dr. Kuei Pin Yeo dalam kemitraan yang berfokus pada musik kamar dengan kedalaman dan kejernihan artistik.
+                            </p>
+                            <div class="artist-links">
+                                <a href="#" data-lang="bio">Biografi</a>
+                                <a href="#" data-lang="repertoire">Repertoar</a>
+                                <a href="#" data-lang="media">Media</a>
+                            </div>
+                        </div>
+
+                        <!-- Chinese Content -->
+                        <div class="content-zh">
+                            <h3 class="artist-name">Jap–Yeo 二重奏</h3>
+                            <p class="artist-role">小提琴与钢琴</p>
+                            <p class="artist-bio">
+                                由小提琴家叶至坚与钢琴家杨圭斌博士组成，是一组以深度、清晰度与思想性见长的室内乐组合。
+                            </p>
+                            <div class="artist-links">
+                                <a href="#" data-lang="bio">传记</a>
+                                <a href="#" data-lang="repertoire">曲目</a>
+                                <a href="#" data-lang="media">媒体</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dr. Kuei Pin Yeo -->
+                <div class="artist-card fade-in">
+                    <div class="artist-image">
+                        <img src="assets/images/artists/dr-kuei-pin-yeo.jpg" alt="Dr. Kuei Pin Yeo">
+                    </div>
+                    <div class="artist-info">
+                        <!-- English Content -->
+                        <div class="content-en active">
+                            <h3 class="artist-name">Dr. Kuei Pin Yeo</h3>
+                            <p class="artist-role">Pianist</p>
+                            <p class="artist-bio">
+                                A distinguished Indonesian pianist and Indonesia's first Doctor of Music in piano performance. Her international debut at Carnegie Recital Hall marked a significant milestone in her career.
+                            </p>
+                            <div class="artist-links">
+                                <a href="#" data-lang="bio">Biography</a>
+                                <a href="#" data-lang="repertoire">Repertoire</a>
+                                <a href="#" data-lang="media">Media</a>
+                            </div>
+                        </div>
+
+                        <!-- Indonesian Content -->
+                        <div class="content-id">
+                            <h3 class="artist-name">Dr. Kuei Pin Yeo</h3>
+                            <p class="artist-role">Pianis</p>
+                            <p class="artist-bio">
+                                Pianis Indonesia terkemuka dan doktor musik pertama Indonesia dalam bidang piano performance. Debut resitalnya di Carnegie Recital Hall, New York, menandai awal pengakuan internasionalnya.
+                            </p>
+                            <div class="artist-links">
+                                <a href="#" data-lang="bio">Biografi</a>
+                                <a href="#" data-lang="repertoire">Repertoar</a>
+                                <a href="#" data-lang="media">Media</a>
+                            </div>
+                        </div>
+
+                        <!-- Chinese Content -->
+                        <div class="content-zh">
+                            <h3 class="artist-name">杨圭斌博士</h3>
+                            <p class="artist-role">钢琴家</p>
+                            <p class="artist-bio">
+                                印度尼西亚杰出的钢琴家，印度尼西亚首位钢琴演奏艺术音乐博士。1978年于纽约卡内基独奏音乐厅举行钢琴独奏首演，获得国际权威媒体的高度评价。
+                            </p>
+                            <div class="artist-links">
+                                <a href="#" data-lang="bio">传记</a>
+                                <a href="#" data-lang="repertoire">曲目</a>
+                                <a href="#" data-lang="media">媒体</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Jap Tji Kien -->
+                <div class="artist-card fade-in">
+                    <div class="artist-image">
+                        <img src="assets/images/artists/jap-tji-kien.jpg" alt="Jap Tji Kien">
+                    </div>
+                    <div class="artist-info">
+                        <!-- English Content -->
+                        <div class="content-en active">
+                            <h3 class="artist-name">Jap Tji Kien</h3>
+                            <p class="artist-role">Violinist & Conductor</p>
+                            <p class="artist-bio">
+                                One of Indonesia's most respected violinists and conductors, recognized as the first recipient of the Fellowship of the Royal Schools of Music (FRSM), London, in Southeast Asia.
+                            </p>
+                            <div class="artist-links">
+                                <a href="#" data-lang="bio">Biography</a>
+                                <a href="#" data-lang="repertoire">Repertoire</a>
+                                <a href="#" data-lang="media">Media</a>
+                            </div>
+                        </div>
+
+                        <!-- Indonesian Content -->
+                        <div class="content-id">
+                            <h3 class="artist-name">Jap Tji Kien</h3>
+                            <p class="artist-role">Violinis & Dirigen</p>
+                            <p class="artist-bio">
+                                Salah satu violinis dan dirigen paling dihormati di Indonesia, lahir di Bandung, dan dikenal sebagai penerima Fellowship of the Royal Schools of Music (FRSM), London, pertama di Asia Tenggara.
+                            </p>
+                            <div class="artist-links">
+                                <a href="#" data-lang="bio">Biografi</a>
+                                <a href="#" data-lang="repertoire">Repertoar</a>
+                                <a href="#" data-lang="media">Media</a>
+                            </div>
+                        </div>
+
+                        <!-- Chinese Content -->
+                        <div class="content-zh">
+                            <h3 class="artist-name">叶至坚</h3>
+                            <p class="artist-role">小提琴家兼指挥家</p>
+                            <p class="artist-bio">
+                                印度尼西亚最受尊敬的小提琴家与指挥家之一，并为东南亚首位获得英国皇家音乐学院院士奖（FRSM, London）的音乐家。
+                            </p>
+                            <div class="artist-links">
+                                <a href="#" data-lang="bio">传记</a>
+                                <a href="#" data-lang="repertoire">曲目</a>
+                                <a href="#" data-lang="media">媒体</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Beethoven Project Section -->
+    <section id="beethoven" class="featured-project">
+        <div class="container">
+            <h2 class="section-title" data-lang="beethoven-title">Beethoven Bicentennial Initiative</h2>
+            
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="assets/images/projects/beethoven-detail.jpg" alt="Beethoven Project Detail">
+                </div>
+                <div class="project-content">
+                    <!-- English Content -->
+                    <div class="content-en active">
+                        <h3 class="project-title">Beethoven Bicentennial World Project (2027–2028)</h3>
+                        <p class="project-description">
+                            In commemoration of the 200th anniversary of the passing of Ludwig van Beethoven, YMJ Performance & Artist Management Division has initiated a long-term artistic project centered on Beethoven's works for violin and piano. This initiative reflects YMJ's commitment to artist-led, historically grounded classical music projects developed with depth, care, and long-term vision.
+                        </p>
+                        <div style="margin-top: 1.5rem;">
+                            <h4 style="margin-bottom: 1rem; color: var(--primary);">Project Formats:</h4>
+                            <ul style="list-style: none; padding: 0;">
+                                <li style="margin-bottom: 0.5rem;">• Single Recital</li>
+                                <li style="margin-bottom: 0.5rem;">• Short Series (2–3 concerts)</li>
+                                <li style="margin-bottom: 0.5rem;">• Complete Cycle</li>
+                                <li>• Expanded Format (Lecture, Masterclass, Residency)</li>
+                            </ul>
+                        </div>
+                        <a href="#contact" class="btn btn-primary" style="margin-top: 1.5rem;">Inquire About This Project</a>
+                    </div>
+
+                    <!-- Indonesian Content -->
+                    <div class="content-id">
+                        <h3 class="project-title">Proyek Dunia Beethoven Bicentennial (2027–2028)</h3>
+                        <p class="project-description">
+                            Dalam rangka memperingati 200 tahun wafatnya Ludwig van Beethoven, YMJ Performance & Artist Management Division menginisiasi sebuah proyek artistik jangka panjang yang berfokus pada karya Beethoven untuk biola dan piano. Inisiatif ini mencerminkan komitmen YMJ terhadap proyek musik klasik yang digerakkan oleh seniman dan berlandaskan pemahaman historis.
+                        </p>
+                        <div style="margin-top: 1.5rem;">
+                            <h4 style="margin-bottom: 1rem; color: var(--primary);">Format Proyek:</h4>
+                            <ul style="list-style: none; padding: 0;">
+                                <li style="margin-bottom: 0.5rem;">• Resital Tunggal</li>
+                                <li style="margin-bottom: 0.5rem;">• Seri Pendek (2–3 konser)</li>
+                                <li style="margin-bottom: 0.5rem;">• Siklus Lengkap</li>
+                                <li>• Format Diperluas (Kuliah, Masterclass, Residensi)</li>
+                            </ul>
+                        </div>
+                        <a href="#contact" class="btn btn-primary" style="margin-top: 1.5rem;">Tanyakan Tentang Proyek Ini</a>
+                    </div>
+
+                    <!-- Chinese Content -->
+                    <div class="content-zh">
+                        <h3 class="project-title">贝多芬二百周年世界项目（2027–2028）</h3>
+                        <p class="project-description">
+                            为纪念路德维希·范·贝多芬逝世二百周年，YMJ表演与艺术家管理部发起了一项以贝多芬小提琴与钢琴作品为核心的长期艺术计划。本计划体现YMJ对以艺术家为主导、具历史深度的古典音乐项目的长期承诺。
+                        </p>
+                        <div style="margin-top: 1.5rem;">
+                            <h4 style="margin-bottom: 1rem; color: var(--primary);">项目形式：</h4>
+                            <ul style="list-style: none; padding: 0;">
+                                <li style="margin-bottom: 0.5rem;">• 单场独奏会</li>
+                                <li style="margin-bottom: 0.5rem;">• 短期系列（2–3场音乐会）</li>
+                                <li style="margin-bottom: 0.5rem;">• 完整周期</li>
+                                <li>• 扩展形式（讲座、大师班、驻院项目）</li>
+                            </ul>
+                        </div>
+                        <a href="#contact" class="btn btn-primary" style="margin-top: 1.5rem;">咨询此项目</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Image Guide Section -->
+    <section id="image-guide" class="image-guide">
+        <div class="container">
+            <h2 class="section-title">📁 Image Asset Guide</h2>
+            <p style="text-align: center; margin-bottom: 2rem; color: var(--text-light);">
+                Replace images directly in the assets folder to update the website
+            </p>
+            
+            <div class="guide-grid">
+                <div class="guide-card">
+                    <h4><i class="fas fa-image"></i> Logo</h4>
+                    <ul>
+                        <li>assets/images/logo/logo.png</li>
+                        <li>Size: 200x100px (recommended)</li>
+                        <li>Format: PNG with transparency</li>
+                    </ul>
+                </div>
+                
+                <div class="guide-card">
+                    <h4><i class="fas fa-mountain"></i> Hero Background</h4>
+                    <ul>
+                        <li>assets/images/hero/hero-background.jpg</li>
+                        <li>Size: 1920x1080px</li>
+                        <li>Format: JPG or PNG</li>
+                    </ul>
+                </div>
+                
+                <div class="guide-card">
+                    <h4><i class="fas fa-users"></i> Artist Photos</h4>
+                    <ul>
+                        <li>assets/images/artists/jap-yeo-duo.jpg</li>
+                        <li>assets/images/artists/dr-kuei-pin-yeo.jpg</li>
+                        <li>assets/images/artists/jap-tji-kien.jpg</li>
+                        <li>Size: 400x400px (square)</li>
+                    </ul>
+                </div>
+                
+                <div class="guide-card">
+                    <h4><i class="fas fa-project-diagram"></i> Project Images</h4>
+                    <ul>
+                        <li>assets/images/projects/beethoven-project.jpg</li>
+                        <li>assets/images/projects/beethoven-detail.jpg</li>
+                        <li>Size: 800x400px</li>
+                        <li>Format: JPG or PNG</li>
+                    </ul>
+                </div>
+                
+                <div class="guide-card">
+                    <h4><i class="fas fa-images"></i> Gallery</h4>
+                    <ul>
+                        <li>assets/images/gallery/gallery-1.jpg</li>
+                        <li>assets/images/gallery/gallery-2.jpg</li>
+                        <li>assets/images/gallery/gallery-3.jpg</li>
+                        <li>assets/images/gallery/gallery-4.jpg</li>
+                        <li>Size: 400x300px</li>
+                    </ul>
+                </div>
+                
+                <div class="guide-card">
+                    <h4><i class="fas fa-info-circle"></i> Tips</h4>
+                    <ul>
+                        <li>Keep file sizes under 2MB</li>
+                        <li>Use high-quality images</li>
+                        <li>Maintain aspect ratios</li>
+                        <li>Optimize for web (JPG 80%)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Community Section -->
+    <section id="community" class="community">
+        <div class="container">
+            <h2 class="section-title" data-lang="community-title">Join Our Community</h2>
+            
+            <div class="community-grid">
+                <!-- Indonesian Artists -->
+                <div class="community-card fade-in">
+                    <i class="fas fa-music"></i>
+                    <!-- English Content -->
+                    <div class="content-en active">
+                        <h3>For Indonesian Artists</h3>
+                        <p>Discover opportunities, representation, masterclasses, competitions, and performance platforms.</p>
+                    </div>
+                    <!-- Indonesian Content -->
+                    <div class="content-id">
+                        <h3>Bagi Seniman Indonesia</h3>
+                        <p>Temukan peluang, perwakilan, masterclass, kompetisi, dan platform pertunjukan.</p>
+                    </div>
+                    <!-- Chinese Content -->
+                    <div class="content-zh">
+                        <h3>对于印尼艺术家</h3>
+                        <p>发现机会、经纪服务、大师班、比赛和演出平台。</p>
+                    </div>
+                </div>
+
+                <!-- International Artists -->
+                <div class="community-card fade-in">
+                    <i class="fas fa-globe"></i>
+                    <!-- English Content -->
+                    <div class="content-en active">
+                        <h3>For International Artists</h3>
+                        <p>Partner with us — explore how you can perform, teach, collaborate, or tour in Indonesia.</p>
+                    </div>
+                    <!-- Indonesian Content -->
+                    <div class="content-id">
+                        <h3>Bagi Seniman Internasional</h3>
+                        <p>Berkolaborasi dengan kami — jelajahi bagaimana Anda dapat tampil, mengajar, atau berkolaborasi di Indonesia.</p>
+                    </div>
+                    <!-- Chinese Content -->
+                    <div class="content-zh">
+                        <h3>对于国际艺术家</h3>
+                        <p>与我们合作 — 探索如何在印尼演出、教学、合作或巡演。</p>
+                    </div>
+                </div>
+
+                <!-- Institutions -->
+                <div class="community-card fade-in">
+                    <i class="fas fa-building"></i>
+                    <!-- English Content -->
+                    <div class="content-en active">
+                        <h3>For Institutions & Organizers</h3>
+                        <p>We provide curation, advisory, booking support, and project development services.</p>
+                    </div>
+                    <!-- Indonesian Content -->
+                    <div class="content-id">
+                        <h3>Bagi Lembaga & Penyelenggara</h3>
+                        <p>Kami menyediakan kurasi, konsultasi, dukungan pemesanan, dan pengembangan proyek.</p>
+                    </div>
+                    <!-- Chinese Content -->
+                    <div class="content-zh">
+                        <h3>对于机构与组织者</h3>
+                        <p>我们提供策展、咨询、预订支持和项目开发服务。</p>
+                    </div>
+                </div>
+
+                <!-- Supporters -->
+                <div class="community-card fade-in">
+                    <i class="fas fa-heart"></i>
+                    <!-- English Content -->
+                    <div class="content-en active">
+                        <h3>For Friends & Supporters</h3>
+                        <p>Stay connected — join our community and support the arts in Indonesia.</p>
+                    </div>
+                    <!-- Indonesian Content -->
+                    <div class="content-id">
+                        <h3>Bagi Sahabat & Pendukung</h3>
+                        <p>Tetap terhubung — bergabunglah dengan komunitas kami dan dukung seni di Indonesia.</p>
+                    </div>
+                    <!-- Chinese Content -->
+                    <div class="content-zh">
+                        <h3>对于朋友与支持者</h3>
+                        <p>保持联系 — 加入我们的社区，支持印尼的艺术发展。</p>
+                    </div>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 3rem;">
+                <!-- English Content -->
+                <div class="content-en active">
+                    <a href="#contact" class="btn btn-primary">Become a Friend</a>
+                    <a href="#contact" class="btn btn-secondary" style="margin-left: 1rem;">Contribute / Participate</a>
+                </div>
+                <!-- Indonesian Content -->
+                <div class="content-id">
+                    <a href="#contact" class="btn btn-primary">Menjadi Sahabat</a>
+                    <a href="#contact" class="btn btn-secondary" style="margin-left: 1rem;">Berkontribusi / Berpartisipasi</a>
+                </div>
+                <!-- Chinese Content -->
+                <div class="content-zh">
+                    <a href="#contact" class="btn btn-primary">成为朋友</a>
+                    <a href="#contact" class="btn btn-secondary" style="margin-left: 1rem;">贡献/参与</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title" data-lang="contact-title">Contact Us</h2>
+            
+            <div class="contact-content">
+                <div class="contact-info">
+                    <!-- English Content -->
+                    <div class="content-en active">
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <h4>Email</h4>
+                                <p>info@yayasanmusikjakarta.org</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-globe"></i>
+                            <div>
+                                <h4>Website</h4>
+                                <p>www.yayasanmusikjakarta.org/performance-artist-management</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <h4>Phone</h4>
+                                <p>+62 21 1234 5678</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <h4>Address</h4>
+                                <p>Jakarta, Indonesia</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Indonesian Content -->
+                    <div class="content-id">
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <h4>Email</h4>
+                                <p>info@yayasanmusikjakarta.org</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-globe"></i>
+                            <div>
+                                <h4>Website</h4>
+                                <p>www.yayasanmusikjakarta.org/performance-artist-management</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <h4>Telepon</h4>
+                                <p>+62 21 1234 5678</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <h4>Alamat</h4>
+                                <p>Jakarta, Indonesia</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Chinese Content -->
+                    <div class="content-zh">
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <h4>电子邮箱</h4>
+                                <p>info@yayasanmusikjakarta.org</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-globe"></i>
+                            <div>
+                                <h4>网站</h4>
+                                <p>www.yayasanmusikjakarta.org/performance-artist-management</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <h4>电话</h4>
+                                <p>+62 21 1234 5678</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <h4>地址</h4>
+                                <p>雅加达，印度尼西亚</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-form">
+                    <!-- English Content -->
+                    <div class="content-en active">
+                        <h3 style="margin-bottom: 1.5rem; color: var(--primary);">Send us a message</h3>
+                        <form>
+                            <div class="form-group">
+                                <label for="name">Name</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="subject">Subject</label>
+                                <input type="text" id="subject" name="subject" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Message</label>
+                                <textarea id="message" name="message" rows="5" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
+                        </form>
+                    </div>
+
+                    <!-- Indonesian Content -->
+                    <div class="content-id">
+                        <h3 style="margin-bottom: 1.5rem; color: var(--primary);">Kirim pesan kepada kami</h3>
+                        <form>
+                            <div class="form-group">
+                                <label for="name-id">Nama</label>
+                                <input type="text" id="name-id" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email-id">Email</label>
+                                <input type="email" id="email-id" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="subject-id">Subjek</label>
+                                <input type="text" id="subject-id" name="subject" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="message-id">Pesan</label>
+                                <textarea id="message-id" name="message" rows="5" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary" style="width: 100%;">Kirim Pesan</button>
+                        </form>
+                    </div>
+
+                    <!-- Chinese Content -->
+                    <div class="content-zh">
+                        <h3 style="margin-bottom: 1.5rem; color: var(--primary);">发送消息给我们</h3>
+                        <form>
+                            <div class="form-group">
+                                <label for="name-zh">姓名</label>
+                                <input type="text" id="name-zh" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email-zh">电子邮箱</label>
+                                <input type="email" id="email-zh" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="subject-zh">主题</label>
+                                <input type="text" id="subject-zh" name="subject" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="message-zh">消息</label>
+                                <textarea id="message-zh" name="message" rows="5" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary" style="width: 100%;">发送消息</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="social-links">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+            <!-- English Content -->
+            <div class="content-en active">
+                <p>&copy; 2024 YMJ Performance & Artist Management Division. All rights reserved.</p>
+                <p>A division of Yayasan Musik Jakarta</p>
+            </div>
+            <!-- Indonesian Content -->
+            <div class="content-id">
+                <p>&copy; 2024 YMJ Performance & Artist Management Division. Semua hak dilindungi.</p>
+                <p>Di bawah Yayasan Musik Jakarta</p>
+            </div>
+            <!-- Chinese Content -->
+            <div class="content-zh">
+                <p>&copy; 2024 YMJ 表演与艺术家管理部。保留所有权利。</p>
+                <p>雅加达音乐基金会旗下部门</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Image Modal -->
+    <div id="imageModal" class="image-modal">
+        <span class="image-modal-close" onclick="closeImageModal()">&times;</span>
+        <img class="image-modal-content" id="modalImage">
+    </div>
+
+    <script>
+        // Language translations
+        const translations = {
+            en: {
+                'nav-home': 'Home',
+                'nav-about': 'About',
+                'nav-artists': 'Artists',
+                'nav-beethoven': 'Beethoven 2027',
+                'nav-gallery': 'Gallery',
+                'nav-community': 'Community',
+                'nav-contact': 'Contact',
+                'nav-guide': '📁 Image Guide',
+                'mission-title': 'Our Mission',
+                'project-title': 'Featured Project',
+                'gallery-title': 'Gallery',
+                'artists-title': 'Our Artists',
+                'beethoven-title': 'Beethoven Bicentennial Initiative',
+                'community-title': 'Join Our Community',
+                'contact-title': 'Contact Us',
+                'bio': 'Biography',
+                'repertoire': 'Repertoire',
+                'media': 'Media'
+            },
+            id: {
+                'nav-home': 'Beranda',
+                'nav-about': 'Tentang',
+                'nav-artists': 'Seniman',
+                'nav-beethoven': 'Beethoven 2027',
+                'nav-gallery': 'Galeri',
+                'nav-community': 'Komunitas',
+                'nav-contact': 'Kontak',
+                'nav-guide': '📁 Panduan Gambar',
+                'mission-title': 'Misi Kami',
+                'project-title': 'Proyek Unggulan',
+                'gallery-title': 'Galeri',
+                'artists-title': 'Seniman Kami',
+                'beethoven-title': 'Inisiatif Beethoven Bicentennial',
+                'community-title': 'Bergabung dengan Komunitas',
+                'contact-title': 'Hubungi Kami',
+                'bio': 'Biografi',
+                'repertoire': 'Repertoar',
+                'media': 'Media'
+            },
+            zh: {
+                'nav-home': '首页',
+                'nav-about': '关于',
+                'nav-artists': '艺术家',
+                'nav-beethoven': '贝多芬2027',
+                'nav-gallery': '图库',
+                'nav-community': '社区',
+                'nav-contact': '联系',
+                'nav-guide': '📁 图片指南',
+                'mission-title': '我们的使命',
+                'project-title': '特色项目',
+                'gallery-title': '图库',
+                'artists-title': '我们的艺术家',
+                'beethoven-title': '贝多芬二百周年计划',
+                'community-title': '加入我们的社区',
+                'contact-title': '联系我们',
+                'bio': '传记',
+                'repertoire': '曲目',
+                'media': '媒体'
+            }
+        };
+
+        // Language switching functionality
+        let currentLang = 'en';
+        
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const lang = this.dataset.lang;
+                switchLanguage(lang);
+            });
+        });
+
+        function switchLanguage(lang) {
+            // Update active language button
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            document.querySelector(`.lang-btn[data-lang="${lang}"]`).classList.add('active');
+            
+            // Hide all content
+            document.querySelectorAll('.content-en, .content-id, .content-zh').forEach(content => {
+                content.classList.remove('active');
+            });
+            
+            // Show selected language content
+            document.querySelectorAll(`.content-${lang}`).forEach(content => {
+                content.classList.add('active');
+            });
+            
+            // Update navigation text
+            if (translations[lang]) {
+                document.querySelectorAll('[data-lang]').forEach(element => {
+                    const key = element.dataset.lang;
+                    if (translations[lang][key]) {
+                        element.textContent = translations[lang][key];
+                    }
+                });
+            }
+            
+            currentLang = lang;
+        }
+
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu-toggle').addEventListener('click', function() {
+            document.querySelector('.nav-menu').classList.toggle('active');
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    // Close mobile menu if open
+                    document.querySelector('.nav-menu').classList.remove('active');
+                }
+            });
+        });
+
+        // Fade in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Header scroll effect
+        let lastScroll = 0;
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            const header = document.querySelector('header');
+            
+            if (currentScroll <= 0) {
+                header.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
+            } else {
+                header.style.boxShadow = '0 2px 20px rgba(0,0,0,0.1)';
+            }
+            
+            lastScroll = currentScroll;
+        });
+
+        // Form submission
+        document.querySelectorAll('form').forEach(form => {
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Thank you for your message! We will get back to you soon.');
+                this.reset();
+            });
+        });
+
+        // Image Modal
+        function openImageModal(imageUrl) {
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('modalImage');
+            modal.style.display = 'block';
+            modalImg.src = imageUrl;
+        }
+
+        function closeImageModal() {
+            document.getElementById('imageModal').style.display = 'none';
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('imageModal');
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
+        }
+
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add smooth page load
+            document.body.style.opacity = '0';
+            setTimeout(() => {
+                document.body.style.transition = 'opacity 0.5s ease';
+                document.body.style.opacity = '1';
+            }, 100);
+        });
+    </script>
+</body>
+</html>
