@@ -43,6 +43,85 @@
             padding: 0 20px;
         }
 
+        /* Splash Screen Styles */
+        .splash-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--primary) 0%, #2c5282 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.8s ease, visibility 0.8s ease;
+        }
+
+        .splash-content {
+            text-align: center;
+            animation: fadeIn 1.5s ease;
+        }
+
+        .splash-logo {
+            width: 200px;
+            height: auto;
+            margin-bottom: 30px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .splash-logo:hover {
+            transform: scale(1.05);
+        }
+
+        .splash-text {
+            color: white;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .splash-subtext {
+            color: var(--secondary);
+            font-size: 1rem;
+            font-weight: 300;
+        }
+
+        .splash-hint {
+            position: absolute;
+            bottom: 30px;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 0.5; }
+            50% { opacity: 1; }
+            100% { opacity: 0.5; }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .main-content {
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.8s ease, visibility 0.8s ease;
+        }
+
+        .main-content.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
         /* Header Styles */
         header {
             background: white;
@@ -745,806 +824,819 @@
     </style>
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <nav class="container">
-            <div class="logo-container">
-                <img class="logo-img" src="LogoYMJAM.png" alt="YMJ Logo">
-                <a href="#" class="logo-text">YMJ PDAMD</a>
-            </div>
-            <ul class="nav-menu">
-                <li><a href="#home" data-lang="nav-home">Home</a></li>
-                <li><a href="#about" data-lang="nav-about">About</a></li>
-                <li><a href="#artists" data-lang="nav-artists">Artists</a></li>
-                <li><a href="#beethoven" data-lang="nav-beethoven">Beethoven 2027</a></li>
-                <li><a href="#gallery" data-lang="nav-gallery">Gallery</a></li>
-                <li><a href="#community" data-lang="nav-community">Community</a></li>
-                <li><a href="#contact" data-lang="nav-contact">Contact</a></li>
-                <li><a href="#image-guide" data-lang="nav-guide">📁 Image Guide</a></li>
-            </ul>
-            <div class="language-selector">
-                <button class="lang-btn active" data-lang="en">🇬🇧</button>
-                <button class="lang-btn" data-lang="id">🇮🇩</button>
-                <button class="lang-btn" data-lang="zh">🇨🇳</button>
-            </div>
-            <button class="mobile-menu-toggle">
-                <i class="fas fa-bars"></i>
-            </button>
-        </nav>
-    </header>
+    <!-- Splash Screen -->
+    <div class="splash-screen" id="splashScreen">
+        <div class="splash-content">
+            <img class="splash-logo" src="assets/images/logo/logo.png" alt="YMJ Logo" id="splashLogo">
+            <div class="splash-text">YMJ Performance & Artist Management</div>
+            <div class="splash-subtext">Yayasan Musik Jakarta</div>
+        </div>
+        <div class="splash-hint">Click anywhere to continue</div>
+    </div>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-bg"></div>
-        <div class="container">
-            <div class="hero-content">
+    <!-- Main Content -->
+    <div class="main-content" id="mainContent">
+        <!-- Header -->
+        <header>
+            <nav class="container">
+                <div class="logo-container">
+                    <img class="logo-img" src="assets/images/logo/logo.png" alt="YMJ Logo">
+                    <a href="#" class="logo-text">YMJ</a>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="#home" data-lang="nav-home">Home</a></li>
+                    <li><a href="#about" data-lang="nav-about">About</a></li>
+                    <li><a href="#artists" data-lang="nav-artists">Artists</a></li>
+                    <li><a href="#beethoven" data-lang="nav-beethoven">Beethoven 2027</a></li>
+                    <li><a href="#gallery" data-lang="nav-gallery">Gallery</a></li>
+                    <li><a href="#community" data-lang="nav-community">Community</a></li>
+                    <li><a href="#contact" data-lang="nav-contact">Contact</a></li>
+                    <li><a href="#image-guide" data-lang="nav-guide">📁 Image Guide</a></li>
+                </ul>
+                <div class="language-selector">
+                    <button class="lang-btn active" data-lang="en">🇬🇧</button>
+                    <button class="lang-btn" data-lang="id">🇮🇩</button>
+                    <button class="lang-btn" data-lang="zh">🇨🇳</button>
+                </div>
+                <button class="mobile-menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
+        </header>
+
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="hero-bg"></div>
+            <div class="container">
+                <div class="hero-content">
+                    <!-- English Content -->
+                    <div class="content-en active">
+                        <h1>YMJ Performance & Artist Management Division</h1>
+                        <p class="hero-subtitle">Curating Artist-Led Classical Music Projects Worldwide</p>
+                        <p class="hero-description">
+                            Welcome to YMJ Performance & Artist Management Division — an artist-driven platform where musicians are supported, guided, and connected, from Indonesia to the world. We do not simply manage careers. We accompany artistic journeys, develop meaningful projects, and build bridges between creative vision and global stages.
+                        </p>
+                        <div class="hero-buttons">
+                            <a href="#projects" class="btn btn-primary">Explore Our Projects</a>
+                            <a href="#community" class="btn btn-secondary">Join Our Community</a>
+                        </div>
+                    </div>
+
+                    <!-- Indonesian Content -->
+                    <div class="content-id">
+                        <h1>YMJ Performance & Artist Management Division</h1>
+                        <p class="hero-subtitle">Mengkurasi Proyek Musik Klasik Berbasis Seniman di Panggung Internasional</p>
+                        <p class="hero-description">
+                            Selamat datang di YMJ Performance & Artist Management Division — sebuah platform yang digerakkan oleh seniman untuk mendukung musisi, mengembangkan proyek bermakna, dan menghubungkan visi artistik dengan panggung dunia. Kami tidak sekadar mengelola karier. Kami mendampingi perjalanan artistik, membangun kolaborasi jangka panjang.
+                        </p>
+                        <div class="hero-buttons">
+                            <a href="#projects" class="btn btn-primary">Jelajahi Proyek Kami</a>
+                            <a href="#community" class="btn btn-secondary">Bergabung dengan Komunitas</a>
+                        </div>
+                    </div>
+
+                    <!-- Chinese Content -->
+                    <div class="content-zh">
+                        <h1>YMJ 表演与艺术家管理部</h1>
+                        <p class="hero-subtitle">策划以艺术家为核心的国际古典音乐项目</p>
+                        <p class="hero-description">
+                            欢迎来到 YMJ 表演与艺术家管理部 —— 一个以艺术家为本，致力于支持音乐家成长、发展深度项目，并将艺术愿景与国际舞台相连的平台。我们并非只从事演出或职业管理。我们陪伴艺术旅程，培育长期合作关系。
+                        </p>
+                        <div class="hero-buttons">
+                            <a href="#projects" class="btn btn-primary">探索我们的项目</a>
+                            <a href="#community" class="btn btn-secondary">加入我们的社区</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Mission Section -->
+        <section id="about" class="mission">
+            <div class="container">
+                <h2 class="section-title" data-lang="mission-title">Our Mission</h2>
+                
                 <!-- English Content -->
                 <div class="content-en active">
-                    <h1>YMJ Performance & Artist Management Division</h1>
-                    <p class="hero-subtitle">Curating Artist-Led Classical Music Projects Worldwide</p>
-                    <p class="hero-description">
-                        Welcome to YMJ Performance & Artist Management Division — an artist-driven platform where musicians are supported, guided, and connected, from Indonesia to the world. We do not simply manage careers. We accompany artistic journeys, develop meaningful projects, and build bridges between creative vision and global stages.
-                    </p>
-                    <div class="hero-buttons">
-                        <a href="#projects" class="btn btn-primary">Explore Our Projects</a>
-                        <a href="#community" class="btn btn-secondary">Join Our Community</a>
+                    <div class="mission-content">
+                        <p>As part of Yayasan Musik Jakarta, YMJ Performance & Artist Management Division is dedicated to cultivating artistic excellence and championing Indonesian artists internationally, while welcoming global collaboration into Indonesia.</p>
+                        <p class="mission-highlight">Together, we advance artistry.<br>Together, we elevate Indonesia.</p>
+                        <p>We believe music is a calling, not a commodity. Sustainable artistic careers are built through meaningful relationships — between artists, presenters, institutions, and audiences.</p>
                     </div>
                 </div>
 
                 <!-- Indonesian Content -->
                 <div class="content-id">
-                    <h1>YMJ Performance & Artist Management Division</h1>
-                    <p class="hero-subtitle">Mengkurasi Proyek Musik Klasik Berbasis Seniman di Panggung Internasional</p>
-                    <p class="hero-description">
-                        Selamat datang di YMJ Performance & Artist Management Division — sebuah platform yang digerakkan oleh seniman untuk mendukung musisi, mengembangkan proyek bermakna, dan menghubungkan visi artistik dengan panggung dunia. Kami tidak sekadar mengelola karier. Kami mendampingi perjalanan artistik, membangun kolaborasi jangka panjang.
-                    </p>
-                    <div class="hero-buttons">
-                        <a href="#projects" class="btn btn-primary">Jelajahi Proyek Kami</a>
-                        <a href="#community" class="btn btn-secondary">Bergabung dengan Komunitas</a>
+                    <div class="mission-content">
+                        <p>Sebagai bagian dari Yayasan Musik Jakarta, YMJ Performance & Artist Management Division berdedikasi untuk menumbuhkan keunggulan artistik dan memajukan seniman Indonesia di panggung internasional, sambil menyambut kolaborasi global ke Indonesia.</p>
+                        <p class="mission-highlight">Bersama, kita memajukan seni.<br>Bersama, kita mengangkat Indonesia.</p>
+                        <p>Kami percaya bahwa musik adalah panggilan, bukan komoditas. Karier artistik yang berkelanjutan tumbuh melalui kepercayaan, tujuan bersama, dan relasi yang bermakna.</p>
                     </div>
                 </div>
 
                 <!-- Chinese Content -->
                 <div class="content-zh">
-                    <h1>YMJ 表演与艺术家管理部</h1>
-                    <p class="hero-subtitle">策划以艺术家为核心的国际古典音乐项目</p>
-                    <p class="hero-description">
-                        欢迎来到 YMJ 表演与艺术家管理部 —— 一个以艺术家为本，致力于支持音乐家成长、发展深度项目，并将艺术愿景与国际舞台相连的平台。我们并非只从事演出或职业管理。我们陪伴艺术旅程，培育长期合作关系。
-                    </p>
-                    <div class="hero-buttons">
-                        <a href="#projects" class="btn btn-primary">探索我们的项目</a>
-                        <a href="#community" class="btn btn-secondary">加入我们的社区</a>
+                    <div class="mission-content">
+                        <p>作为雅加达音乐基金会（Yayasan Musik Jakarta）的一部分，YMJ 表演与艺术家管理部致力于在推动艺术卓越的同时，促进印度尼西亚与世界之间的艺术对话。</p>
+                        <p class="mission-highlight">携手同行，我们推进艺术。<br>携手同行，我们让印度尼西亚走向世界。</p>
+                        <p>我们相信，音乐是一份使命，而非商品；艺术的道路源于信任、共同愿景与真诚的关系。</p>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Mission Section -->
-    <section id="about" class="mission">
-        <div class="container">
-            <h2 class="section-title" data-lang="mission-title">Our Mission</h2>
-            
-            <!-- English Content -->
-            <div class="content-en active">
-                <div class="mission-content">
-                    <p>As part of Yayasan Musik Jakarta, YMJ Performance & Artist Management Division is dedicated to cultivating artistic excellence and championing Indonesian artists internationally, while welcoming global collaboration into Indonesia.</p>
-                    <p class="mission-highlight">Together, we advance artistry.<br>Together, we elevate Indonesia.</p>
-                    <p>We believe music is a calling, not a commodity. Sustainable artistic careers are built through meaningful relationships — between artists, presenters, institutions, and audiences.</p>
-                </div>
-            </div>
-
-            <!-- Indonesian Content -->
-            <div class="content-id">
-                <div class="mission-content">
-                    <p>Sebagai bagian dari Yayasan Musik Jakarta, YMJ Performance & Artist Management Division berdedikasi untuk menumbuhkan keunggulan artistik dan memajukan seniman Indonesia di panggung internasional, sambil menyambut kolaborasi global ke Indonesia.</p>
-                    <p class="mission-highlight">Bersama, kita memajukan seni.<br>Bersama, kita mengangkat Indonesia.</p>
-                    <p>Kami percaya bahwa musik adalah panggilan, bukan komoditas. Karier artistik yang berkelanjutan tumbuh melalui kepercayaan, tujuan bersama, dan relasi yang bermakna.</p>
-                </div>
-            </div>
-
-            <!-- Chinese Content -->
-            <div class="content-zh">
-                <div class="mission-content">
-                    <p>作为雅加达音乐基金会（Yayasan Musik Jakarta）的一部分，YMJ 表演与艺术家管理部致力于在推动艺术卓越的同时，促进印度尼西亚与世界之间的艺术对话。</p>
-                    <p class="mission-highlight">携手同行，我们推进艺术。<br>携手同行，我们让印度尼西亚走向世界。</p>
-                    <p>我们相信，音乐是一份使命，而非商品；艺术的道路源于信任、共同愿景与真诚的关系。</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Featured Project -->
-    <section id="projects" class="featured-project">
-        <div class="container">
-            <h2 class="section-title" data-lang="project-title">Featured Project</h2>
-            
-            <div class="project-card">
-                <div class="project-image">
-                    <img src="assets/images/projects/beethoven-project.jpg" alt="Beethoven Project">
-                </div>
-                <div class="project-content">
-                    <!-- English Content -->
-                    <div class="content-en active">
-                        <h3 class="project-title">Beethoven Bicentennial Memorial Concert Series (2027–2028)</h3>
-                        <p class="project-description">
-                            A global performance cycle commemorating the 200th anniversary of the death of Ludwig van Beethoven, presenting the complete violin and piano repertoire through carefully curated concert programs. Rather than a single commemorative event, the project is designed as a flexible, modular cycle.
-                        </p>
-                        <a href="#beethoven" class="btn btn-primary">View Project Details</a>
+        <!-- Featured Project -->
+        <section id="projects" class="featured-project">
+            <div class="container">
+                <h2 class="section-title" data-lang="project-title">Featured Project</h2>
+                
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="assets/images/projects/beethoven-project.jpg" alt="Beethoven Project">
                     </div>
-
-                    <!-- Indonesian Content -->
-                    <div class="content-id">
-                        <h3 class="project-title">Seri Konser Peringatan Dua Abad Wafatnya Beethoven (2027–2028)</h3>
-                        <p class="project-description">
-                            Siklus pertunjukan global memperingati 200 tahun wafatnya Ludwig van Beethoven, menyajikan repertoar lengkap biola dan piano melalui program konser yang dikurasi dengan cermat. Bukan sebagai satu peristiwa peringatan tunggal, proyek ini dirancang sebagai siklus yang fleksibel dan modular.
-                        </p>
-                        <a href="#beethoven" class="btn btn-primary">Lihat Detail Proyek</a>
-                    </div>
-
-                    <!-- Chinese Content -->
-                    <div class="content-zh">
-                        <h3 class="project-title">贝多芬逝世二百周年纪念音乐会系列（2027–2028）</h3>
-                        <p class="project-description">
-                            为纪念路德维希·范·贝多芬逝世二百周年而举办的全球演出周期，通过精心策划的音乐会节目呈现完整的小提琴与钢琴曲目。该项目并非作为一次性的纪念活动，而是设计为灵活、模块化的周期。
-                        </p>
-                        <a href="#beethoven" class="btn btn-primary">查看项目详情</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Gallery Section -->
-    <section id="gallery" class="featured-project">
-        <div class="container">
-            <h2 class="section-title" data-lang="gallery-title">Gallery</h2>
-            <div class="gallery-grid">
-                <div class="gallery-item">
-                    <img src="assets/images/gallery/gallery-1.jpg" alt="Gallery 1" onclick="openImageModal(this.src)">
-                    <div class="gallery-overlay">
-                        <h4>Concert Performance</h4>
-                        <p>Live performance at concert hall</p>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <img src="assets/images/gallery/gallery-2.jpg" alt="Gallery 2" onclick="openImageModal(this.src)">
-                    <div class="gallery-overlay">
-                        <h4>Rehearsal Session</h4>
-                        <p>Behind the scenes rehearsal</p>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <img src="assets/images/gallery/gallery-3.jpg" alt="Gallery 3" onclick="openImageModal(this.src)">
-                    <div class="gallery-overlay">
-                        <h4>Masterclass</h4>
-                        <p>Educational masterclass session</p>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <img src="assets/images/gallery/gallery-4.jpg" alt="Gallery 4" onclick="openImageModal(this.src)">
-                    <div class="gallery-overlay">
-                        <h4>Collaboration</h4>
-                        <p>International collaboration project</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Artists Section -->
-    <section id="artists" class="artists">
-        <div class="container">
-            <h2 class="section-title" data-lang="artists-title">Our Artists</h2>
-            
-            <div class="artists-grid">
-                <!-- Jap-Yeo Duo -->
-                <div class="artist-card fade-in">
-                    <div class="artist-image">
-                        <img src="assets/images/artists/jap-yeo-duo.jpg" alt="Jap-Yeo Duo">
-                    </div>
-                    <div class="artist-info">
+                    <div class="project-content">
                         <!-- English Content -->
                         <div class="content-en active">
-                            <h3 class="artist-name">Jap–Yeo Duo</h3>
-                            <p class="artist-role">Violin & Piano Duo</p>
-                            <p class="artist-bio">
-                                Bringing together violinist Jap Tji Kien and pianist Dr. Kuei Pin Yeo in a partnership dedicated to chamber music of depth, clarity, and intellectual engagement.
+                            <h3 class="project-title">Beethoven Bicentennial Memorial Concert Series (2027–2028)</h3>
+                            <p class="project-description">
+                                A global performance cycle commemorating the 200th anniversary of the death of Ludwig van Beethoven, presenting the complete violin and piano repertoire through carefully curated concert programs. Rather than a single commemorative event, the project is designed as a flexible, modular cycle.
                             </p>
-                            <div class="artist-links">
-                                <a href="#" data-lang="bio">Biography</a>
-                                <a href="#" data-lang="repertoire">Repertoire</a>
-                                <a href="#" data-lang="media">Media</a>
+                            <a href="#beethoven" class="btn btn-primary">View Project Details</a>
+                        </div>
+
+                        <!-- Indonesian Content -->
+                        <div class="content-id">
+                            <h3 class="project-title">Seri Konser Peringatan Dua Abad Wafatnya Beethoven (2027–2028)</h3>
+                            <p class="project-description">
+                                Siklus pertunjukan global memperingati 200 tahun wafatnya Ludwig van Beethoven, menyajikan repertoar lengkap biola dan piano melalui program konser yang dikurasi dengan cermat. Bukan sebagai satu peristiwa peringatan tunggal, proyek ini dirancang sebagai siklus yang fleksibel dan modular.
+                            </p>
+                            <a href="#beethoven" class="btn btn-primary">Lihat Detail Proyek</a>
+                        </div>
+
+                        <!-- Chinese Content -->
+                        <div class="content-zh">
+                            <h3 class="project-title">贝多芬逝世二百周年纪念音乐会系列（2027–2028）</h3>
+                            <p class="project-description">
+                                为纪念路德维希·范·贝多芬逝世二百周年而举办的全球演出周期，通过精心策划的音乐会节目呈现完整的小提琴与钢琴曲目。该项目并非作为一次性的纪念活动，而是设计为灵活、模块化的周期。
+                            </p>
+                            <a href="#beethoven" class="btn btn-primary">查看项目详情</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery Section -->
+        <section id="gallery" class="featured-project">
+            <div class="container">
+                <h2 class="section-title" data-lang="gallery-title">Gallery</h2>
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <img src="assets/images/gallery/gallery-1.jpg" alt="Gallery 1" onclick="openImageModal(this.src)">
+                        <div class="gallery-overlay">
+                            <h4>Concert Performance</h4>
+                            <p>Live performance at concert hall</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="assets/images/gallery/gallery-2.jpg" alt="Gallery 2" onclick="openImageModal(this.src)">
+                        <div class="gallery-overlay">
+                            <h4>Rehearsal Session</h4>
+                            <p>Behind the scenes rehearsal</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="assets/images/gallery/gallery-3.jpg" alt="Gallery 3" onclick="openImageModal(this.src)">
+                        <div class="gallery-overlay">
+                            <h4>Masterclass</h4>
+                            <p>Educational masterclass session</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="assets/images/gallery/gallery-4.jpg" alt="Gallery 4" onclick="openImageModal(this.src)">
+                        <div class="gallery-overlay">
+                            <h4>Collaboration</h4>
+                            <p>International collaboration project</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Artists Section -->
+        <section id="artists" class="artists">
+            <div class="container">
+                <h2 class="section-title" data-lang="artists-title">Our Artists</h2>
+                
+                <div class="artists-grid">
+                    <!-- Jap-Yeo Duo -->
+                    <div class="artist-card fade-in">
+                        <div class="artist-image">
+                            <img src="assets/images/artists/jap-yeo-duo.jpg" alt="Jap-Yeo Duo">
+                        </div>
+                        <div class="artist-info">
+                            <!-- English Content -->
+                            <div class="content-en active">
+                                <h3 class="artist-name">Jap–Yeo Duo</h3>
+                                <p class="artist-role">Violin & Piano Duo</p>
+                                <p class="artist-bio">
+                                    Bringing together violinist Jap Tji Kien and pianist Dr. Kuei Pin Yeo in a partnership dedicated to chamber music of depth, clarity, and intellectual engagement.
+                                </p>
+                                <div class="artist-links">
+                                    <a href="#" data-lang="bio">Biography</a>
+                                    <a href="#" data-lang="repertoire">Repertoire</a>
+                                    <a href="#" data-lang="media">Media</a>
+                                </div>
+                            </div>
+
+                            <!-- Indonesian Content -->
+                            <div class="content-id">
+                                <h3 class="artist-name">Jap–Yeo Duo</h3>
+                                <p class="artist-role">Biola & Piano</p>
+                                <p class="artist-bio">
+                                    Mempertemukan pemain biola Jap Tji Kien dan pianis Dr. Kuei Pin Yeo dalam kemitraan yang berfokus pada musik kamar dengan kedalaman dan kejernihan artistik.
+                                </p>
+                                <div class="artist-links">
+                                    <a href="#" data-lang="bio">Biografi</a>
+                                    <a href="#" data-lang="repertoire">Repertoar</a>
+                                    <a href="#" data-lang="media">Media</a>
+                                </div>
+                            </div>
+
+                            <!-- Chinese Content -->
+                            <div class="content-zh">
+                                <h3 class="artist-name">Jap–Yeo 二重奏</h3>
+                                <p class="artist-role">小提琴与钢琴</p>
+                                <p class="artist-bio">
+                                    由小提琴家叶至坚与钢琴家杨圭斌博士组成，是一组以深度、清晰度与思想性见长的室内乐组合。
+                                </p>
+                                <div class="artist-links">
+                                    <a href="#" data-lang="bio">传记</a>
+                                    <a href="#" data-lang="repertoire">曲目</a>
+                                    <a href="#" data-lang="media">媒体</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Dr. Kuei Pin Yeo -->
+                    <div class="artist-card fade-in">
+                        <div class="artist-image">
+                            <img src="assets/images/artists/dr-kuei-pin-yeo.jpg" alt="Dr. Kuei Pin Yeo">
+                        </div>
+                        <div class="artist-info">
+                            <!-- English Content -->
+                            <div class="content-en active">
+                                <h3 class="artist-name">Dr. Kuei Pin Yeo</h3>
+                                <p class="artist-role">Pianist</p>
+                                <p class="artist-bio">
+                                    A distinguished Indonesian pianist and Indonesia's first Doctor of Music in piano performance. Her international debut at Carnegie Recital Hall marked a significant milestone in her career.
+                                </p>
+                                <div class="artist-links">
+                                    <a href="#" data-lang="bio">Biography</a>
+                                    <a href="#" data-lang="repertoire">Repertoire</a>
+                                    <a href="#" data-lang="media">Media</a>
+                                </div>
+                            </div>
+
+                            <!-- Indonesian Content -->
+                            <div class="content-id">
+                                <h3 class="artist-name">Dr. Kuei Pin Yeo</h3>
+                                <p class="artist-role">Pianis</p>
+                                <p class="artist-bio">
+                                    Pianis Indonesia terkemuka dan doktor musik pertama Indonesia dalam bidang piano performance. Debut resitalnya di Carnegie Recital Hall, New York, menandai awal pengakuan internasionalnya.
+                                </p>
+                                <div class="artist-links">
+                                    <a href="#" data-lang="bio">Biografi</a>
+                                    <a href="#" data-lang="repertoire">Repertoar</a>
+                                    <a href="#" data-lang="media">Media</a>
+                                </div>
+                            </div>
+
+                            <!-- Chinese Content -->
+                            <div class="content-zh">
+                                <h3 class="artist-name">杨圭斌博士</h3>
+                                <p class="artist-role">钢琴家</p>
+                                <p class="artist-bio">
+                                    印度尼西亚杰出的钢琴家，印度尼西亚首位钢琴演奏艺术音乐博士。1978年于纽约卡内基独奏音乐厅举行钢琴独奏首演，获得国际权威媒体的高度评价。
+                                </p>
+                                <div class="artist-links">
+                                    <a href="#" data-lang="bio">传记</a>
+                                    <a href="#" data-lang="repertoire">曲目</a>
+                                    <a href="#" data-lang="media">媒体</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Jap Tji Kien -->
+                    <div class="artist-card fade-in">
+                        <div class="artist-image">
+                            <img src="assets/images/artists/jap-tji-kien.jpg" alt="Jap Tji Kien">
+                        </div>
+                        <div class="artist-info">
+                            <!-- English Content -->
+                            <div class="content-en active">
+                                <h3 class="artist-name">Jap Tji Kien</h3>
+                                <p class="artist-role">Violinist & Conductor</p>
+                                <p class="artist-bio">
+                                    One of Indonesia's most respected violinists and conductors, recognized as the first recipient of the Fellowship of the Royal Schools of Music (FRSM), London, in Southeast Asia.
+                                </p>
+                                <div class="artist-links">
+                                    <a href="#" data-lang="bio">Biography</a>
+                                    <a href="#" data-lang="repertoire">Repertoire</a>
+                                    <a href="#" data-lang="media">Media</a>
+                                </div>
+                            </div>
+
+                            <!-- Indonesian Content -->
+                            <div class="content-id">
+                                <h3 class="artist-name">Jap Tji Kien</h3>
+                                <p class="artist-role">Violinis & Dirigen</p>
+                                <p class="artist-bio">
+                                    Salah satu violinis dan dirigen paling dihormati di Indonesia, lahir di Bandung, dan dikenal sebagai penerima Fellowship of the Royal Schools of Music (FRSM), London, pertama di Asia Tenggara.
+                                </p>
+                                <div class="artist-links">
+                                    <a href="#" data-lang="bio">Biografi</a>
+                                    <a href="#" data-lang="repertoire">Repertoar</a>
+                                    <a href="#" data-lang="media">Media</a>
+                                </div>
+                            </div>
+
+                            <!-- Chinese Content -->
+                            <div class="content-zh">
+                                <h3 class="artist-name">叶至坚</h3>
+                                <p class="artist-role">小提琴家兼指挥家</p>
+                                <p class="artist-bio">
+                                    印度尼西亚最受尊敬的小提琴家与指挥家之一，并为东南亚首位获得英国皇家音乐学院院士奖（FRSM, London）的音乐家。
+                                </p>
+                                <div class="artist-links">
+                                    <a href="#" data-lang="bio">传记</a>
+                                    <a href="#" data-lang="repertoire">曲目</a>
+                                    <a href="#" data-lang="media">媒体</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Beethoven Project Section -->
+        <section id="beethoven" class="featured-project">
+            <div class="container">
+                <h2 class="section-title" data-lang="beethoven-title">Beethoven Bicentennial Initiative</h2>
+                
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="assets/images/projects/beethoven-detail.jpg" alt="Beethoven Project Detail">
+                    </div>
+                    <div class="project-content">
+                        <!-- English Content -->
+                        <div class="content-en active">
+                            <h3 class="project-title">Beethoven Bicentennial World Project (2027–2028)</h3>
+                            <p class="project-description">
+                                In commemoration of the 200th anniversary of the passing of Ludwig van Beethoven, YMJ Performance & Artist Management Division has initiated a long-term artistic project centered on Beethoven's works for violin and piano. This initiative reflects YMJ's commitment to artist-led, historically grounded classical music projects developed with depth, care, and long-term vision.
+                            </p>
+                            <div style="margin-top: 1.5rem;">
+                                <h4 style="margin-bottom: 1rem; color: var(--primary);">Project Formats:</h4>
+                                <ul style="list-style: none; padding: 0;">
+                                    <li style="margin-bottom: 0.5rem;">• Single Recital</li>
+                                    <li style="margin-bottom: 0.5rem;">• Short Series (2–3 concerts)</li>
+                                    <li style="margin-bottom: 0.5rem;">• Complete Cycle</li>
+                                    <li>• Expanded Format (Lecture, Masterclass, Residency)</li>
+                                </ul>
+                            </div>
+                            <a href="#contact" class="btn btn-primary" style="margin-top: 1.5rem;">Inquire About This Project</a>
+                        </div>
+
+                        <!-- Indonesian Content -->
+                        <div class="content-id">
+                            <h3 class="project-title">Proyek Dunia Beethoven Bicentennial (2027–2028)</h3>
+                            <p class="project-description">
+                                Dalam rangka memperingati 200 tahun wafatnya Ludwig van Beethoven, YMJ Performance & Artist Management Division menginisiasi sebuah proyek artistik jangka panjang yang berfokus pada karya Beethoven untuk biola dan piano. Inisiatif ini mencerminkan komitmen YMJ terhadap proyek musik klasik yang digerakkan oleh seniman dan berlandaskan pemahaman historis.
+                            </p>
+                            <div style="margin-top: 1.5rem;">
+                                <h4 style="margin-bottom: 1rem; color: var(--primary);">Format Proyek:</h4>
+                                <ul style="list-style: none; padding: 0;">
+                                    <li style="margin-bottom: 0.5rem;">• Resital Tunggal</li>
+                                    <li style="margin-bottom: 0.5rem;">• Seri Pendek (2–3 konser)</li>
+                                    <li style="margin-bottom: 0.5rem;">• Siklus Lengkap</li>
+                                    <li>• Format Diperluas (Kuliah, Masterclass, Residensi)</li>
+                                </ul>
+                            </div>
+                            <a href="#contact" class="btn btn-primary" style="margin-top: 1.5rem;">Tanyakan Tentang Proyek Ini</a>
+                        </div>
+
+                        <!-- Chinese Content -->
+                        <div class="content-zh">
+                            <h3 class="project-title">贝多芬二百周年世界项目（2027–2028）</h3>
+                            <p class="project-description">
+                                为纪念路德维希·范·贝多芬逝世二百周年，YMJ表演与艺术家管理部发起了一项以贝多芬小提琴与钢琴作品为核心的长期艺术计划。本计划体现YMJ对以艺术家为主导、具历史深度的古典音乐项目的长期承诺。
+                            </p>
+                            <div style="margin-top: 1.5rem;">
+                                <h4 style="margin-bottom: 1rem; color: var(--primary);">项目形式：</h4>
+                                <ul style="list-style: none; padding: 0;">
+                                    <li style="margin-bottom: 0.5rem;">• 单场独奏会</li>
+                                    <li style="margin-bottom: 0.5rem;">• 短期系列（2–3场音乐会）</li>
+                                    <li style="margin-bottom: 0.5rem;">• 完整周期</li>
+                                    <li>• 扩展形式（讲座、大师班、驻院项目）</li>
+                                </ul>
+                            </div>
+                            <a href="#contact" class="btn btn-primary" style="margin-top: 1.5rem;">咨询此项目</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Image Guide Section -->
+        <section id="image-guide" class="image-guide">
+            <div class="container">
+                <h2 class="section-title">📁 Image Asset Guide</h2>
+                <p style="text-align: center; margin-bottom: 2rem; color: var(--text-light);">
+                    Replace images directly in the assets folder to update the website
+                </p>
+                
+                <div class="guide-grid">
+                    <div class="guide-card">
+                        <h4><i class="fas fa-image"></i> Logo</h4>
+                        <ul>
+                            <li>assets/images/logo/logo.png</li>
+                            <li>Size: 200x100px (recommended)</li>
+                            <li>Format: PNG with transparency</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="guide-card">
+                        <h4><i class="fas fa-mountain"></i> Hero Background</h4>
+                        <ul>
+                            <li>assets/images/hero/hero-background.jpg</li>
+                            <li>Size: 1920x1080px</li>
+                            <li>Format: JPG or PNG</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="guide-card">
+                        <h4><i class="fas fa-users"></i> Artist Photos</h4>
+                        <ul>
+                            <li>assets/images/artists/jap-yeo-duo.jpg</li>
+                            <li>assets/images/artists/dr-kuei-pin-yeo.jpg</li>
+                            <li>assets/images/artists/jap-tji-kien.jpg</li>
+                            <li>Size: 400x400px (square)</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="guide-card">
+                        <h4><i class="fas fa-project-diagram"></i> Project Images</h4>
+                        <ul>
+                            <li>assets/images/projects/beethoven-project.jpg</li>
+                            <li>assets/images/projects/beethoven-detail.jpg</li>
+                            <li>Size: 800x400px</li>
+                            <li>Format: JPG or PNG</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="guide-card">
+                        <h4><i class="fas fa-images"></i> Gallery</h4>
+                        <ul>
+                            <li>assets/images/gallery/gallery-1.jpg</li>
+                            <li>assets/images/gallery/gallery-2.jpg</li>
+                            <li>assets/images/gallery/gallery-3.jpg</li>
+                            <li>assets/images/gallery/gallery-4.jpg</li>
+                            <li>Size: 400x300px</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="guide-card">
+                        <h4><i class="fas fa-info-circle"></i> Tips</h4>
+                        <ul>
+                            <li>Keep file sizes under 2MB</li>
+                            <li>Use high-quality images</li>
+                            <li>Maintain aspect ratios</li>
+                            <li>Optimize for web (JPG 80%)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Community Section -->
+        <section id="community" class="community">
+            <div class="container">
+                <h2 class="section-title" data-lang="community-title">Join Our Community</h2>
+                
+                <div class="community-grid">
+                    <!-- Indonesian Artists -->
+                    <div class="community-card fade-in">
+                        <i class="fas fa-music"></i>
+                        <!-- English Content -->
+                        <div class="content-en active">
+                            <h3>For Indonesian Artists</h3>
+                            <p>Discover opportunities, representation, masterclasses, competitions, and performance platforms.</p>
+                        </div>
+                        <!-- Indonesian Content -->
+                        <div class="content-id">
+                            <h3>Bagi Seniman Indonesia</h3>
+                            <p>Temukan peluang, perwakilan, masterclass, kompetisi, dan platform pertunjukan.</p>
+                        </div>
+                        <!-- Chinese Content -->
+                        <div class="content-zh">
+                            <h3>对于印尼艺术家</h3>
+                            <p>发现机会、经纪服务、大师班、比赛和演出平台。</p>
+                        </div>
+                    </div>
+
+                    <!-- International Artists -->
+                    <div class="community-card fade-in">
+                        <i class="fas fa-globe"></i>
+                        <!-- English Content -->
+                        <div class="content-en active">
+                            <h3>For International Artists</h3>
+                            <p>Partner with us — explore how you can perform, teach, collaborate, or tour in Indonesia.</p>
+                        </div>
+                        <!-- Indonesian Content -->
+                        <div class="content-id">
+                            <h3>Bagi Seniman Internasional</h3>
+                            <p>Berkolaborasi dengan kami — jelajahi bagaimana Anda dapat tampil, mengajar, atau berkolaborasi di Indonesia.</p>
+                        </div>
+                        <!-- Chinese Content -->
+                        <div class="content-zh">
+                            <h3>对于国际艺术家</h3>
+                            <p>与我们合作 — 探索如何在印尼演出、教学、合作或巡演。</p>
+                        </div>
+                    </div>
+
+                    <!-- Institutions -->
+                    <div class="community-card fade-in">
+                        <i class="fas fa-building"></i>
+                        <!-- English Content -->
+                        <div class="content-en active">
+                            <h3>For Institutions & Organizers</h3>
+                            <p>We provide curation, advisory, booking support, and project development services.</p>
+                        </div>
+                        <!-- Indonesian Content -->
+                        <div class="content-id">
+                            <h3>Bagi Lembaga & Penyelenggara</h3>
+                            <p>Kami menyediakan kurasi, konsultasi, dukungan pemesanan, dan pengembangan proyek.</p>
+                        </div>
+                        <!-- Chinese Content -->
+                        <div class="content-zh">
+                            <h3>对于机构与组织者</h3>
+                            <p>我们提供策展、咨询、预订支持和项目开发服务。</p>
+                        </div>
+                    </div>
+
+                    <!-- Supporters -->
+                    <div class="community-card fade-in">
+                        <i class="fas fa-heart"></i>
+                        <!-- English Content -->
+                        <div class="content-en active">
+                            <h3>For Friends & Supporters</h3>
+                            <p>Stay connected — join our community and support the arts in Indonesia.</p>
+                        </div>
+                        <!-- Indonesian Content -->
+                        <div class="content-id">
+                            <h3>Bagi Sahabat & Pendukung</h3>
+                            <p>Tetap terhubung — bergabunglah dengan komunitas kami dan dukung seni di Indonesia.</p>
+                        </div>
+                        <!-- Chinese Content -->
+                        <div class="content-zh">
+                            <h3>对于朋友与支持者</h3>
+                            <p>保持联系 — 加入我们的社区，支持印尼的艺术发展。</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="text-align: center; margin-top: 3rem;">
+                    <!-- English Content -->
+                    <div class="content-en active">
+                        <a href="#contact" class="btn btn-primary">Become a Friend</a>
+                        <a href="#contact" class="btn btn-secondary" style="margin-left: 1rem;">Contribute / Participate</a>
+                    </div>
+                    <!-- Indonesian Content -->
+                    <div class="content-id">
+                        <a href="#contact" class="btn btn-primary">Menjadi Sahabat</a>
+                        <a href="#contact" class="btn btn-secondary" style="margin-left: 1rem;">Berkontribusi / Berpartisipasi</a>
+                    </div>
+                    <!-- Chinese Content -->
+                    <div class="content-zh">
+                        <a href="#contact" class="btn btn-primary">成为朋友</a>
+                        <a href="#contact" class="btn btn-secondary" style="margin-left: 1rem;">贡献/参与</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact">
+            <div class="container">
+                <h2 class="section-title" data-lang="contact-title">Contact Us</h2>
+                
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <!-- English Content -->
+                        <div class="content-en active">
+                            <div class="contact-item">
+                                <i class="fas fa-envelope"></i>
+                                <div>
+                                    <h4>Email</h4>
+                                    <p>info@yayasanmusikjakarta.org</p>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-globe"></i>
+                                <div>
+                                    <h4>Website</h4>
+                                    <p>www.yayasanmusikjakarta.org/performance-artist-management</p>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-phone"></i>
+                                <div>
+                                    <h4>Phone</h4>
+                                    <p>+62 21 1234 5678</p>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <div>
+                                    <h4>Address</h4>
+                                    <p>Jakarta, Indonesia</p>
+                                </div>
                             </div>
                         </div>
 
                         <!-- Indonesian Content -->
                         <div class="content-id">
-                            <h3 class="artist-name">Jap–Yeo Duo</h3>
-                            <p class="artist-role">Biola & Piano</p>
-                            <p class="artist-bio">
-                                Mempertemukan pemain biola Jap Tji Kien dan pianis Dr. Kuei Pin Yeo dalam kemitraan yang berfokus pada musik kamar dengan kedalaman dan kejernihan artistik.
-                            </p>
-                            <div class="artist-links">
-                                <a href="#" data-lang="bio">Biografi</a>
-                                <a href="#" data-lang="repertoire">Repertoar</a>
-                                <a href="#" data-lang="media">Media</a>
+                            <div class="contact-item">
+                                <i class="fas fa-envelope"></i>
+                                <div>
+                                    <h4>Email</h4>
+                                    <p>info@yayasanmusikjakarta.org</p>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-globe"></i>
+                                <div>
+                                    <h4>Website</h4>
+                                    <p>www.yayasanmusikjakarta.org/performance-artist-management</p>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-phone"></i>
+                                <div>
+                                    <h4>Telepon</h4>
+                                    <p>+62 21 1234 5678</p>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <div>
+                                    <h4>Alamat</h4>
+                                    <p>Jakarta, Indonesia</p>
+                                </div>
                             </div>
                         </div>
 
                         <!-- Chinese Content -->
                         <div class="content-zh">
-                            <h3 class="artist-name">Jap–Yeo 二重奏</h3>
-                            <p class="artist-role">小提琴与钢琴</p>
-                            <p class="artist-bio">
-                                由小提琴家叶至坚与钢琴家杨圭斌博士组成，是一组以深度、清晰度与思想性见长的室内乐组合。
-                            </p>
-                            <div class="artist-links">
-                                <a href="#" data-lang="bio">传记</a>
-                                <a href="#" data-lang="repertoire">曲目</a>
-                                <a href="#" data-lang="media">媒体</a>
+                            <div class="contact-item">
+                                <i class="fas fa-envelope"></i>
+                                <div>
+                                    <h4>电子邮箱</h4>
+                                    <p>info@yayasanmusikjakarta.org</p>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-globe"></i>
+                                <div>
+                                    <h4>网站</h4>
+                                    <p>www.yayasanmusikjakarta.org/performance-artist-management</p>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-phone"></i>
+                                <div>
+                                    <h4>电话</h4>
+                                    <p>+62 21 1234 5678</p>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <div>
+                                    <h4>地址</h4>
+                                    <p>雅加达，印度尼西亚</p>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
 
-                <!-- Dr. Kuei Pin Yeo -->
-                <div class="artist-card fade-in">
-                    <div class="artist-image">
-                        <img src="assets/images/artists/dr-kuei-pin-yeo.jpg" alt="Dr. Kuei Pin Yeo">
-                    </div>
-                    <div class="artist-info">
+                    <div class="contact-form">
                         <!-- English Content -->
                         <div class="content-en active">
-                            <h3 class="artist-name">Dr. Kuei Pin Yeo</h3>
-                            <p class="artist-role">Pianist</p>
-                            <p class="artist-bio">
-                                A distinguished Indonesian pianist and Indonesia's first Doctor of Music in piano performance. Her international debut at Carnegie Recital Hall marked a significant milestone in her career.
-                            </p>
-                            <div class="artist-links">
-                                <a href="#" data-lang="bio">Biography</a>
-                                <a href="#" data-lang="repertoire">Repertoire</a>
-                                <a href="#" data-lang="media">Media</a>
-                            </div>
+                            <h3 style="margin-bottom: 1.5rem; color: var(--primary);">Send us a message</h3>
+                            <form>
+                                <div class="form-group">
+                                    <label for="name">Name</label>
+                                    <input type="text" id="name" name="name" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Email</label>
+                                    <input type="email" id="email" name="email" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="subject">Subject</label>
+                                    <input type="text" id="subject" name="subject" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="message">Message</label>
+                                    <textarea id="message" name="message" rows="5" required></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
+                            </form>
                         </div>
 
                         <!-- Indonesian Content -->
                         <div class="content-id">
-                            <h3 class="artist-name">Dr. Kuei Pin Yeo</h3>
-                            <p class="artist-role">Pianis</p>
-                            <p class="artist-bio">
-                                Pianis Indonesia terkemuka dan doktor musik pertama Indonesia dalam bidang piano performance. Debut resitalnya di Carnegie Recital Hall, New York, menandai awal pengakuan internasionalnya.
-                            </p>
-                            <div class="artist-links">
-                                <a href="#" data-lang="bio">Biografi</a>
-                                <a href="#" data-lang="repertoire">Repertoar</a>
-                                <a href="#" data-lang="media">Media</a>
-                            </div>
+                            <h3 style="margin-bottom: 1.5rem; color: var(--primary);">Kirim pesan kepada kami</h3>
+                            <form>
+                                <div class="form-group">
+                                    <label for="name-id">Nama</label>
+                                    <input type="text" id="name-id" name="name" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email-id">Email</label>
+                                    <input type="email" id="email-id" name="email" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="subject-id">Subjek</label>
+                                    <input type="text" id="subject-id" name="subject" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="message-id">Pesan</label>
+                                    <textarea id="message-id" name="message" rows="5" required></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-primary" style="width: 100%;">Kirim Pesan</button>
+                            </form>
                         </div>
 
                         <!-- Chinese Content -->
                         <div class="content-zh">
-                            <h3 class="artist-name">杨圭斌博士</h3>
-                            <p class="artist-role">钢琴家</p>
-                            <p class="artist-bio">
-                                印度尼西亚杰出的钢琴家，印度尼西亚首位钢琴演奏艺术音乐博士。1978年于纽约卡内基独奏音乐厅举行钢琴独奏首演，获得国际权威媒体的高度评价。
-                            </p>
-                            <div class="artist-links">
-                                <a href="#" data-lang="bio">传记</a>
-                                <a href="#" data-lang="repertoire">曲目</a>
-                                <a href="#" data-lang="media">媒体</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Jap Tji Kien -->
-                <div class="artist-card fade-in">
-                    <div class="artist-image">
-                        <img src="assets/images/artists/jap-tji-kien.jpg" alt="Jap Tji Kien">
-                    </div>
-                    <div class="artist-info">
-                        <!-- English Content -->
-                        <div class="content-en active">
-                            <h3 class="artist-name">Jap Tji Kien</h3>
-                            <p class="artist-role">Violinist & Conductor</p>
-                            <p class="artist-bio">
-                                One of Indonesia's most respected violinists and conductors, recognized as the first recipient of the Fellowship of the Royal Schools of Music (FRSM), London, in Southeast Asia.
-                            </p>
-                            <div class="artist-links">
-                                <a href="#" data-lang="bio">Biography</a>
-                                <a href="#" data-lang="repertoire">Repertoire</a>
-                                <a href="#" data-lang="media">Media</a>
-                            </div>
-                        </div>
-
-                        <!-- Indonesian Content -->
-                        <div class="content-id">
-                            <h3 class="artist-name">Jap Tji Kien</h3>
-                            <p class="artist-role">Violinis & Dirigen</p>
-                            <p class="artist-bio">
-                                Salah satu violinis dan dirigen paling dihormati di Indonesia, lahir di Bandung, dan dikenal sebagai penerima Fellowship of the Royal Schools of Music (FRSM), London, pertama di Asia Tenggara.
-                            </p>
-                            <div class="artist-links">
-                                <a href="#" data-lang="bio">Biografi</a>
-                                <a href="#" data-lang="repertoire">Repertoar</a>
-                                <a href="#" data-lang="media">Media</a>
-                            </div>
-                        </div>
-
-                        <!-- Chinese Content -->
-                        <div class="content-zh">
-                            <h3 class="artist-name">叶至坚</h3>
-                            <p class="artist-role">小提琴家兼指挥家</p>
-                            <p class="artist-bio">
-                                印度尼西亚最受尊敬的小提琴家与指挥家之一，并为东南亚首位获得英国皇家音乐学院院士奖（FRSM, London）的音乐家。
-                            </p>
-                            <div class="artist-links">
-                                <a href="#" data-lang="bio">传记</a>
-                                <a href="#" data-lang="repertoire">曲目</a>
-                                <a href="#" data-lang="media">媒体</a>
-                            </div>
+                            <h3 style="margin-bottom: 1.5rem; color: var(--primary);">发送消息给我们</h3>
+                            <form>
+                                <div class="form-group">
+                                    <label for="name-zh">姓名</label>
+                                    <input type="text" id="name-zh" name="name" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email-zh">电子邮箱</label>
+                                    <input type="email" id="email-zh" name="email" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="subject-zh">主题</label>
+                                    <input type="text" id="subject-zh" name="subject" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="message-zh">消息</label>
+                                    <textarea id="message-zh" name="message" rows="5" required></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-primary" style="width: 100%;">发送消息</button>
+                            </form>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Beethoven Project Section -->
-    <section id="beethoven" class="featured-project">
-        <div class="container">
-            <h2 class="section-title" data-lang="beethoven-title">Beethoven Bicentennial Initiative</h2>
-            
-            <div class="project-card">
-                <div class="project-image">
-                    <img src="assets/images/projects/beethoven-detail.jpg" alt="Beethoven Project Detail">
+        <!-- Footer -->
+        <footer>
+            <div class="container">
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
                 </div>
-                <div class="project-content">
-                    <!-- English Content -->
-                    <div class="content-en active">
-                        <h3 class="project-title">Beethoven Bicentennial World Project (2027–2028)</h3>
-                        <p class="project-description">
-                            In commemoration of the 200th anniversary of the passing of Ludwig van Beethoven, YMJ Performance & Artist Management Division has initiated a long-term artistic project centered on Beethoven's works for violin and piano. This initiative reflects YMJ's commitment to artist-led, historically grounded classical music projects developed with depth, care, and long-term vision.
-                        </p>
-                        <div style="margin-top: 1.5rem;">
-                            <h4 style="margin-bottom: 1rem; color: var(--primary);">Project Formats:</h4>
-                            <ul style="list-style: none; padding: 0;">
-                                <li style="margin-bottom: 0.5rem;">• Single Recital</li>
-                                <li style="margin-bottom: 0.5rem;">• Short Series (2–3 concerts)</li>
-                                <li style="margin-bottom: 0.5rem;">• Complete Cycle</li>
-                                <li>• Expanded Format (Lecture, Masterclass, Residency)</li>
-                            </ul>
-                        </div>
-                        <a href="#contact" class="btn btn-primary" style="margin-top: 1.5rem;">Inquire About This Project</a>
-                    </div>
-
-                    <!-- Indonesian Content -->
-                    <div class="content-id">
-                        <h3 class="project-title">Proyek Dunia Beethoven Bicentennial (2027–2028)</h3>
-                        <p class="project-description">
-                            Dalam rangka memperingati 200 tahun wafatnya Ludwig van Beethoven, YMJ Performance & Artist Management Division menginisiasi sebuah proyek artistik jangka panjang yang berfokus pada karya Beethoven untuk biola dan piano. Inisiatif ini mencerminkan komitmen YMJ terhadap proyek musik klasik yang digerakkan oleh seniman dan berlandaskan pemahaman historis.
-                        </p>
-                        <div style="margin-top: 1.5rem;">
-                            <h4 style="margin-bottom: 1rem; color: var(--primary);">Format Proyek:</h4>
-                            <ul style="list-style: none; padding: 0;">
-                                <li style="margin-bottom: 0.5rem;">• Resital Tunggal</li>
-                                <li style="margin-bottom: 0.5rem;">• Seri Pendek (2–3 konser)</li>
-                                <li style="margin-bottom: 0.5rem;">• Siklus Lengkap</li>
-                                <li>• Format Diperluas (Kuliah, Masterclass, Residensi)</li>
-                            </ul>
-                        </div>
-                        <a href="#contact" class="btn btn-primary" style="margin-top: 1.5rem;">Tanyakan Tentang Proyek Ini</a>
-                    </div>
-
-                    <!-- Chinese Content -->
-                    <div class="content-zh">
-                        <h3 class="project-title">贝多芬二百周年世界项目（2027–2028）</h3>
-                        <p class="project-description">
-                            为纪念路德维希·范·贝多芬逝世二百周年，YMJ表演与艺术家管理部发起了一项以贝多芬小提琴与钢琴作品为核心的长期艺术计划。本计划体现YMJ对以艺术家为主导、具历史深度的古典音乐项目的长期承诺。
-                        </p>
-                        <div style="margin-top: 1.5rem;">
-                            <h4 style="margin-bottom: 1rem; color: var(--primary);">项目形式：</h4>
-                            <ul style="list-style: none; padding: 0;">
-                                <li style="margin-bottom: 0.5rem;">• 单场独奏会</li>
-                                <li style="margin-bottom: 0.5rem;">• 短期系列（2–3场音乐会）</li>
-                                <li style="margin-bottom: 0.5rem;">• 完整周期</li>
-                                <li>• 扩展形式（讲座、大师班、驻院项目）</li>
-                            </ul>
-                        </div>
-                        <a href="#contact" class="btn btn-primary" style="margin-top: 1.5rem;">咨询此项目</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Image Guide Section -->
-    <section id="image-guide" class="image-guide">
-        <div class="container">
-            <h2 class="section-title">📁 Image Asset Guide</h2>
-            <p style="text-align: center; margin-bottom: 2rem; color: var(--text-light);">
-                Replace images directly in the assets folder to update the website
-            </p>
-            
-            <div class="guide-grid">
-                <div class="guide-card">
-                    <h4><i class="fas fa-image"></i> Logo</h4>
-                    <ul>
-                        <li>assets/images/logo/logo.png</li>
-                        <li>Size: 200x100px (recommended)</li>
-                        <li>Format: PNG with transparency</li>
-                    </ul>
-                </div>
-                
-                <div class="guide-card">
-                    <h4><i class="fas fa-mountain"></i> Hero Background</h4>
-                    <ul>
-                        <li>assets/images/hero/hero-background.jpg</li>
-                        <li>Size: 1920x1080px</li>
-                        <li>Format: JPG or PNG</li>
-                    </ul>
-                </div>
-                
-                <div class="guide-card">
-                    <h4><i class="fas fa-users"></i> Artist Photos</h4>
-                    <ul>
-                        <li>assets/images/artists/jap-yeo-duo.jpg</li>
-                        <li>assets/images/artists/dr-kuei-pin-yeo.jpg</li>
-                        <li>assets/images/artists/jap-tji-kien.jpg</li>
-                        <li>Size: 400x400px (square)</li>
-                    </ul>
-                </div>
-                
-                <div class="guide-card">
-                    <h4><i class="fas fa-project-diagram"></i> Project Images</h4>
-                    <ul>
-                        <li>assets/images/projects/beethoven-project.jpg</li>
-                        <li>assets/images/projects/beethoven-detail.jpg</li>
-                        <li>Size: 800x400px</li>
-                        <li>Format: JPG or PNG</li>
-                    </ul>
-                </div>
-                
-                <div class="guide-card">
-                    <h4><i class="fas fa-images"></i> Gallery</h4>
-                    <ul>
-                        <li>assets/images/gallery/gallery-1.jpg</li>
-                        <li>assets/images/gallery/gallery-2.jpg</li>
-                        <li>assets/images/gallery/gallery-3.jpg</li>
-                        <li>assets/images/gallery/gallery-4.jpg</li>
-                        <li>Size: 400x300px</li>
-                    </ul>
-                </div>
-                
-                <div class="guide-card">
-                    <h4><i class="fas fa-info-circle"></i> Tips</h4>
-                    <ul>
-                        <li>Keep file sizes under 2MB</li>
-                        <li>Use high-quality images</li>
-                        <li>Maintain aspect ratios</li>
-                        <li>Optimize for web (JPG 80%)</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Community Section -->
-    <section id="community" class="community">
-        <div class="container">
-            <h2 class="section-title" data-lang="community-title">Join Our Community</h2>
-            
-            <div class="community-grid">
-                <!-- Indonesian Artists -->
-                <div class="community-card fade-in">
-                    <i class="fas fa-music"></i>
-                    <!-- English Content -->
-                    <div class="content-en active">
-                        <h3>For Indonesian Artists</h3>
-                        <p>Discover opportunities, representation, masterclasses, competitions, and performance platforms.</p>
-                    </div>
-                    <!-- Indonesian Content -->
-                    <div class="content-id">
-                        <h3>Bagi Seniman Indonesia</h3>
-                        <p>Temukan peluang, perwakilan, masterclass, kompetisi, dan platform pertunjukan.</p>
-                    </div>
-                    <!-- Chinese Content -->
-                    <div class="content-zh">
-                        <h3>对于印尼艺术家</h3>
-                        <p>发现机会、经纪服务、大师班、比赛和演出平台。</p>
-                    </div>
-                </div>
-
-                <!-- International Artists -->
-                <div class="community-card fade-in">
-                    <i class="fas fa-globe"></i>
-                    <!-- English Content -->
-                    <div class="content-en active">
-                        <h3>For International Artists</h3>
-                        <p>Partner with us — explore how you can perform, teach, collaborate, or tour in Indonesia.</p>
-                    </div>
-                    <!-- Indonesian Content -->
-                    <div class="content-id">
-                        <h3>Bagi Seniman Internasional</h3>
-                        <p>Berkolaborasi dengan kami — jelajahi bagaimana Anda dapat tampil, mengajar, atau berkolaborasi di Indonesia.</p>
-                    </div>
-                    <!-- Chinese Content -->
-                    <div class="content-zh">
-                        <h3>对于国际艺术家</h3>
-                        <p>与我们合作 — 探索如何在印尼演出、教学、合作或巡演。</p>
-                    </div>
-                </div>
-
-                <!-- Institutions -->
-                <div class="community-card fade-in">
-                    <i class="fas fa-building"></i>
-                    <!-- English Content -->
-                    <div class="content-en active">
-                        <h3>For Institutions & Organizers</h3>
-                        <p>We provide curation, advisory, booking support, and project development services.</p>
-                    </div>
-                    <!-- Indonesian Content -->
-                    <div class="content-id">
-                        <h3>Bagi Lembaga & Penyelenggara</h3>
-                        <p>Kami menyediakan kurasi, konsultasi, dukungan pemesanan, dan pengembangan proyek.</p>
-                    </div>
-                    <!-- Chinese Content -->
-                    <div class="content-zh">
-                        <h3>对于机构与组织者</h3>
-                        <p>我们提供策展、咨询、预订支持和项目开发服务。</p>
-                    </div>
-                </div>
-
-                <!-- Supporters -->
-                <div class="community-card fade-in">
-                    <i class="fas fa-heart"></i>
-                    <!-- English Content -->
-                    <div class="content-en active">
-                        <h3>For Friends & Supporters</h3>
-                        <p>Stay connected — join our community and support the arts in Indonesia.</p>
-                    </div>
-                    <!-- Indonesian Content -->
-                    <div class="content-id">
-                        <h3>Bagi Sahabat & Pendukung</h3>
-                        <p>Tetap terhubung — bergabunglah dengan komunitas kami dan dukung seni di Indonesia.</p>
-                    </div>
-                    <!-- Chinese Content -->
-                    <div class="content-zh">
-                        <h3>对于朋友与支持者</h3>
-                        <p>保持联系 — 加入我们的社区，支持印尼的艺术发展。</p>
-                    </div>
-                </div>
-            </div>
-
-            <div style="text-align: center; margin-top: 3rem;">
                 <!-- English Content -->
                 <div class="content-en active">
-                    <a href="#contact" class="btn btn-primary">Become a Friend</a>
-                    <a href="#contact" class="btn btn-secondary" style="margin-left: 1rem;">Contribute / Participate</a>
+                    <p>&copy; 2025 YMJ Performance & Artist Management Division. All rights reserved.</p>
+                    <p>A division of Yayasan Musik Jakarta</p>
                 </div>
                 <!-- Indonesian Content -->
                 <div class="content-id">
-                    <a href="#contact" class="btn btn-primary">Menjadi Sahabat</a>
-                    <a href="#contact" class="btn btn-secondary" style="margin-left: 1rem;">Berkontribusi / Berpartisipasi</a>
+                    <p>&copy; 2025 YMJ Performance & Artist Management Division. Semua hak dilindungi.</p>
+                    <p>Di bawah Yayasan Musik Jakarta</p>
                 </div>
                 <!-- Chinese Content -->
                 <div class="content-zh">
-                    <a href="#contact" class="btn btn-primary">成为朋友</a>
-                    <a href="#contact" class="btn btn-secondary" style="margin-left: 1rem;">贡献/参与</a>
+                    <p>&copy; 2025 YMJ 表演与艺术家管理部。保留所有权利。</p>
+                    <p>雅加达音乐基金会旗下部门</p>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2 class="section-title" data-lang="contact-title">Contact Us</h2>
-            
-            <div class="contact-content">
-                <div class="contact-info">
-                    <!-- English Content -->
-                    <div class="content-en active">
-                        <div class="contact-item">
-                            <i class="fas fa-envelope"></i>
-                            <div>
-                                <h4>Email</h4>
-                                <p>info@yayasanmusikjakarta.org</p>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-globe"></i>
-                            <div>
-                                <h4>Website</h4>
-                                <p>www.yayasanmusikjakarta.org/performance-artist-management</p>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-phone"></i>
-                            <div>
-                                <h4>Phone</h4>
-                                <p>+62 811-9892-413</p>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <div>
-                                <h4>Address</h4>
-                                <p>Jakarta, Indonesia</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Indonesian Content -->
-                    <div class="content-id">
-                        <div class="contact-item">
-                            <i class="fas fa-envelope"></i>
-                            <div>
-                                <h4>Email</h4>
-                                <p>info@yayasanmusikjakarta.org</p>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-globe"></i>
-                            <div>
-                                <h4>Website</h4>
-                                <p>www.yayasanmusikjakarta.org/performance-artist-management</p>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-phone"></i>
-                            <div>
-                                <h4>Telepon</h4>
-                                <p>+62 811-9892-413</p>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <div>
-                                <h4>Alamat</h4>
-                                <p>Jakarta, Indonesia</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Chinese Content -->
-                    <div class="content-zh">
-                        <div class="contact-item">
-                            <i class="fas fa-envelope"></i>
-                            <div>
-                                <h4>电子邮箱</h4>
-                                <p>info@yayasanmusikjakarta.org</p>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-globe"></i>
-                            <div>
-                                <h4>网站</h4>
-                                <p>www.yayasanmusikjakarta.org/performance-artist-management</p>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-phone"></i>
-                            <div>
-                                <h4>电话</h4>
-                                <p>+62 811-9892-413</p>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <div>
-                                <h4>地址</h4>
-                                <p>雅加达，印度尼西亚</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="contact-form">
-                    <!-- English Content -->
-                    <div class="content-en active">
-                        <h3 style="margin-bottom: 1.5rem; color: var(--primary);">Send us a message</h3>
-                        <form>
-                            <div class="form-group">
-                                <label for="name">Name</label>
-                                <input type="text" id="name" name="name" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="email">Email</label>
-                                <input type="email" id="email" name="email" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="subject">Subject</label>
-                                <input type="text" id="subject" name="subject" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="message">Message</label>
-                                <textarea id="message" name="message" rows="5" required></textarea>
-                            </div>
-                            <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
-                        </form>
-                    </div>
-
-                    <!-- Indonesian Content -->
-                    <div class="content-id">
-                        <h3 style="margin-bottom: 1.5rem; color: var(--primary);">Kirim pesan kepada kami</h3>
-                        <form>
-                            <div class="form-group">
-                                <label for="name-id">Nama</label>
-                                <input type="text" id="name-id" name="name" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="email-id">Email</label>
-                                <input type="email" id="email-id" name="email" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="subject-id">Subjek</label>
-                                <input type="text" id="subject-id" name="subject" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="message-id">Pesan</label>
-                                <textarea id="message-id" name="message" rows="5" required></textarea>
-                            </div>
-                            <button type="submit" class="btn btn-primary" style="width: 100%;">Kirim Pesan</button>
-                        </form>
-                    </div>
-
-                    <!-- Chinese Content -->
-                    <div class="content-zh">
-                        <h3 style="margin-bottom: 1.5rem; color: var(--primary);">发送消息给我们</h3>
-                        <form>
-                            <div class="form-group">
-                                <label for="name-zh">姓名</label>
-                                <input type="text" id="name-zh" name="name" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="email-zh">电子邮箱</label>
-                                <input type="email" id="email-zh" name="email" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="subject-zh">主题</label>
-                                <input type="text" id="subject-zh" name="subject" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="message-zh">消息</label>
-                                <textarea id="message-zh" name="message" rows="5" required></textarea>
-                            </div>
-                            <button type="submit" class="btn btn-primary" style="width: 100%;">发送消息</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="social-links">
-                <a href="#"><i class="fab fa-facebook-f"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-youtube"></i></a>
-                <a href="#"><i class="fab fa-linkedin-in"></i></a>
-            </div>
-            <!-- English Content -->
-            <div class="content-en active">
-                <p>&copy; 2024 YMJ Performance & Artist Management Division. All rights reserved.</p>
-                <p>A division of Yayasan Musik Jakarta</p>
-            </div>
-            <!-- Indonesian Content -->
-            <div class="content-id">
-                <p>&copy; 2024 YMJ Performance & Artist Management Division. Semua hak dilindungi.</p>
-                <p>Di bawah Yayasan Musik Jakarta</p>
-            </div>
-            <!-- Chinese Content -->
-            <div class="content-zh">
-                <p>&copy; 2024 YMJ 表演与艺术家管理部。保留所有权利。</p>
-                <p>雅加达音乐基金会旗下部门</p>
-            </div>
-        </div>
-    </footer>
+        </footer>
+    </div>
 
     <!-- Image Modal -->
     <div id="imageModal" class="image-modal">
@@ -1553,6 +1645,24 @@
     </div>
 
     <script>
+        // Splash Screen functionality
+        const splashScreen = document.getElementById('splashScreen');
+        const mainContent = document.getElementById('mainContent');
+        const splashLogo = document.getElementById('splashLogo');
+        
+        // Function to hide splash screen and show main content
+        function showMainContent() {
+            splashScreen.style.opacity = '0';
+            splashScreen.style.visibility = 'hidden';
+            mainContent.classList.add('active');
+        }
+        
+        // Click event on splash logo or entire splash screen
+        splashScreen.addEventListener('click', showMainContent);
+        
+        // Auto transition after 5 seconds
+        setTimeout(showMainContent, 5000);
+
         // Language translations
         const translations = {
             en: {
@@ -1751,8 +1861,4 @@
         });
     </script>
 </body>
-
 </html>
-
-
-
