@@ -2160,6 +2160,34 @@ margin-right: 0.5rem;
         margin-bottom: 3rem;
     }
 }
+/* --- Kontainer Utama Watermark --- */
+#violin-watermark {
+    position: fixed;        /* Membuatnya tetap di layar saat di-scroll */
+    bottom: 20px;           /* Jarak dari bawah */
+    right: 20px;            /* Jarak dari kanan */
+    z-index: 10;            /* Memastikan dia di atas konten lain */
+    pointer-events: none;   /* Sangat penting! Agar tidak menghalangi klik */
+    opacity: 0.6;           /* Membuatnya semi-transparan (watermark) */
+    transition: opacity 0.3s ease; /* Animasi halus saat opacity berubah */
+}
+
+/* --- Ubah Ukuran "Panggung" agar lebih kecil --- */
+#violin-watermark .stage {
+    width: 150px;           /* Setengah dari ukuran asli */
+    height: 200px;          /* Setengah dari ukuran asli */
+    perspective: 800px;     /* Sedikit kurangi kedalaman 3D */
+}
+
+/* --- Hentikan animasi berputar otomatis, kita akan gunakan scroll --- */
+#violin-watermark .violin-3d {
+    /* animation: spinViolin 12s infinite linear;  << NONAKTIFKAN INI */
+    transform-style: preserve-3d;
+}
+
+/* --- Saat mouse di atas watermark, buat dia lebih jelas --- */
+#violin-watermark:hover {
+    opacity: 1;
+}
 </style>
 </head>
 <body>
@@ -4333,8 +4361,85 @@ window.addEventListener('scroll', checkFade);
 checkFade();
 });
 </script>
+<!-- Animasi 3D Violin Watermark -->
+<div id="violin-watermark">
+    <div class="stage">
+        <div class="violin-3d">
+            <!-- Badan Violin -->
+            <div class="violin-body"></div>
+            
+            <!-- Leher & Kepala -->
+            <div class="violin-neck"></div>
+            <div class="violin-headstock">
+                <div class="peg peg-1"></div>
+                <div class="peg peg-2"></div>
+                <div class="peg peg-3"></div>
+                <div class="peg peg-4"></div>
+            </div>
+
+            <!-- Senar -->
+            <div class="strings-container">
+                <div class="string"></div>
+                <div class="string"></div>
+                <div class="string"></div>
+                <div class="string"></div>
+            </div>
+
+            <!-- Bagian Detail -->
+            <div class="bridge"></div>
+            <div class="tailpiece"></div>
+            <div class="chin-rest"></div>
+            <div class="f-hole f-hole-left"></div>
+            <div class="f-hole f-hole-right"></div>
+        </div>
+    </div>
+</div>
+<!-- Akhir Animasi 3D Violin Watermark -->
+<script>
+    // Tunggu hingga seluruh halaman dimuat
+    document.addEventListener('DOMContentLoaded', function() {
+        
+        // Pilih elemen violin-3d dari dalam watermark
+        const violin = document.querySelector('#violin-watermark .violin-3d');
+        
+        // Dapatkan tinggi total halaman
+        const documentHeight = document.documentElement.scrollHeight - window.innerHeight;
+        
+        // Fungsi untuk menganimasikan violin berdasarkan scroll
+        function animateOnScroll() {
+            // Dapatkan posisi scroll saat ini (0 sampai 1)
+            const scrollPosition = window.scrollY / documentHeight;
+            
+            // --- Efek Magic 1: Rotasi Berdasarkan Scroll ---
+            // Rotasi Y dari -180deg ke 180deg saat scroll dari atas ke bawah
+            const rotationY = (scrollPosition * 360) - 180;
+            
+            // --- Efek Magic 2: Gerakan Naik-Turun ---
+            // Bergerak naik 20px saat scroll ke bawah
+            const translateY = scrollPosition * -20;
+            
+            // --- Efek Magic 3: Rotasi Sedikit di Sumbu X ---
+            // Sedikit miring ke depan/belakang
+            const rotationX = Math.sin(scrollPosition * Math.PI * 2) * 15;
+            
+            // Gabungkan semua transformasi
+            violin.style.transform = `
+                rotateY(${rotationY}deg) 
+                rotateX(${rotationX}deg) 
+                translateY(${translateY}px)
+            `;
+        }
+        
+        // Jalankan animasi saat halaman di-scroll
+        window.addEventListener('scroll', animateOnScroll);
+        
+        // Jalankan sekali saat halaman dimuat untuk posisi awal
+        animateOnScroll();
+    });
+</script>
 </body>
 </html>
+
 
 
 
