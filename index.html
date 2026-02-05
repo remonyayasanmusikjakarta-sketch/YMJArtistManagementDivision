@@ -83,6 +83,49 @@ opacity: 0.03;
 0% { background-position: 0 0, 0 10px, 10px -10px, -10px 0px; }
 100% { background-position: 20px 20px, 20px 30px, 30px 10px, 10px 20px; }
 }
+/* =================================== */
+/* --- GAYA UNTUK KOTAK MOTTO --- */
+/* =================================== */
+
+.mission-highlight {
+    margin: 2.5rem auto;
+    position: relative;
+    padding: 1.5rem;
+    background: var(--primary-dark);
+    border-radius: 16px;
+    border: 1px solid var(--border);
+    max-width: 500px;
+}
+
+.mission-highlight img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+/* =================================== */
+/* --- GAYA UNTUK LOGO UTAMA (H1) --- */
+/* =================================== */
+
+.main-logo {
+    /* Atur gambar sebagai latar belakang */
+background-image: url(ymjstagebg.jpg.jpeg);
+background-repeat: no-repeat;
+background-position: center;
+    
+    /* Sesuaikan ukuran dengan ukuran gambar logo Anda */
+width: 200px;  /* Ganti dengan lebar logo Anda */
+height: 80px;  /* Ganti dengan tinggi logo Anda */
+}
+
+/* Ini adalah trik untuk menyembunyikan teks secara visual */
+.main-logo span {
+text-indent: -9999px;
+display: block; /* Diperlukan agar text-indent bekerja dengan baik di beberapa browser */
+}
 
 /* Splash Screen Styles */
 .splash-screen {
@@ -2154,7 +2197,6 @@ margin-right: 0.5rem;
 <nav class="container">
 <div class="logo-container">
 <img class="logo-img" id="headerLogo" src="logoheadstage.jpg" alt="YMJ Logo">
-<a href="#" class="logo-text">YMJ Stage</a>
 </div>
 <ul class="nav-menu">
 <li><a href="#home" data-lang-key="nav-home">🏠 Beranda</a></li>
@@ -2184,7 +2226,9 @@ margin-right: 0.5rem;
 <div class="hero-content">
 <!-- Indonesian Content -->
 <div class="content-id active">
-<h1 data-lang-key="hero-title">YMJ Stage</h1>
+<h1 class="main-logo" data-lang-key="hero-title">
+    <span>YMJ Stage</span>
+</h1>
 <p class="hero-subtitle" data-lang-key="hero-subtitle">Mengkurasi Proyek Musik Klasik Berbasis Seniman di Panggung Internasional</p>
 <p class="hero-description" data-lang-key="hero-description">
 Selamat datang di YMJ Stage — sebuah platform yang digerakkan oleh seniman untuk mendukung musisi, mengembangkan proyek bermakna, dan menghubungkan visi artistik dengan panggung dunia.
@@ -2214,7 +2258,9 @@ Sebagai bagian dari Yayasan Musik Jakarta, YMJ berkomitmen pada keunggulan artis
 
 <!-- English Content -->
 <div class="content-en">
-<h1 data-lang-key="hero-title">YMJ Stage</h1>
+<h1 class="main-logo" data-lang-key="hero-title">
+    <span>YMJ Stage</span>
+</h1>
 <p class="hero-subtitle" data-lang-key="hero-subtitle">Curating Artist-Led Classical Music Projects Worldwide</p>
 <p class="hero-description" data-lang-key="hero-description">
 Welcome to YMJ Stage — an artist-driven platform where musicians are supported, guided, and connected from Indonesia to the world. We do not simply manage careers. We accompany artistic journeys, develop meaningful projects, and build bridges between creative vision and global stages.
@@ -2241,7 +2287,9 @@ As part of Yayasan Musik Jakarta, YMJ is committed to artistic excellence and in
 
 <!-- Chinese Content -->
 <div class="content-zh">
-<h1 data-lang-key="hero-title">YMJ Stage</h1>
+<h1 class="main-logo" data-lang-key="hero-title">
+    <span>YMJ Stage</span>
+</h1>
 <p class="hero-subtitle" data-lang-key="hero-subtitle">策划以艺术家为核心的国际古典音乐项目</p>
 <p class="hero-description" data-lang-key="hero-description">
 欢迎来到 YMJ Stage —— 一个以艺术家为本，致力于支持音乐家成长、发展深度项目，并将艺术愿景与国际舞台相连的平台。我们并非只从事演出或职业管理。我们陪伴艺术旅程，培育长期合作关系。
@@ -4295,6 +4343,7 @@ checkFade();
 </script>
 </body>
 </html>
+
 
 
 
