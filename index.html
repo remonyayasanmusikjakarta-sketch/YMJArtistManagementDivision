@@ -104,29 +104,11 @@ opacity: 0.03;
     margin-left: auto;
     margin-right: auto;
 }
-
-
-/* =================================== */
-/* --- GAYA UNTUK LOGO UTAMA (H1) --- */
-/* =================================== */
-
-.main-logo {
-    /* Atur gambar sebagai latar belakang */
-background-image: url(ymjstagebg.jpg.jpeg);
-background-repeat: no-repeat;
-background-position: center;
-    
-    /* Sesuaikan ukuran dengan ukuran gambar logo Anda */
-width: 200px;  /* Ganti dengan lebar logo Anda */
-height: 80px;  /* Ganti dengan tinggi logo Anda */
+h1 img {
+max-width: 100%; /* Membuat logo tidak melebihi lebar container-nya */
+height: auto;    /* Menjaga proporsi logo */
+display: block;  /* Membantu perataan */
 }
-
-/* Ini adalah trik untuk menyembunyikan teks secara visual */
-.main-logo span {
-text-indent: -9999px;
-display: block; /* Diperlukan agar text-indent bekerja dengan baik di beberapa browser */
-}
-
 /* Splash Screen Styles */
 .splash-screen {
 position: fixed;
@@ -2226,8 +2208,8 @@ margin-right: 0.5rem;
 <div class="hero-content">
 <!-- Indonesian Content -->
 <div class="content-id active">
-<h1 class="main-logo" data-lang-key="hero-title">
-    <span>YMJ Stage</span>
+<h1>
+    <img src="namaymjstage.jpg" alt="YMJ Stage">
 </h1>
 <p class="hero-subtitle" data-lang-key="hero-subtitle">Mengkurasi Proyek Musik Klasik Berbasis Seniman di Panggung Internasional</p>
 <p class="hero-description" data-lang-key="hero-description">
@@ -2258,8 +2240,8 @@ Sebagai bagian dari Yayasan Musik Jakarta, YMJ berkomitmen pada keunggulan artis
 
 <!-- English Content -->
 <div class="content-en">
-<h1 class="main-logo" data-lang-key="hero-title">
-    <span>YMJ Stage</span>
+<h1>
+    <img src="namaymjstage.jpg" alt="YMJ Stage">
 </h1>
 <p class="hero-subtitle" data-lang-key="hero-subtitle">Curating Artist-Led Classical Music Projects Worldwide</p>
 <p class="hero-description" data-lang-key="hero-description">
@@ -2287,8 +2269,8 @@ As part of Yayasan Musik Jakarta, YMJ is committed to artistic excellence and in
 
 <!-- Chinese Content -->
 <div class="content-zh">
-<h1 class="main-logo" data-lang-key="hero-title">
-    <span>YMJ Stage</span>
+<h1>
+    <img src="namaymjstage.jpg" alt="YMJ Stage">
 </h1>
 <p class="hero-subtitle" data-lang-key="hero-subtitle">策划以艺术家为核心的国际古典音乐项目</p>
 <p class="hero-description" data-lang-key="hero-description">
@@ -4343,6 +4325,7 @@ checkFade();
 </script>
 </body>
 </html>
+
 
 
 
