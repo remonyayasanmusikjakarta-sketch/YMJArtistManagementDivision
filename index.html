@@ -355,19 +355,14 @@ background: var(--bg-light);
 
 /* Hero Section */
 .hero {
-    position: relative;
-    overflow: hidden;
-}
-.hero-video {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    min-width: 100%;
-    min-height: 100%;
-    width: auto;
-    height: auto;
-    transform: translateX(-50%) translateY(-50%);
-    z-index: -1; /* Letakkan di belakang konten */
+margin-top: 80px;
+min-height: 100vh;
+display: flex;
+align-items: center;
+background: linear-gradient(to right, #ff7e5f, #feb47b);
+color: white;
+position: relative;
+overflow: hidden;
 }
 
 .hero::before {
@@ -4337,6 +4332,7 @@ checkFade();
 </script>
 </body>
 </html>
+
 
 
 
