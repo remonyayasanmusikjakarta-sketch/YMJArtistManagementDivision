@@ -355,17 +355,19 @@ background: var(--bg-light);
 
 /* Hero Section */
 .hero {
-margin-top: 80px;
-min-height: 100vh;
-display: flex;
-align-items: center;
-background-image: url('backgrounhero.jpg');
-background-size: cover;
-background-position: center;
-background-repeat: no-repeat;   
-color: white;
-position: relative;
-overflow: hidden;
+    position: relative;
+    overflow: hidden;
+}
+.hero-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translateX(-50%) translateY(-50%);
+    z-index: -1; /* Letakkan di belakang konten */
 }
 
 .hero::before {
@@ -4335,6 +4337,7 @@ checkFade();
 </script>
 </body>
 </html>
+
 
 
 
