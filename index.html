@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>YMJ Stage - Performance & Artist Management Division</title>
-<link href="https://fonts.googleapis.com/css2?family=All+Round+Gothic:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <style>
 :root {
@@ -41,7 +41,7 @@ scroll-behavior: smooth;
 }
 
 body {
-font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+font-family: 'Cormorant Garamond', serif;
 line-height: 1.6;
 color: var(--text-dark);
 background-color: var(--bg-light);
@@ -49,7 +49,7 @@ overflow-x: hidden;
 }
 
 h1, h2, h3, h4, h5, h6 {
-font-family: 'All Round Gothic', sans-serif;
+font-family: 'Playfair Display', serif;
 font-weight: 700;
 color: var(--primary);
 line-height: 1.2;
@@ -82,628 +82,6 @@ opacity: 0.03;
 @keyframes bgMove {
 0% { background-position: 0 0, 0 10px, 10px -10px, -10px 0px; }
 100% { background-position: 20px 20px, 20px 30px, 30px 10px, 10px 20px; }
-}
-
-/* Admin Login Styles */
-.admin-login {
-position: fixed;
-top: 0;
-left: 0;
-width: 100%;
-height: 100%;
-background: rgba(10, 14, 39, 0.95);
-backdrop-filter: blur(20px);
-display: none;
-justify-content: center;
-align-items: center;
-z-index: 10000;
-animation: fadeIn 0.3s ease;
-}
-
-.admin-login.active {
-display: flex;
-}
-
-.login-form {
-background: var(--bg-white);
-padding: 3rem;
-border-radius: 20px;
-box-shadow: var(--shadow-xl);
-max-width: 450px;
-width: 90%;
-animation: slideUp 0.4s ease;
-border: 1px solid rgba(255,255,255,0.1);
-}
-
-@keyframes slideUp {
-from {
-opacity: 0;
-transform: translateY(40px);
-}
-to {
-opacity: 1;
-transform: translateY(0);
-}
-}
-
-.login-form h2 {
-text-align: center;
-margin-bottom: 2rem;
-color: var(--primary);
-font-size: 1.8rem;
-}
-
-.login-form .form-group {
-margin-bottom: 1.5rem;
-}
-
-.login-form label {
-display: block;
-margin-bottom: 0.5rem;
-font-weight: 600;
-color: var(--text-dark);
-font-size: 0.9rem;
-}
-
-.login-form input {
-width: 100%;
-padding: 14px;
-border: 2px solid var(--border);
-border-radius: 12px;
-font-size: 1rem;
-transition: all 0.3s ease;
-background: var(--bg-light);
-}
-
-.login-form input:focus {
-outline: none;
-border-color: var(--primary);
-background: var(--bg-white);
-box-shadow: 0 0 0 4px rgba(30, 58, 95, 0.1);
-}
-
-.login-buttons {
-display: flex;
-gap: 1rem;
-margin-top: 2rem;
-}
-
-.login-buttons button {
-flex: 1;
-padding: 14px;
-border: none;
-border-radius: 12px;
-font-size: 1rem;
-font-weight: 600;
-cursor: pointer;
-transition: all 0.3s ease;
-}
-
-.btn-login {
-background: var(--gradient-primary);
-color: white;
-}
-
-.btn-login:hover {
-transform: translateY(-2px);
-box-shadow: var(--shadow-lg);
-}
-
-.btn-cancel {
-background: var(--bg-light);
-color: var(--text-dark);
-}
-
-.btn-cancel:hover {
-background: var(--border);
-}
-
-.login-error {
-background: #fee;
-color: var(--accent);
-border: 1px solid #fcc;
-padding: 12px;
-border-radius: 8px;
-margin-bottom: 1rem;
-font-size: 0.9rem;
-display: none;
-animation: shake 0.5s ease;
-}
-
-@keyframes shake {
-0%, 100% { transform: translateX(0); }
-25% { transform: translateX(-10px); }
-75% { transform: translateX(10px); }
-}
-
-.login-attempts {
-text-align: center;
-margin-top: 1rem;
-font-size: 0.85rem;
-color: var(--text-muted);
-}
-
-/* Admin Dashboard Styles */
-.admin-dashboard {
-position: fixed;
-top: 0;
-right: -600px;
-width: 600px;
-height: 100%;
-background: var(--bg-white);
-box-shadow: var(--shadow-xl);
-transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-z-index: 9999;
-overflow-y: auto;
-}
-
-.admin-dashboard.active {
-right: 0;
-}
-
-.admin-header {
-background: var(--gradient-primary);
-color: white;
-padding: 1.5rem;
-display: flex;
-justify-content: space-between;
-align-items: center;
-}
-
-.admin-header h3 {
-color: white;
-margin: 0;
-font-size: 1.3rem;
-}
-
-.close-admin {
-background: none;
-border: none;
-color: white;
-font-size: 1.5rem;
-cursor: pointer;
-transition: all 0.3s ease;
-width: 40px;
-height: 40px;
-border-radius: 50%;
-display: flex;
-align-items: center;
-justify-content: center;
-}
-
-.close-admin:hover {
-background: rgba(255,255,255,0.1);
-transform: rotate(90deg);
-}
-
-.admin-content {
-padding: 2rem;
-}
-
-.admin-section {
-margin-bottom: 2.5rem;
-padding-bottom: 2rem;
-border-bottom: 1px solid var(--border);
-}
-
-.admin-section:last-child {
-border-bottom: none;
-}
-
-.admin-section h4 {
-margin-bottom: 1.5rem;
-color: var(--primary);
-font-size: 1.2rem;
-font-weight: 600;
-}
-
-.upload-area {
-border: 2px dashed var(--border);
-border-radius: 16px;
-padding: 2rem;
-text-align: center;
-transition: all 0.3s ease;
-cursor: pointer;
-background: var(--bg-light);
-margin-bottom: 1.5rem;
-position: relative;
-overflow: hidden;
-}
-
-.upload-area::before {
-content: '';
-position: absolute;
-top: 0;
-left: -100%;
-width: 100%;
-height: 100%;
-background: linear-gradient(90deg, transparent, rgba(30, 58, 95, 0.1), transparent);
-transition: left 0.5s ease;
-}
-
-.upload-area:hover::before {
-left: 100%;
-}
-
-.upload-area:hover {
-border-color: var(--primary);
-background: rgba(30, 58, 95, 0.05);
-transform: translateY(-2px);
-box-shadow: var(--shadow-md);
-}
-
-.upload-area.dragover {
-border-color: var(--secondary);
-background: rgba(212, 175, 55, 0.1);
-}
-
-.upload-icon {
-font-size: 3rem;
-color: var(--primary);
-margin-bottom: 1rem;
-animation: float 3s ease-in-out infinite;
-}
-
-@keyframes float {
-0%, 100% { transform: translateY(0); }
-50% { transform: translateY(-10px); }
-}
-
-.upload-text {
-color: var(--text-dark);
-margin-bottom: 0.5rem;
-font-size: 1rem;
-font-weight: 500;
-}
-
-.upload-hint {
-color: var(--text-muted);
-font-size: 0.9rem;
-}
-
-.file-input {
-display: none;
-}
-
-.image-manager {
-margin-top: 1.5rem;
-}
-
-.current-image {
-position: relative;
-border-radius: 12px;
-overflow: hidden;
-background: var(--bg-light);
-margin-bottom: 1rem;
-box-shadow: var(--shadow-sm);
-}
-
-.current-image img {
-width: 100%;
-height: 180px;
-object-fit: cover;
-display: block;
-transition: transform 0.3s ease;
-}
-
-.current-image:hover img {
-transform: scale(1.05);
-}
-
-.image-info {
-padding: 0.75rem;
-background: var(--primary);
-color: white;
-font-size: 0.85rem;
-}
-
-.image-actions {
-position: absolute;
-top: 10px;
-right: 10px;
-display: flex;
-gap: 8px;
-}
-
-.image-actions button {
-background: rgba(0, 0, 0, 0.7);
-color: white;
-border: none;
-width: 36px;
-height: 36px;
-border-radius: 50%;
-cursor: pointer;
-display: flex;
-align-items: center;
-justify-content: center;
-transition: all 0.3s ease;
-}
-
-.image-actions button:hover {
-background: var(--accent);
-transform: scale(1.1);
-}
-
-/* Admin Toggle Button */
-.admin-toggle {
-position: fixed;
-bottom: 30px;
-right: 30px;
-width: 64px;
-height: 64px;
-background: var(--gradient-primary);
-color: white;
-border: none;
-border-radius: 50%;
-font-size: 1.5rem;
-cursor: pointer;
-box-shadow: var(--shadow-lg);
-transition: all 0.3s ease;
-z-index: 1000;
-display: flex;
-align-items: center;
-justify-content: center;
-}
-
-.admin-toggle:hover {
-transform: scale(1.1) rotate(15deg);
-box-shadow: var(--shadow-xl);
-}
-
-.admin-toggle.logged-in {
-background: var(--gradient-secondary);
-}
-
-/* Event Management Styles */
-.event-manager {
-margin-top: 1.5rem;
-}
-
-.event-list {
-margin-top: 1.5rem;
-max-height: 300px;
-overflow-y: auto;
-}
-
-.event-item {
-background: var(--bg-light);
-border-radius: 12px;
-padding: 1.25rem;
-margin-bottom: 1rem;
-position: relative;
-transition: all 0.3s ease;
-border: 1px solid var(--border);
-}
-
-.event-item:hover {
-transform: translateX(5px);
-box-shadow: var(--shadow-sm);
-}
-
-.event-item-header {
-display: flex;
-justify-content: space-between;
-align-items: center;
-margin-bottom: 0.75rem;
-}
-
-.event-item-title {
-font-weight: 600;
-color: var(--primary);
-font-size: 1rem;
-}
-
-.event-item-date {
-font-size: 0.85rem;
-color: var(--text-muted);
-}
-
-.event-item-actions {
-display: flex;
-gap: 0.5rem;
-}
-
-.event-item-actions button {
-background: none;
-border: none;
-color: var(--text-muted);
-cursor: pointer;
-transition: all 0.3s ease;
-width: 32px;
-height: 32px;
-border-radius: 8px;
-display: flex;
-align-items: center;
-justify-content: center;
-}
-
-.event-item-actions button:hover {
-color: var(--accent);
-background: rgba(201, 48, 44, 0.1);
-}
-
-.event-form {
-background: var(--bg-light);
-border-radius: 12px;
-padding: 1.5rem;
-margin-bottom: 1.5rem;
-border: 1px solid var(--border);
-}
-
-.event-form-group {
-margin-bottom: 1.25rem;
-}
-
-.event-form-group label {
-display: block;
-margin-bottom: 0.5rem;
-font-weight: 600;
-color: var(--text-dark);
-font-size: 0.9rem;
-}
-
-.event-form-group input,
-.event-form-group textarea {
-width: 100%;
-padding: 12px;
-border: 2px solid var(--border);
-border-radius: 10px;
-font-family: inherit;
-transition: all 0.3s ease;
-background: var(--bg-white);
-}
-
-.event-form-group input:focus,
-.event-form-group textarea:focus {
-outline: none;
-border-color: var(--primary);
-box-shadow: 0 0 0 4px rgba(30, 58, 95, 0.1);
-}
-
-.event-form-group textarea {
-min-height: 100px;
-resize: vertical;
-}
-
-.event-form-buttons {
-display: flex;
-gap: 0.75rem;
-justify-content: flex-end;
-}
-
-.btn-small {
-padding: 10px 20px;
-border: none;
-border-radius: 10px;
-font-size: 0.9rem;
-font-weight: 600;
-cursor: pointer;
-transition: all 0.3s ease;
-}
-
-.btn-save {
-background: var(--gradient-accent);
-color: white;
-}
-
-.btn-save:hover {
-transform: translateY(-2px);
-box-shadow: var(--shadow-md);
-}
-
-.btn-cancel {
-background: var(--bg-light);
-color: var(--text-dark);
-border: 1px solid var(--border);
-}
-
-.btn-cancel:hover {
-background: var(--border);
-}
-
-.btn-add {
-background: var(--gradient-primary);
-color: white;
-}
-
-.btn-add:hover {
-transform: translateY(-2px);
-box-shadow: var(--shadow-md);
-}
-
-/* Text Editor Styles */
-.text-editor {
-margin-top: 1.5rem;
-}
-
-.text-editor textarea {
-width: 100%;
-min-height: 150px;
-padding: 14px;
-border: 2px solid var(--border);
-border-radius: 12px;
-font-family: inherit;
-resize: vertical;
-transition: all 0.3s ease;
-background: var(--bg-white);
-}
-
-.text-editor textarea:focus {
-outline: none;
-border-color: var(--primary);
-box-shadow: 0 0 0 4px rgba(30, 58, 95, 0.1);
-}
-
-.text-editor-buttons {
-display: flex;
-gap: 0.75rem;
-justify-content: flex-end;
-margin-top: 1rem;
-}
-
-/* Info Box for Image Storage */
-.info-box {
-background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
-border-left: 4px solid var(--primary);
-padding: 1.25rem;
-margin-bottom: 1.5rem;
-border-radius: 0 12px 12px 0;
-box-shadow: var(--shadow-sm);
-}
-
-.info-box p {
-margin: 0;
-font-size: 0.9rem;
-color: var(--text-dark);
-}
-
-/* Upload Progress Bar */
-.upload-progress {
-position: absolute;
-bottom: 0;
-left: 0;
-height: 4px;
-background: var(--gradient-primary);
-border-radius: 0 0 12px 12px;
-transition: width 0.3s ease;
-}
-
-/* Firebase Status */
-.firebase-status {
-padding: 12px;
-margin-bottom: 1.5rem;
-border-radius: 10px;
-text-align: center;
-font-size: 0.9rem;
-font-weight: 500;
-}
-
-.firebase-status.connected {
-background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);
-color: #155724;
-border: 1px solid #c3e6cb;
-}
-
-.firebase-status.disconnected {
-background: linear-gradient(135deg, #f8d7da 0%, #f5c6cb 100%);
-color: #721c24;
-border: 1px solid #f5c6cb;
-}
-
-/* Security Info */
-.security-info {
-background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%);
-border-left: 4px solid var(--secondary);
-padding: 1.25rem;
-margin-bottom: 1.5rem;
-border-radius: 0 12px 12px 0;
-box-shadow: var(--shadow-sm);
-}
-
-.security-info p {
-margin: 0;
-font-size: 0.9rem;
-color: var(--text-dark);
 }
 
 /* Splash Screen Styles */
@@ -761,7 +139,7 @@ transform: scale(1.05) rotate(5deg);
 
 .splash-text {
 color: white;
-font-family: 'All Round Gothic', sans-serif;
+font-family: 'Playfair Display', serif;
 font-size: 2.5rem;
 font-weight: 900;
 margin-bottom: 15px;
@@ -854,7 +232,7 @@ box-shadow: var(--shadow-md);
 }
 
 .logo-text {
-font-family: 'All Round Gothic', sans-serif;
+font-family: 'Playfair Display', serif;
 font-size: 1.8rem;
 color: var(--primary);
 text-decoration: none;
@@ -876,6 +254,7 @@ transition: all 0.3s ease;
 font-weight: 500;
 font-size: 1rem;
 position: relative;
+font-family: 'Cormorant Garamond', serif;
 }
 
 .nav-menu a::after {
@@ -1045,6 +424,7 @@ align-items: center;
 gap: 0.5rem;
 position: relative;
 overflow: hidden;
+font-family: 'Cormorant Garamond', serif;
 }
 
 .btn::before {
@@ -1086,10 +466,6 @@ transform: translateY(-3px);
 box-shadow: var(--shadow-lg);
 }
 
-/* Versi Shorthand (lebih disarankan) */
-.hero {
-  background: #333 url('gambar.jpg') no-repeat center / cover;
-}
 /* Mission Highlight dengan Drop Cap */
 .mission-highlight {
 color: var(--secondary);
@@ -1103,13 +479,13 @@ border-radius: 16px;
 border: 1px solid var(--border);
 max-width: 500px;
 text-align: left;
-font-family: 'Poppins', sans-serif;
+font-family: 'Playfair Display', serif;
 line-height: 1.4;
 }
 
 /* Drop Cap 2 Baris dengan Brush Script */
 .mission-highlight::first-letter {
-font-family: italic;
+font-family: 'Playfair Display', serif;
 font-size: 6rem;
 font-weight: 400;
 color: rgb(255, 209, 45);
@@ -1270,7 +646,7 @@ line-height: 1.8;
 color: var(--text-dark);
 }
 
-/* Events Section */
+/* Events Section - Now Program Section */
 .events {
 background: var(--bg-light);
 position: relative;
@@ -1739,6 +1115,38 @@ color: var(--primary);
 border-bottom: none;
 }
 
+.repertoire-sublist {
+margin-left: 2rem;
+margin-top: 0.5rem;
+}
+
+.repertoire-sublist li {
+font-size: 0.95rem;
+color: var(--text-dark);
+}
+
+.repertoire-example {
+background: var(--bg-light);
+padding: 1.5rem;
+border-radius: 12px;
+margin-top: 1rem;
+border-left: 4px solid var(--secondary);
+}
+
+.repertoire-example h4 {
+color: var(--primary);
+margin-bottom: 1rem;
+font-size: 1.1rem;
+}
+
+.repertoire-example ol {
+margin-left: 1.5rem;
+}
+
+.repertoire-example li {
+margin-bottom: 0.5rem;
+}
+
 .media-grid {
 display: grid;
 grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -2114,7 +1522,7 @@ width: 100%;
 padding: 14px;
 border: 2px solid var(--border);
 border-radius: 12px;
-font-family: 'Inter', sans-serif;
+font-family: 'Cormorant Garamond', serif;
 transition: all 0.3s ease;
 background: var(--bg-light);
 }
@@ -2389,11 +1797,6 @@ margin-right: 0;
 width: 100%;
 }
 
-.admin-dashboard {
-width: 100%;
-right: -100%;
-}
-
 .full-gallery-grid {
 grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
 }
@@ -2490,26 +1893,6 @@ color: var(--secondary);
 transform: rotate(90deg);
 }
 
-/* Loading Spinner */
-.spinner {
-display: none;
-width: 24px;
-height: 24px;
-border: 3px solid rgba(0,0,0,0.1);
-border-top-color: var(--primary);
-border-radius: 50%;
-animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-to { transform: rotate(360deg); }
-}
-
-.btn.loading .spinner {
-display: inline-block;
-margin-left: 10px;
-}
-
 /* Placeholder styles for when no image is uploaded */
 .placeholder-image {
 width: 100%;
@@ -2538,67 +1921,7 @@ font-weight: 600;
 margin-right: 0.5rem;
 }
 
-/* Upload success message */
-.upload-success {
-padding: 16px 24px;
-background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);
-color: #155724;
-border-radius: 12px;
-margin-top: 1.5rem;
-text-align: center;
-animation: slideDown 0.3s ease;
-box-shadow: var(--shadow-sm);
-}
-
-/* Multiple file upload styling */
-.file-list {
-margin-top: 1.5rem;
-max-height: 200px;
-overflow-y: auto;
-border: 1px solid var(--border);
-border-radius: 12px;
-padding: 1rem;
-background: var(--bg-light);
-}
-
-.file-item {
-display: flex;
-justify-content: space-between;
-align-items: center;
-padding: 0.75rem;
-border-bottom: 1px solid var(--border);
-}
-
-.file-item:last-child {
-border-bottom: none;
-}
-
-.file-name {
-font-size: 0.9rem;
-white-space: nowrap;
-overflow: hidden;
-text-overflow: ellipsis;
-max-width: 70%;
-}
-
-.file-remove {
-background: var(--gradient-accent);
-color: white;
-border: none;
-border-radius: 8px;
-padding: 6px 12px;
-font-size: 0.8rem;
-cursor: pointer;
-transition: all 0.3s ease;
-}
-
-.file-remove:hover {
-transform: scale(1.05);
-box-shadow: var(--shadow-sm);
-}
 /* ==================== BACKGROUND FOTO JUDUL SECTION ==================== */
-/* Letakkan kode baru ini di sini */
-
 /* Hero Title Background */
 .hero h1 {
     background-image: url('LINK_FOTO_YMJ_STAGE_ANDA');
@@ -2625,87 +1948,178 @@ box-shadow: var(--shadow-sm);
 }
 
 /* About Section Title */
-#about .section-title {
-    background-image: url(https://drive.google.com/file/d/1e4j6Kr5Lq4Ra6CVAuibPjG8X6kmxYVcL/view?usp=sharing);
+#about {
+    background-image: url('LINK_FOTO_ABOUT_ANDA');
     background-size: cover;
     background-position: center;
-    color: white !important;
-    padding: 2.5rem 3rem;
-    border-radius: 20px;
-    text-align: center;
-    display: inline-block;
-    width: 100%;
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
+    background-attachment: fixed;
+    position: relative;
 }
 
-#about .section-title::before {
+#about::before {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(135deg, rgba(30, 58, 95, 0.85) 0%, rgba(46, 90, 142, 0.75) 100%);
-    border-radius: 20px;
-    z-index: -1;
+    background: rgba(255, 255, 255, 0.92);
+    z-index: 1;
 }
 
-/* Events Section Title */
-#events .section-title {
-    background-image: url('LINK_FOTO_ACARA_KAMI');
+#about .container {
+    position: relative;
+    z-index: 2;
+}
+
+/* Events Section Title - Now Program Section */
+#events {
+    background-image: url('LINK_FOTO_PROGRAM_ANDA');
     background-size: cover;
     background-position: center;
-    color: white !important;
-    padding: 2.5rem 3rem;
-    border-radius: 20px;
-    text-align: center;
-    display: inline-block;
-    width: 100%;
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
+    background-attachment: fixed;
+    position: relative;
 }
 
-#events .section-title::before {
+#events::before {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(135deg, rgba(201, 48, 44, 0.85) 0%, rgba(231, 76, 60, 0.75) 100%);
-    border-radius: 20px;
-    z-index: -1;
+    background: rgba(248, 249, 250, 0.92);
+    z-index: 1;
+}
+
+#events .container {
+    position: relative;
+    z-index: 2;
 }
 
 /* Artists Section Title */
-#artists .section-title {
-    background-image: url('LINK_FOTO_ARTIS_KAMI');
+#artists {
+    background-image: url('LINK_FOTO_ARTIS_ANDA');
     background-size: cover;
     background-position: center;
-    color: white !important;
-    padding: 2.5rem 3rem;
-    border-radius: 20px;
-    text-align: center;
-    display: inline-block;
-    width: 100%;
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
+    background-attachment: fixed;
+    position: relative;
 }
 
-#artists .section-title::before {
+#artists::before {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(135deg, rgba(212, 175, 55, 0.85) 0%, rgba(241, 196, 15, 0.75) 100%);
-    border-radius: 20px;
-    z-index: -1;
+    background: rgba(255, 255, 255, 0.92);
+    z-index: 1;
+}
+
+#artists .container {
+    position: relative;
+    z-index: 2;
+}
+
+/* Beethoven Project Section */
+#beethoven {
+    background-image: url('LINK_FOTO_BEETHOVEN_ANDA');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    position: relative;
+}
+
+#beethoven::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.92);
+    z-index: 1;
+}
+
+#beethoven .container {
+    position: relative;
+    z-index: 2;
+}
+
+/* Gallery Section */
+#gallery {
+    background-image: url('LINK_FOTO_GALLERY_ANDA');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    position: relative;
+}
+
+#gallery::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.92);
+    z-index: 1;
+}
+
+#gallery .container {
+    position: relative;
+    z-index: 2;
+}
+
+/* Community Section */
+#community {
+    background-image: url('LINK_FOTO_COMMUNITY_ANDA');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    position: relative;
+}
+
+#community::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.92);
+    z-index: 1;
+}
+
+#community .container {
+    position: relative;
+    z-index: 2;
+}
+
+/* Contact Section */
+#contact {
+    background-image: url('LINK_FOTO_KONTAK_ANDA');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    position: relative;
+}
+
+#contact::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(10, 14, 39, 0.9) 0%, rgba(30, 58, 95, 0.8) 100%);
+    z-index: 1;
+}
+
+#contact .container {
+    position: relative;
+    z-index: 2;
 }
 
 /* Responsive Design */
@@ -2718,7 +2132,11 @@ box-shadow: var(--shadow-sm);
 
     #about .section-title,
     #events .section-title,
-    #artists .section-title {
+    #artists .section-title,
+    #beethoven .section-title,
+    #gallery .section-title,
+    #community .section-title,
+    #contact .section-title {
         font-size: 2rem;
         padding: 2rem 1.5rem;
         margin-bottom: 3rem;
@@ -2729,306 +2147,10 @@ box-shadow: var(--shadow-sm);
 <body>
 <div class="animated-bg"></div>
 
-<!-- Admin Login Modal -->
-<div class="admin-login" id="adminLogin">
-<div class="login-form">
-<h2>Admin Login</h2>
-<div class="login-error" id="loginError"></div>
-<form id="loginForm">
-<div class="form-group">
-<label for="adminUsername">Username</label>
-<input type="text" id="adminUsername" placeholder="Enter admin username" required>
-</div>
-<div class="form-group">
-<label for="adminPassword">Password</label>
-<input type="password" id="adminPassword" placeholder="Enter admin password" required>
-</div>
-<div class="login-buttons">
-<button type="submit" class="btn-login">Login</button>
-<button type="button" class="btn-cancel" onclick="closeAdminLogin()">Cancel</button>
-</div>
-<div class="login-attempts" id="loginAttempts">Attempts remaining: 3</div>
-</form>
-</div>
-</div>
-
-<!-- Admin Dashboard -->
-<div class="admin-dashboard" id="adminDashboard">
-<div class="admin-header">
-<h3>Admin Panel</h3>
-<button class="close-admin" onclick="toggleAdminDashboard()">
-<i class="fas fa-times"></i>
-</button>
-</div>
-<div class="admin-content">
-<!-- Security Info -->
-<div class="security-info">
-<p><strong>Security Notice:</strong> This admin panel is protected. Only authorized users can make changes to this website.</p>
-</div>
-
-<!-- Firebase Status -->
-<div id="firebaseStatus" class="firebase-status disconnected">
-Firebase Status: Not Connected
-</div>
-
-<!-- Info Box -->
-<div class="info-box">
-<p><strong>Important:</strong> <span id="storageInfo">Images are stored in your browser's local storage. They will only be visible to you on this device and browser.</span></p>
-</div>
-
-<!-- Logo Management -->
-<div class="admin-section">
-<h4>Logo Management</h4>
-<div class="upload-area" id="logoUploadArea" onclick="document.getElementById('logoInput').click()">
-<i class="fas fa-upload upload-icon"></i>
-<p class="upload-text">Upload Logo</p>
-<p class="upload-hint">PNG, JPG up to 5MB</p>
-<input type="file" id="logoInput" class="file-input" accept="image/*">
-<div class="upload-progress" id="logoProgress" style="width: 0%; display: none;"></div>
-</div>
-<div class="image-manager">
-<div class="current-image">
-<img id="currentLogo" src="" alt="Current Logo" style="display:none;">
-<div class="placeholder-image" id="logoPlaceholder">
-<span>No logo uploaded</span>
-</div>
-<div class="image-info" id="logoInfo" style="display:none;"></div>
-</div>
-</div>
-</div>
-
-<!-- Background Management -->
-<div class="admin-section">
-<h4>Background Management</h4>
-<div class="upload-area" id="backgroundUploadArea" onclick="document.getElementById('backgroundInput').click()">
-<i class="fas fa-image upload-icon"></i>
-<p class="upload-text">Upload Background</p>
-<p class="upload-hint">PNG, JPG up to 5MB</p>
-<input type="file" id="backgroundInput" class="file-input" accept="image/*">
-<div class="upload-progress" id="backgroundProgress" style="width: 0%; display: none;"></div>
-</div>
-<div class="image-manager">
-<div class="current-image">
-<img id="currentBackground" src="" alt="Current Background" style="display:none;">
-<div class="placeholder-image" id="backgroundPlaceholder">
-<span>No background uploaded</span>
-</div>
-<div class="image-info" id="backgroundInfo" style="display:none;"></div>
-</div>
-</div>
-</div>
-
-<!-- Splash Logo Management -->
-<div class="admin-section">
-<h4>Splash Logo Management</h4>
-<div class="upload-area" id="splashLogoUploadArea" onclick="document.getElementById('splashLogoInput').click()">
-<i class="fas fa-star upload-icon"></i>
-<p class="upload-text">Upload Splash Logo</p>
-<p class="upload-hint">PNG, JPG up to 5MB</p>
-<input type="file" id="splashLogoInput" class="file-input" accept="image/*">
-<div class="upload-progress" id="splashLogoProgress" style="width: 0%; display: none;"></div>
-</div>
-<div class="image-manager">
-<div class="current-image">
-<img id="currentSplashLogo" src="" alt="Current Splash Logo" style="display:none;">
-<div class="placeholder-image" id="splashLogoPlaceholder">
-<span>No splash logo uploaded</span>
-</div>
-<div class="image-info" id="splashLogoInfo" style="display:none;"></div>
-</div>
-</div>
-</div>
-
-<!-- Content Management -->
-<div class="admin-section">
-<h4>Content Management</h4>
-<div class="text-editor">
-<div class="form-group">
-<label for="heroDescription">Hero Description</label>
-<textarea id="heroDescription" placeholder="Edit hero description text"></textarea>
-</div>
-<div class="text-editor-buttons">
-<button class="btn-small btn-save" onclick="saveTextContent('heroDescription')">Save</button>
-</div>
-</div>
-</div>
-
-<!-- Event Management -->
-<div class="admin-section">
-<h4>Event Management</h4>
-<button class="btn-small btn-add" onclick="showEventForm()">
-<i class="fas fa-plus"></i> Add New Event
-</button>
-<div id="eventForm" class="event-form" style="display:none;">
-<div class="event-form-group">
-<label for="eventYear">Year</label>
-<input type="number" id="eventYear" min="2024" max="2030" value="2024">
-</div>
-<div class="event-form-group">
-<label for="eventDate">Date</label>
-<input type="text" id="eventDate" placeholder="e.g., February 8-12, 2024">
-</div>
-<div class="event-form-group">
-<label for="eventTitle">Title</label>
-<input type="text" id="eventTitle" placeholder="Event title">
-</div>
-<div class="event-form-group">
-<label for="eventLocation">Location</label>
-<input type="text" id="eventLocation" placeholder="Event location">
-</div>
-<div class="event-form-group">
-<label for="eventDescription">Description</label>
-<textarea id="eventDescription" placeholder="Event description"></textarea>
-</div>
-<div class="event-form-group">
-<label for="eventDetail">Detailed Information</label>
-<textarea id="eventDetail" placeholder="Detailed information for Learn More modal"></textarea>
-</div>
-<div class="event-form-buttons">
-<button class="btn-small btn-save" onclick="saveEvent()">Save Event</button>
-<button class="btn-small btn-cancel" onclick="hideEventForm()">Cancel</button>
-</div>
-</div>
-<div id="eventList" class="event-list">
-<!-- Events will be listed here -->
-</div>
-</div>
-
-<!-- Project Images -->
-<div class="admin-section">
-<h4>Beethoven Project Images</h4>
-<div class="upload-area" id="beethovenUploadArea" onclick="document.getElementById('beethovenInput').click()">
-<i class="fas fa-music upload-icon"></i>
-<p class="upload-text">Upload Beethoven Project Image</p>
-<p class="upload-hint">PNG, JPG up to 5MB</p>
-<input type="file" id="beethovenInput" class="file-input" accept="image/*">
-<div class="upload-progress" id="beethovenProgress" style="width: 0%; display: none;"></div>
-</div>
-<div class="image-manager">
-<div class="current-image">
-<img id="currentBeethoven" src="" alt="Beethoven Project" style="display:none;">
-<div class="placeholder-image" id="beethovenPlaceholder">
-<span>No Beethoven image uploaded</span>
-</div>
-<div class="image-info" id="beethovenInfo" style="display:none;"></div>
-</div>
-</div>
-
-<div class="upload-area" id="beethovenDetailUploadArea" onclick="document.getElementById('beethovenDetailInput').click()">
-<i class="fas fa-music upload-icon"></i>
-<p class="upload-text">Upload Beethoven Detail Image</p>
-<p class="upload-hint">PNG, JPG up to 5MB</p>
-<input type="file" id="beethovenDetailInput" class="file-input" accept="image/*">
-<div class="upload-progress" id="beethovenDetailProgress" style="width: 0%; display: none;"></div>
-</div>
-<div class="image-manager">
-<div class="current-image">
-<img id="currentBeethovenDetail" src="" alt="Beethoven Detail" style="display:none;">
-<div class="placeholder-image" id="beethovenDetailPlaceholder">
-<span>No Beethoven detail image uploaded</span>
-</div>
-<div class="image-info" id="beethovenDetailInfo" style="display:none;"></div>
-</div>
-</div>
-</div>
-
-<!-- Artist Images -->
-<div class="admin-section">
-<h4>Artist Images</h4>
-
-<!-- Jap-Yeo Duo -->
-<div style="margin-bottom: 1.5rem;">
-<h5 style="margin-bottom: 0.75rem; color: var(--text-dark);">Jap-Yeo Duo</h5>
-<div class="upload-area" id="japYeoUploadArea" onclick="document.getElementById('japYeoInput').click()">
-<i class="fas fa-users upload-icon"></i>
-<p class="upload-text">Upload Jap-Yeo Duo Image</p>
-<input type="file" id="japYeoInput" class="file-input" accept="image/*">
-<div class="upload-progress" id="japYeoProgress" style="width: 0%; display: none;"></div>
-</div>
-<div class="image-manager">
-<div class="current-image">
-<img id="currentJapYeo" src="" alt="Jap-Yeo Duo" style="display:none;">
-<div class="placeholder-image" id="japYeoPlaceholder">
-<span>No Jap-Yeo Duo image uploaded</span>
-</div>
-<div class="image-info" id="japYeoInfo" style="display:none;"></div>
-</div>
-</div>
-</div>
-
-<!-- Dr. Kuei Pin Yeo -->
-<div style="margin-bottom: 1.5rem;">
-<h5 style="margin-bottom: 0.75rem; color: var(--text-dark);">Dr. Kuei Pin Yeo</h5>
-<div class="upload-area" id="kueiPinUploadArea" onclick="document.getElementById('kueiPinInput').click()">
-<i class="fas fa-user upload-icon"></i>
-<p class="upload-text">Upload Dr. Kuei Pin Yeo Image</p>
-<input type="file" id="kueiPinInput" class="file-input" accept="image/*">
-<div class="upload-progress" id="kueiPinProgress" style="width: 0%; display: none;"></div>
-</div>
-<div class="image-manager">
-<div class="current-image">
-<img id="currentKueiPin" src="" alt="Dr. Kuei Pin Yeo" style="display:none;">
-<div class="placeholder-image" id="kueiPinPlaceholder">
-<span>No Dr. Kuei Pin Yeo image uploaded</span>
-</div>
-<div class="image-info" id="kueiPinInfo" style="display:none;"></div>
-</div>
-</div>
-</div>
-
-<!-- Jap Tji Kien -->
-<div style="margin-bottom: 1.5rem;">
-<h5 style="margin-bottom: 0.75rem; color: var(--text-dark);">Jap Tji Kien</h5>
-<div class="upload-area" id="japTjiUploadArea" onclick="document.getElementById('japTjiInput').click()">
-<i class="fas fa-user upload-icon"></i>
-<p class="upload-text">Upload Jap Tji Kien Image</p>
-<input type="file" id="japTjiInput" class="file-input" accept="image/*">
-<div class="upload-progress" id="japTjiProgress" style="width: 0%; display: none;"></div>
-</div>
-<div class="image-manager">
-<div class="current-image">
-<img id="currentJapTji" src="" alt="Jap Tji Kien" style="display:none;">
-<div class="placeholder-image" id="japTjiPlaceholder">
-<span>No Jap Tji Kien image uploaded</span>
-</div>
-<div class="image-info" id="japTjiInfo" style="display:none;"></div>
-</div>
-</div>
-</div>
-</div>
-
-<!-- Gallery Management -->
-<div class="admin-section">
-<h4>Gallery Management</h4>
-<div class="upload-area" id="galleryUploadArea" onclick="document.getElementById('galleryInput').click()">
-<i class="fas fa-images upload-icon"></i>
-<p class="upload-text">Upload Gallery Images</p>
-<p class="upload-hint">Select multiple images (PNG, JPG up to 5MB each)</p>
-<input type="file" id="galleryInput" class="file-input" accept="image/*" multiple>
-<div class="upload-progress" id="galleryProgress" style="width: 0%; display: none;"></div>
-</div>
-
-<div class="gallery-info" style="margin-top: 1.5rem; padding: 1.5rem; background: var(--bg-light); border-radius: 12px;">
-<p style="color: var(--text-dark);"><strong>Total Images:</strong> <span id="totalGalleryCount">0</span></p>
-<p style="color: var(--text-muted); font-size: 0.9rem;">Only first 10 images will be displayed on the main page</p>
-</div>
-
-<div id="galleryManager" class="image-manager">
-<!-- Gallery images will be displayed here -->
-</div>
-</div>
-</div>
-</div>
-
-<!-- Admin Toggle Button -->
-<button class="admin-toggle" id="adminToggle" onclick="handleAdminClick()">
-<i class="fas fa-cog"></i>
-</button>
-
 <!-- Splash Screen -->
 <div class="splash-screen" id="splashScreen">
 <div class="splash-content">
-<img class="splash-logo" id="splashLogoImg" src="" alt="YMJ Logo" style="display:none;">
+<img class="splash-logo" id="splashLogoImg" src="https://picsum.photos/seed/ymjlogo/400/400.jpg" alt="YMJ Logo">
 <div class="splash-text">YMJ Stage</div>
 <div class="splash-subtext">Performance & Artist Management Division</div>
 </div>
@@ -3041,13 +2163,13 @@ Firebase Status: Not Connected
 <header>
 <nav class="container">
 <div class="logo-container">
-<img class="logo-img" id="headerLogo" src="" alt="YMJ Logo" style="display:none;">
+<img class="logo-img" id="headerLogo" src="https://picsum.photos/seed/ymjlogo/100/100.jpg" alt="YMJ Logo">
 <a href="#" class="logo-text">YMJ Stage</a>
 </div>
 <ul class="nav-menu">
 <li><a href="#home" data-lang-key="nav-home">🏠 Beranda</a></li>
 <li><a href="#about" data-lang-key="nav-about">📖 Tentang</a></li>
-<li><a href="#events" data-lang-key="nav-events">📅 Acara</a></li>
+<li><a href="#events" data-lang-key="nav-events">📅 Program</a></li>
 <li><a href="#artists" data-lang-key="nav-artists">🎻 Artis</a></li>
 <li><a href="#beethoven" data-lang-key="nav-beethoven">🎼 Proyek</a></li>
 <li><a href="#gallery" data-lang-key="nav-gallery">📺 Media</a></li>
@@ -3067,7 +2189,7 @@ Firebase Status: Not Connected
 
 <!-- Hero Section -->
 <section id="home" class="hero">
-<div class="hero-bg" id="heroBg"></div>
+<div class="hero-bg" id="heroBg" style="background-image: url('https://picsum.photos/seed/ymjhero/1920/1080.jpg');"></div>
 <div class="container">
 <div class="hero-content">
 <!-- Indonesian Content -->
@@ -3086,10 +2208,11 @@ Situs ini adalah ruang perjumpaan — untuk menjelajahi gagasan, mengenal inisia
 <p class="hero-description" data-lang-key="hero-description-4">
 Sebagai bagian dari Yayasan Musik Jakarta, YMJ berkomitmen pada keunggulan artistik serta dialog internasional antara Indonesia dan dunia.
 </p>
-<div class="mission-highlight" data-lang-key="hero-motto">“Bersama, kita memajukan seni. Bersama, kita mengangkat Indonesia.”</div>
+<div class="mission-highlight" data-lang-key="hero-motto">"Bersama, kita memajukan seni. Bersama, kita mengangkat Indonesia."</div>
+
 <div class="hero-buttons">
 <a href="#events" class="btn btn-primary" data-lang-key="hero-btn-events">
-<i class="fas fa-calendar-alt"></i> Jelajahi Acara Kami
+<i class="fas fa-calendar-alt"></i> Jelajahi Program Kami
 </a>
 <a href="#community" class="btn btn-secondary" data-lang-key="hero-btn-community">
 <i class="fas fa-users"></i> Bergabung dengan Komunitas
@@ -3111,9 +2234,12 @@ This site is a meeting place — to explore ideas, get to know initiatives, and 
 As part of Yayasan Musik Jakarta, YMJ is committed to artistic excellence and international dialogue between Indonesia and the world.
 </p>
 <div class="mission-highlight" data-lang-key="hero-motto">Together, we advance artistry. Together, we elevate Indonesia.</div>
+<div class="mission-highlight" data-lang-key="hero-motto-2">We believe that music is a calling, not a commodity.</div>
+<div class="mission-highlight" data-lang-key="hero-motto-3">Art connects souls, transcending time and space.</div>
+<div class="mission-highlight" data-lang-key="hero-motto-4">Through music, we find peace and inspiration.</div>
 <div class="hero-buttons">
 <a href="#events" class="btn btn-primary" data-lang-key="hero-btn-events">
-<i class="fas fa-calendar-alt"></i> Explore Our Events
+<i class="fas fa-calendar-alt"></i> Explore Our Programs
 </a>
 <a href="#community" class="btn btn-secondary" data-lang-key="hero-btn-community">
 <i class="fas fa-users"></i> Join Our Community
@@ -3135,9 +2261,12 @@ As part of Yayasan Musik Jakarta, YMJ is committed to artistic excellence and in
 作为雅加达音乐基金会的一部分，YMJ 致力于在推动艺术卓越的同时，促进印度尼西亚与世界之间的艺术对话。
 </p>
 <div class="mission-highlight" data-lang-key="hero-motto">携手同行，我们推进艺术。携手同行，我们让印度尼西亚走向世界。</div>
+<div class="mission-highlight" data-lang-key="hero-motto-2">我们相信，音乐是一份使命，而非商品。</div>
+<div class="mission-highlight" data-lang-key="hero-motto-3">艺术连接灵魂，超越时空。</div>
+<div class="mission-highlight" data-lang-key="hero-motto-4">通过音乐，我们找到平静与灵感。</div>
 <div class="hero-buttons">
 <a href="#events" class="btn btn-primary" data-lang-key="hero-btn-events">
-<i class="fas fa-calendar-alt"></i> 探索我们的活动
+<i class="fas fa-calendar-alt"></i> 探索我们的项目
 </a>
 <a href="#community" class="btn btn-secondary" data-lang-key="hero-btn-community">
 <i class="fas fa-users"></i> 加入我们的社区
@@ -3191,7 +2320,7 @@ As part of Yayasan Musik Jakarta, YMJ is committed to artistic excellence and in
 <p data-lang-key="about-description">
 YMJ STAGE merupakan divisi Performance & Artist Management yang hadir untuk mendampingi proyek musik klasik—diprakarsai oleh seniman, dibangun melalui relasi, dan ditumbuhkan dengan visi jangka panjang.
 </p>
-<p class="mission-highlight" data-lang-key="about-motto">“Musik sebagai panggilan, tumbuh lewat kepercayaan dan makna.”</p>
+<p class="mission-highlight" data-lang-key="about-motto">"Musik sebagai panggilan, tumbuh lewat kepercayaan dan makna."</p>
 <p data-lang-key="about-description-2">
 Karier artistik yang berkelanjutan tumbuh melalui kepercayaan, tujuan bersama, dan relasi yang bermakna.
 </p>
@@ -3199,7 +2328,7 @@ Karier artistik yang berkelanjutan tumbuh melalui kepercayaan, tujuan bersama, d
 <p data-lang-key="about-y-1">Seniman memperoleh arahan,</p>
 <p data-lang-key="about-y-2">Proyek mendapatkan struktur,</p>
 <p data-lang-key="about-y-3">Dan kolaborasi berkembang menjadi kemitraan jangka panjang.</p>
-<p class="mission-highlight" data-lang-key="about-motto-2">“Kami percaya musik adalah panggilan, bukan komoditas — dan karier tumbuh melalui kepercayaan, tujuan bersama, dan hubungan yang bermakna.”</p>
+<p class="mission-highlight" data-lang-key="about-motto-2">"Seni menghubungkan jiwa, melampaui batas waktu dan ruang."</p>
 <p data-lang-key="about-here-title">Di sini,</p>
 <p data-lang-key="about-here-1">seniman menemukan arahan,</p>
 <p data-lang-key="about-here-2">proyek menemukan kejelasan,</p>
@@ -3222,7 +2351,7 @@ Sustainable artistic careers grow through trust, shared purpose, and meaningful 
 <p data-lang-key="about-y-1">Artists receive guidance,</p>
 <p data-lang-key="about-y-2">Projects gain structure,</p>
 <p data-lang-key="about-y-3">And collaborations evolve into long-term partnerships.</p>
-<p class="mission-highlight" data-lang-key="about-motto-2">We believe music is a calling, not a commodity — and careers grow through trust, shared purpose, and meaningful relationships.</p>
+<p class="mission-highlight" data-lang-key="about-motto-2">Art connects souls, transcending time and space.</p>
 <p data-lang-key="about-here-title">Here,</p>
 <p data-lang-key="about-here-1">artists find guidance,</p>
 <p data-lang-key="about-here-2">projects find clarity,</p>
@@ -3245,7 +2374,7 @@ YMJ 演出与艺术家管理部致力于支持由艺术家发起、以长远愿�
 <p data-lang-key="about-y-1">艺术家获得指导，</p>
 <p data-lang-key="about-y-2">项目获得结构，</p>
 <p data-lang-key="about-y-3">合作发展为长期伙伴关系。</p>
-<p class="mission-highlight" data-lang-key="about-motto-2">我们相信，音乐是一份使命，而非商品——艺术生涯源于信任、共同愿景与有意义的关系。</p>
+<p class="mission-highlight" data-lang-key="about-motto-2">艺术连接灵魂，超越时空。</p>
 <p data-lang-key="about-here-title">在这里，</p>
 <p data-lang-key="about-here-1">艺术家找到指导，</p>
 <p data-lang-key="about-here-2">项目找到清晰，</p>
@@ -3255,13 +2384,167 @@ YMJ 演出与艺术家管理部致力于支持由艺术家发起、以长远愿�
 </div>
 </section>
 
-<!-- Events Section -->
+<!-- Events Section - Now Program Section -->
 <section id="events" class="events">
 <div class="container">
-<h2 class="section-title" data-lang-key="events-title">Acara Kami</h2>
+<h2 class="section-title" data-lang-key="events-title">Program Kami</h2>
 
 <div class="events-timeline" id="eventsTimeline">
-<!-- Events will be dynamically loaded here -->
+<!-- 2024 Events -->
+<div class="year-group">
+<div class="year-header">
+<div class="year-badge">2024</div>
+<div class="year-line"></div>
+</div>
+<div class="events-grid">
+<div class="event-card fade-in">
+<div class="event-date">Februari 8-12, 2024</div>
+<h3 class="event-title">Beyond the Notes</h3>
+<div class="event-location">
+<i class="fas fa-map-marker-alt"></i>
+<span>Jakarta, Indonesia</span>
+</div>
+<p class="event-description">
+Perayaan ulang tahun ke-40 YMJ di JIExpo dengan pertunjukan inovatif.
+</p>
+<a href="#" class="event-link" onclick="showEventDetail('beyond2024'); return false;">
+Pelajari Lebih Lanjut <i class="fas fa-arrow-right"></i>
+</a>
+</div>
+<div class="event-card fade-in">
+<div class="event-date">Mei 20-25, 2024</div>
+<h3 class="event-title">Indonesia Open Competition (IOC)</h3>
+<div class="event-location">
+<i class="fas fa-map-marker-alt"></i>
+<span>Hong Kong</span>
+</div>
+<p class="event-description">
+Kompetisi tahunan yang menampilkan talenta musik terbaik Indonesia di panggung internasional.
+</p>
+<a href="#" class="event-link" onclick="showEventDetail('ioc2024'); return false;">
+Pelajari Lebih Lanjut <i class="fas fa-arrow-right"></i>
+</a>
+</div>
+<div class="event-card fade-in">
+<div class="event-date">Agustus 3-8, 2024</div>
+<h3 class="event-title">Konferensi Pendidik Musik</h3>
+<div class="event-location">
+<i class="fas fa-map-marker-alt"></i>
+<span>Singapura</span>
+</div>
+<p class="event-description">
+Konferensi yang mengumpulkan pendidik musik dari seluruh Asia Tenggara.
+</p>
+<a href="#" class="event-link" onclick="showEventDetail('conf2024'); return false;">
+Pelajari Lebih Lanjut <i class="fas fa-arrow-right"></i>
+</a>
+</div>
+</div>
+</div>
+
+<!-- 2025 Events -->
+<div class="year-group">
+<div class="year-header">
+<div class="year-badge">2025</div>
+<div class="year-line"></div>
+</div>
+<div class="events-grid">
+<div class="event-card fade-in">
+<div class="event-date">Januari 15-20, 2025</div>
+<h3 class="event-title">New York Audition Franz Liszt Piano Competition</h3>
+<div class="event-location">
+<i class="fas fa-map-marker-alt"></i>
+<span>New York, USA</span>
+</div>
+<p class="event-description">
+Kompetisi piano internasional yang menampilkan pianis muda berbakat dari seluruh dunia.
+</p>
+<a href="#" class="event-link" onclick="showEventDetail('liszt2025'); return false;">
+Pelajari Lebih Lanjut <i class="fas fa-arrow-right"></i>
+</a>
+</div>
+<div class="event-card fade-in">
+<div class="event-date">Maret 10-15, 2025</div>
+<h3 class="event-title">Indonesia Open Competition (IOC)</h3>
+<div class="event-location">
+<i class="fas fa-map-marker-alt"></i>
+<span>Hong Kong</span>
+</div>
+<p class="event-description">
+Kompetisi tahunan yang menampilkan talenta musik terbaik Indonesia.
+</p>
+<a href="#" class="event-link" onclick="showEventDetail('ioc2025'); return false;">
+Pelajari Lebih Lanjut <i class="fas fa-arrow-right"></i>
+</a>
+</div>
+<div class="event-card fade-in">
+<div class="event-date">Juni 5-10, 2025</div>
+<h3 class="event-title">Asian Young Artists Showcase</h3>
+<div class="event-location">
+<i class="fas fa-map-marker-alt"></i>
+<span>Tokyo, Jepang</span>
+</div>
+<p class="event-description">
+Acara yang menampilkan musisi klasik muda paling menjanjikan dari seluruh Asia.
+</p>
+<a href="#" class="event-link" onclick="showEventDetail('asian2025'); return false;">
+Pelajari Lebih Lanjut <i class="fas fa-arrow-right"></i>
+</a>
+</div>
+</div>
+</div>
+
+<!-- 2026 Events -->
+<div class="year-group">
+<div class="year-header">
+<div class="year-badge">2026</div>
+<div class="year-line"></div>
+</div>
+<div class="events-grid">
+<div class="event-card fade-in">
+<div class="event-date">September 12-18, 2026</div>
+<h3 class="event-title">Seri Konser Peringatan Dua Abad Wafatnya Beethoven</h3>
+<div class="event-location">
+<i class="fas fa-map-marker-alt"></i>
+<span>Berbagai Tempat</span>
+</div>
+<p class="event-description">
+Siklus pertunjukan global memperingati 200 tahun wafatnya Beethoven.
+</p>
+<a href="#" class="event-link" onclick="showEventDetail('beethoven2026'); return false;">
+Pelajari Lebih Lanjut <i class="fas fa-arrow-right"></i>
+</a>
+</div>
+<div class="event-card fade-in">
+<div class="event-date">TBD</div>
+<h3 class="event-title">Program Pertukaran Artis Internasional</h3>
+<div class="event-location">
+<i class="fas fa-map-marker-alt"></i>
+<span>Indonesia & Eropa</span>
+</div>
+<p class="event-description">
+Program pertukaran budaya yang menghubungkan musisi Indonesia dengan artis internasional.
+</p>
+<a href="#" class="event-link" onclick="showEventDetail('exchange2026'); return false;">
+Pelajari Lebih Lanjut <i class="fas fa-arrow-right"></i>
+</a>
+</div>
+<div class="event-card fade-in">
+<div class="event-date">TBD</div>
+<h3 class="event-title">Festival Musik Klasik Asia Tenggara</h3>
+<div class="event-location">
+<i class="fas fa-map-marker-alt"></i>
+<span>Jakarta, Indonesia</span>
+</div>
+<p class="event-description">
+Festival yang menampilkan musisi klasik terbaik dari seluruh Asia Tenggara.
+</p>
+<a href="#" class="event-link" onclick="showEventDetail('festival2026'); return false;">
+Pelajari Lebih Lanjut <i class="fas fa-arrow-right"></i>
+</a>
+</div>
+</div>
+</div>
 </div>
 </div>
 </section>
@@ -3275,10 +2558,7 @@ YMJ 演出与艺术家管理部致力于支持由艺术家发起、以长远愿�
 <!-- Jap-Yeo Duo -->
 <div class="artist-card fade-in">
 <div class="artist-image">
-<img id="japYeoImg" src="" alt="Jap-Yeo Duo" style="display:none;">
-<div class="placeholder-image" id="japYeoPlaceholder">
-<span>No Jap-Yeo Duo image uploaded</span>
-</div>
+<img id="japYeoImg" src="https://picsum.photos/seed/japyeo/400/300.jpg" alt="Jap-Yeo Duo">
 </div>
 <div class="artist-info">
 <!-- Indonesian Content -->
@@ -3328,10 +2608,7 @@ Jap–Yeo 二重奏由小提琴家叶至坚与钢琴家杨圭斌博士组成，�
 <!-- Dr. Kuei Pin Yeo -->
 <div class="artist-card fade-in">
 <div class="artist-image">
-<img id="kueiPinImg" src="" alt="Dr. Kuei Pin Yeo" style="display:none;">
-<div class="placeholder-image" id="kueiPinPlaceholder">
-<span>No Dr. Kuei Pin Yeo image uploaded</span>
-</div>
+<img id="kueiPinImg" src="https://picsum.photos/seed/kueipin/400/300.jpg" alt="Dr. Kuei Pin Yeo">
 </div>
 <div class="artist-info">
 <!-- Indonesian Content -->
@@ -3381,10 +2658,7 @@ Dr. Kuei Pin Yeo is a prominent Indonesian pianist and Indonesia's first doctor 
 <!-- Jap Tji Kien -->
 <div class="artist-card fade-in">
 <div class="artist-image">
-<img id="japTjiImg" src="" alt="Jap Tji Kien" style="display:none;">
-<div class="placeholder-image" id="japTjiPlaceholder">
-<span>No Jap Tji Kien image uploaded</span>
-</div>
+<img id="japTjiImg" src="https://picsum.photos/seed/japtji/400/300.jpg" alt="Jap Tji Kien">
 </div>
 <div class="artist-info">
 <!-- Indonesian Content -->
@@ -3440,10 +2714,7 @@ Jap Tji Kien is one of Indonesia's most respected violinists and conductors, the
 
 <div class="project-card">
 <div class="project-image">
-<img id="beethovenDetailImg" src="" alt="Beethoven Project Detail" style="display:none;">
-<div class="placeholder-image" id="beethovenDetailPlaceholder" style="height:400px;">
-<span>No Beethoven detail image uploaded</span>
-</div>
+<img id="beethovenDetailImg" src="https://picsum.photos/seed/beethoven/800/400.jpg" alt="Beethoven Project Detail">
 </div>
 <div class="project-content">
 <!-- Indonesian Content -->
@@ -3562,12 +2833,54 @@ YMJ 演出与艺术家管理部旗舰倡议
 
 <div class="gallery-container">
 <div class="gallery-grid" id="galleryGrid">
-<!-- Gallery items will be dynamically added here -->
+<!-- Gallery items -->
+<div class="gallery-item">
+<img src="https://picsum.photos/seed/gallery1/400/300.jpg" alt="Gallery Image 1" onclick="openImageModal('https://picsum.photos/seed/gallery1/800/600.jpg')">
+<div class="gallery-overlay">
+<h4>Konser Jakarta 2023</h4>
+<p>Penampilan Jap-Yeo Duo</p>
+</div>
+</div>
+<div class="gallery-item">
+<img src="https://picsum.photos/seed/gallery2/400/300.jpg" alt="Gallery Image 2" onclick="openImageModal('https://picsum.photos/seed/gallery2/800/600.jpg')">
+<div class="gallery-overlay">
+<h4>Masterclass Piano</h4>
+<p>Dr. Kuei Pin Yeo</p>
+</div>
+</div>
+<div class="gallery-item">
+<img src="https://picsum.photos/seed/gallery3/400/300.jpg" alt="Gallery Image 3" onclick="openImageModal('https://picsum.photos/seed/gallery3/800/600.jpg')">
+<div class="gallery-overlay">
+<h4>Festival Musik Asia</h4>
+<p>Jap Tji Kien sebagai konduktor</p>
+</div>
+</div>
+<div class="gallery-item">
+<img src="https://picsum.photos/seed/gallery4/400/300.jpg" alt="Gallery Image 4" onclick="openImageModal('https://picsum.photos/seed/gallery4/800/600.jpg')">
+<div class="gallery-overlay">
+<h4>Resital Beethoven</h4>
+<p>Seri konser khusus</p>
+</div>
+</div>
+<div class="gallery-item">
+<img src="https://picsum.photos/seed/gallery5/400/300.jpg" alt="Gallery Image 5" onclick="openImageModal('https://picsum.photos/seed/gallery5/800/600.jpg')">
+<div class="gallery-overlay">
+<h4>Kolaborasi Internasional</h4>
+<p>Musisi dari berbagai negara</p>
+</div>
+</div>
+<div class="gallery-item">
+<img src="https://picsum.photos/seed/gallery6/400/300.jpg" alt="Gallery Image 6" onclick="openImageModal('https://picsum.photos/seed/gallery6/800/600.jpg')">
+<div class="gallery-overlay">
+<h4>Workshop Pendidikan</h4>
+<p>Program pengembangan talenta</p>
+</div>
+</div>
 </div>
 
 <div class="gallery-info">
 <div class="gallery-count">
-<span data-lang-key="gallery-showing">Menampilkan</span> <span id="visibleCount">0</span> <span data-lang-key="gallery-of">dari</span> <span id="totalCount">0</span> <span data-lang-key="gallery-photos">foto</span>
+<span data-lang-key="gallery-showing">Menampilkan</span> <span id="visibleCount">6</span> <span data-lang-key="gallery-of">dari</span> <span id="totalCount">6</span> <span data-lang-key="gallery-photos">foto</span>
 </div>
 <a href="#" class="gallery-view-all" onclick="openFullGallery(); return false;">
 <span data-lang-key="gallery-view-all">Lihat Semua Galeri</span> <i class="fas fa-arrow-right"></i>
@@ -3904,6 +3217,78 @@ If you are an artist, presenter, educator, manager, or friend of the arts — we
 </div>
 <div class="full-gallery-grid" id="full-gallery-grid">
 <!-- Gallery images will be displayed here -->
+<div class="full-gallery-item">
+<img src="https://picsum.photos/seed/gallery1/400/300.jpg" alt="Gallery Image 1" onclick="openImageModal('https://picsum.photos/seed/gallery1/800/600.jpg')">
+<div class="full-gallery-overlay">
+<p>Konser Jakarta 2023</p>
+</div>
+</div>
+<div class="full-gallery-item">
+<img src="https://picsum.photos/seed/gallery2/400/300.jpg" alt="Gallery Image 2" onclick="openImageModal('https://picsum.photos/seed/gallery2/800/600.jpg')">
+<div class="full-gallery-overlay">
+<p>Masterclass Piano</p>
+</div>
+</div>
+<div class="full-gallery-item">
+<img src="https://picsum.photos/seed/gallery3/400/300.jpg" alt="Gallery Image 3" onclick="openImageModal('https://picsum.photos/seed/gallery3/800/600.jpg')">
+<div class="full-gallery-overlay">
+<p>Festival Musik Asia</p>
+</div>
+</div>
+<div class="full-gallery-item">
+<img src="https://picsum.photos/seed/gallery4/400/300.jpg" alt="Gallery Image 4" onclick="openImageModal('https://picsum.photos/seed/gallery4/800/600.jpg')">
+<div class="full-gallery-overlay">
+<p>Resital Beethoven</p>
+</div>
+</div>
+<div class="full-gallery-item">
+<img src="https://picsum.photos/seed/gallery5/400/300.jpg" alt="Gallery Image 5" onclick="openImageModal('https://picsum.photos/seed/gallery5/800/600.jpg')">
+<div class="full-gallery-overlay">
+<p>Kolaborasi Internasional</p>
+</div>
+</div>
+<div class="full-gallery-item">
+<img src="https://picsum.photos/seed/gallery6/400/300.jpg" alt="Gallery Image 6" onclick="openImageModal('https://picsum.photos/seed/gallery6/800/600.jpg')">
+<div class="full-gallery-overlay">
+<p>Workshop Pendidikan</p>
+</div>
+</div>
+<div class="full-gallery-item">
+<img src="https://picsum.photos/seed/gallery7/400/300.jpg" alt="Gallery Image 7" onclick="openImageModal('https://picsum.photos/seed/gallery7/800/600.jpg')">
+<div class="full-gallery-overlay">
+<p>Pertunjukan Orkestra</p>
+</div>
+</div>
+<div class="full-gallery-item">
+<img src="https://picsum.photos/seed/gallery8/400/300.jpg" alt="Gallery Image 8" onclick="openImageModal('https://picsum.photos/seed/gallery8/800/600.jpg')">
+<div class="full-gallery-overlay">
+<p>Sesi Rehearsal</p>
+</div>
+</div>
+<div class="full-gallery-item">
+<img src="https://picsum.photos/seed/gallery9/400/300.jpg" alt="Gallery Image 9" onclick="openImageModal('https://picsum.photos/seed/gallery9/800/600.jpg')">
+<div class="full-gallery-overlay">
+<p>Konser Amal</p>
+</div>
+</div>
+<div class="full-gallery-item">
+<img src="https://picsum.photos/seed/gallery10/400/300.jpg" alt="Gallery Image 10" onclick="openImageModal('https://picsum.photos/seed/gallery10/800/600.jpg')">
+<div class="full-gallery-overlay">
+<p>Residen Seni</p>
+</div>
+</div>
+<div class="full-gallery-item">
+<img src="https://picsum.photos/seed/gallery11/400/300.jpg" alt="Gallery Image 11" onclick="openImageModal('https://picsum.photos/seed/gallery11/800/600.jpg')">
+<div class="full-gallery-overlay">
+<p>Kuliah Musik</p>
+</div>
+</div>
+<div class="full-gallery-item">
+<img src="https://picsum.photos/seed/gallery12/400/300.jpg" alt="Gallery Image 12" onclick="openImageModal('https://picsum.photos/seed/gallery12/800/600.jpg')">
+<div class="full-gallery-overlay">
+<p>Peluncuran Album</p>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -3914,7 +3299,7 @@ const translations = {
 id: {
 'nav-home': 'Beranda',
 'nav-about': 'Tentang',
-'nav-events': 'Acara',
+'nav-events': 'Program',
 'nav-artists': 'Artis',
 'nav-beethoven': 'Proyek',
 'nav-gallery': 'Media',
@@ -3926,24 +3311,27 @@ id: {
 'hero-description-2': 'Kami tidak sekadar mengelola karier. Kami mendampingi perjalanan artistik, membangun kolaborasi jangka panjang, serta mengkurasi proyek yang berlandaskan integritas artistik, kesadaran historis, dan hubungan manusiawi.',
 'hero-description-3': 'Situs ini adalah ruang perjumpaan — untuk menjelajahi gagasan, mengenal inisiatif, dan membangun kemitraan lintas budaya.',
 'hero-description-4': 'Sebagai bagian dari Yayasan Musik Jakarta, YMJ berkomitmen pada keunggulan artistik serta dialog internasional antara Indonesia dan dunia.',
-'hero-motto': '“Bersama, kita memajukan seni. Bersama, kita mengangkat Indonesia.”',
-'hero-btn-events': 'Jelajahi Acara Kami',
+'hero-motto': '"Bersama, kita memajukan seni. Bersama, kita mengangkat Indonesia."',
+'hero-motto-2': '"Musik sebagai panggilan, tumbuh lewat kepercayaan dan makna."',
+'hero-motto-3': '"Seni menghubungkan jiwa, melampaui batas waktu dan ruang."',
+'hero-motto-4': '"Melalui musik, kita menemukan kedamaian dan inspirasi."',
+'hero-btn-events': 'Jelajahi Program Kami',
 'hero-btn-community': 'Bergabung dengan Komunitas',
 'about-title': 'Tentang YMJ',
 'about-subtitle': 'Berbasis Seniman · Berlandaskan Relasi · Berorientasi Internasional',
 'about-description': 'YMJ STAGE merupakan divisi Performance & Artist Management yang hadir untuk mendampingi proyek musik klasik—diprakarsai oleh seniman, dibangun melalui relasi, dan ditumbuhkan dengan visi jangka panjang.',
-'about-motto': '“Musik sebagai panggilan, tumbuh lewat kepercayaan dan makna.”',
+'about-motto': '"Musik sebagai panggilan, tumbuh lewat kepercayaan dan makna."',
 'about-description-2': 'Karier artistik yang berkelanjutan tumbuh melalui kepercayaan, tujuan bersama, dan relasi yang bermakna.',
 'about-y-title': 'Di YMJ Stage',
 'about-y-1': 'Seniman menemukan arah,',
 'about-y-2': 'proyek menemukan pijakan,',
 'about-y-3': 'dan kolaborasi menjelma menjadi kemitraan yang setia menemani perjalanan.',
-'about-motto-2': '"Kami percaya musik adalah panggilan, bukan komoditas — dan karier tumbuh melalui kepercayaan, tujuan bersama, dan hubungan yang bermakna."',
+'about-motto-2': '"Seni menghubungkan jiwa, melampaui batas waktu dan ruang."',
 'about-here-title': 'Di sini,',
 'about-here-1': 'seniman menemukan arahan,',
 'about-here-2': 'proyek menemukan kejelasan,',
 'about-here-3': 'dan kolaborasi menjadi persahabatan.',
-'events-title': 'Acara Kami',
+'events-title': 'Program Kami',
 'artists-title': 'Artis Kami',
 'beethoven-title': 'Proyek Unggulan',
 'gallery-title': 'Media',
@@ -4006,7 +3394,7 @@ id: {
 en: {
 'nav-home': 'Home',
 'nav-about': 'About',
-'nav-events': 'Events',
+'nav-events': 'Programs',
 'nav-artists': 'Artists',
 'nav-beethoven': 'Projects',
 'nav-gallery': 'Media',
@@ -4019,7 +3407,10 @@ en: {
 'hero-description-3': 'This site is a meeting place — to explore ideas, get to know initiatives, and build cross-cultural partnerships.',
 'hero-description-4': 'As part of Yayasan Musik Jakarta, YMJ is committed to artistic excellence and international dialogue between Indonesia and the world.',
 'hero-motto': 'Together, we advance artistry. Together, we elevate Indonesia.',
-'hero-btn-events': 'Explore Our Events',
+'hero-motto-2': 'We believe that music is a calling, not a commodity.',
+'hero-motto-3': 'Art connects souls, transcending time and space.',
+'hero-motto-4': 'Through music, we find peace and inspiration.',
+'hero-btn-events': 'Explore Our Programs',
 'hero-btn-community': 'Join Our Community',
 'about-title': 'About YMJ',
 'about-subtitle': 'Artist-Led · Relationship-Based · Internationally-Oriented',
@@ -4030,12 +3421,12 @@ en: {
 'about-y-1': 'Artists receive guidance,',
 'about-y-2': 'Projects gain structure,',
 'about-y-3': 'And collaborations evolve into long-term partnerships.',
-'about-motto-2': 'We believe music is a calling, not a commodity — and careers grow through trust, shared purpose, and meaningful relationships.',
+'about-motto-2': 'Art connects souls, transcending time and space.',
 'about-here-title': 'Here,',
 'about-here-1': 'artists find guidance,',
 'about-here-2': 'projects find clarity,',
 'about-here-3': 'and collaborations become friendships.',
-'events-title': 'Our Events',
+'events-title': 'Our Programs',
 'artists-title': 'Our Artists',
 'beethoven-title': 'Featured Project',
 'gallery-title': 'Media',
@@ -4098,7 +3489,7 @@ en: {
 zh: {
 'nav-home': '首页',
 'nav-about': '关于',
-'nav-events': '活动',
+'nav-events': '项目',
 'nav-artists': '艺术家',
 'nav-beethoven': '项目',
 'nav-gallery': '媒体',
@@ -4111,7 +3502,10 @@ zh: {
 'hero-description-3': '这是一个相遇之地 —— 探索创意、了解倡议、建立跨文化伙伴关系。',
 'hero-description-4': '作为雅加达音乐基金会的一部分，YMJ 致力于在推动艺术卓越的同时，促进印度尼西亚与世界之间的艺术对话。',
 'hero-motto': '携手同行，我们推进艺术。携手同行，我们让印度尼西亚走向世界。',
-'hero-btn-events': '探索我们的活动',
+'hero-motto-2': '我们相信，音乐是一份使命，而非商品。',
+'hero-motto-3': '艺术连接灵魂，超越时空。',
+'hero-motto-4': '通过音乐，我们找到平静与灵感。',
+'hero-btn-events': '探索我们的项目',
 'hero-btn-community': '加入我们的社区',
 'about-title': '关于 YMJ',
 'about-subtitle': '以艺术家为本 · 以关系为基石 · 国际化导向',
@@ -4122,12 +3516,12 @@ zh: {
 'about-y-1': '艺术家获得指导，',
 'about-y-2': '项目获得结构，',
 'about-y-3': '合作发展为长期伙伴关系。',
-'about-motto-2': '我们相信，音乐是一份使命，而非商品——艺术生涯源于信任、共同愿景与有意义的关系。',
+'about-motto-2': '艺术连接灵魂，超越时空。',
 'about-here-title': '在这里，',
 'about-here-1': '艺术家找到指导，',
 'about-here-2': '项目找到清晰，',
 'about-here-3': '合作成为友谊。',
-'events-title': '我们的活动',
+'events-title': '我们的项目',
 'artists-title': '我们的艺术家',
 'beethoven-title': '特色项目',
 'gallery-title': '媒体',
@@ -4189,39 +3583,81 @@ zh: {
 }
 };
 
-// Admin System - Enhanced Security
-const ADMIN_CREDENTIALS = {
-  username: 'ymjadmin',
-  password: 'Beethoven2027!'
+// Event data
+const EVENT_DATA = {
+'beyond2024': {
+title: 'Beyond the Notes',
+date: 'Februari 8-12, 2024',
+location: 'Jakarta, Indonesia',
+description: 'Perayaan ulang tahun ke-40 YMJ di JIExpo dengan pertunjukan inovatif.',
+detail: 'Beyond the Notes adalah acara khusus yang merayakan ulang tahun ke-40 Yayasan Musik Jakarta. Acara ini menampilkan serangkaian pertunjukan musik klasik yang inovatif, kolaborasi antar seniman, dan workshop pendidikan musik. Selama lima hari, pengunjung dapat menikmati konser dari artis lokal dan internasional, diskusi panel dengan para ahli musik, dan sesi masterclass yang dipimpin oleh musisi terkemuka.',
+image: 'https://picsum.photos/seed/beyond2024/800/400.jpg'
+},
+'ioc2024': {
+title: 'Indonesia Open Competition (IOC)',
+date: 'Mei 20-25, 2024',
+location: 'Hong Kong',
+description: 'Kompetisi tahunan yang menampilkan talenta musik terbaik Indonesia di panggung internasional.',
+detail: 'Indonesia Open Competition (IOC) adalah acara tahunan yang menampilkan talenta musik terbaik Indonesia di panggung internasional. Kompetisi ini dirancang untuk memberikan platform bagi musisi muda Indonesia untuk menunjukkan kemampuan mereka dan mendapatkan pengakuan global. Para peserta akan dinilai oleh juri internasional yang terdiri dari musisi dan pendidik musik terkemuka.',
+image: 'https://picsum.photos/seed/ioc2024/800/400.jpg'
+},
+'conf2024': {
+title: 'Konferensi Pendidik Musik',
+date: 'Agustus 3-8, 2024',
+location: 'Singapura',
+description: 'Konferensi yang mengumpulkan pendidik musik dari seluruh Asia Tenggara.',
+detail: 'Konferensi Pendidik Musik adalah pertemuan tahunan yang mengumpulkan pendidik musik dari seluruh Asia Tenggara. Konferensi ini menampilkan workshop, seminar, dan presentasi tentang metodologi pengajaran musik terkini, kurikulum inovatif, dan teknologi dalam pendidikan musik. Para peserta dapat berbagi pengalaman, belajar dari para ahli, dan membangun jaringan profesional.',
+image: 'https://picsum.photos/seed/conf2024/800/400.jpg'
+},
+'liszt2025': {
+title: 'New York Audition Franz Liszt Piano Competition',
+date: 'Januari 15-20, 2025',
+location: 'New York, USA',
+description: 'Kompetisi piano internasional yang menampilkan pianis muda berbakat dari seluruh dunia.',
+detail: 'New York Audition Franz Liszt Piano Competition adalah acara internasional bergengsi yang menampilkan pianis muda berbakat dari seluruh dunia. Kompetisi ini didedikasikan untuk menghormati warisan Franz Liszt dan mendorong interpretasi karya-karyanya yang otentik. Para pemenang akan mendapatkan kesempatan untuk tampil di venue terkemuka di New York dan seluruh dunia.',
+image: 'https://picsum.photos/seed/liszt2025/800/400.jpg'
+},
+'ioc2025': {
+title: 'Indonesia Open Competition (IOC)',
+date: 'Maret 10-15, 2025',
+location: 'Hong Kong',
+description: 'Kompetisi tahunan yang menampilkan talenta musik terbaik Indonesia.',
+detail: 'Indonesia Open Competition (IOC) melanjutkan tradisi menampilkan talenta musik terbaik Indonesia di panggung internasional. Tahun ini, kompetisi akan menambah kategori baru untuk komposisi musik kontemporer Indonesia, mendorong para komponis muda untuk menciptakan karya yang inovatif sambil tetap menghormati warisan musik tradisional Indonesia.',
+image: 'https://picsum.photos/seed/ioc2025/800/400.jpg'
+},
+'asian2025': {
+title: 'Asian Young Artists Showcase',
+date: 'Juni 5-10, 2025',
+location: 'Tokyo, Jepang',
+description: 'Acara yang menampilkan musisi klasik muda paling menjanjikan dari seluruh Asia.',
+detail: 'Asian Young Artists Showcase adalah acara tahunan yang menonjolkan musisi klasik muda Asia yang paling menjanjikan. Acara ini memberikan platform bagi para artis muda untuk tampil di hadapan audiens internasional, terhubung dengan mentor industri, dan berpartisipasi dalam workshop pengembangan karier. Showcase ini juga memfasilitasi kolaborasi antar seniman dari berbagai negara Asia.',
+image: 'https://picsum.photos/seed/asian2025/800/400.jpg'
+},
+'beethoven2026': {
+title: 'Seri Konser Peringatan Dua Abad Wafatnya Beethoven',
+date: 'September 12-18, 2026',
+location: 'Berbagai Tempat',
+description: 'Siklus pertunjukan global memperingati 200 tahun wafatnya Beethoven.',
+detail: 'Seri Konser Peringatan Dua Abad Wafatnya Beethoven adalah siklus pertunjukan global yang memperingati 200 tahun wafatnya Ludwig van Beethoven. Seri ini akan menampilkan seluruh karya chamber music Beethoven, dengan fokus khusus pada sonata untuk biola dan piano. Konser akan diadakan di berbagai kota di seluruh dunia, menampilkan interpretasi yang otentik dan kontemporer.',
+image: 'https://picsum.photos/seed/beethoven2026/800/400.jpg'
+},
+'exchange2026': {
+title: 'Program Pertukaran Artis Internasional',
+date: 'TBD',
+location: 'Indonesia & Eropa',
+description: 'Program pertukaran budaya yang menghubungkan musisi Indonesia dengan artis internasional.',
+detail: 'Program Pertukaran Artis Internasional adalah inisiatif budaya yang dirancang untuk menghubungkan musisi Indonesia dengan artis internasional melalui residensi, kolaborasi, dan pertunjukan bersama. Program ini bertujuan untuk memperkaya lanskap musik kedua wilayah melalui pertukaran ide, teknik, dan tradisi musik. Para peserta akan tinggal di negara tuan rumah selama beberapa bulan, berkolaborasi dengan musisi lokal, dan tampil di konser bersama.',
+image: 'https://picsum.photos/seed/exchange2026/800/400.jpg'
+},
+'festival2026': {
+title: 'Festival Musik Klasik Asia Tenggara',
+date: 'TBD',
+location: 'Jakarta, Indonesia',
+description: 'Festival yang menampilkan musisi klasik terbaik dari seluruh Asia Tenggara.',
+detail: 'Festival Musik Klasik Asia Tenggara akan mengumpulkan musisi klasik terbaik dari seluruh Asia Tenggara untuk merayakan kekayaan dan keragaman warisan musik klasik regional. Festival ini akan menampilkan orkestra, ensemble chamber, dan solis dari negara-negara seperti Indonesia, Malaysia, Thailand, Vietnam, Filipina, dan Singapura. Selain pertunjukan, festival juga akan menyelenggarakan workshop, diskusi panel, dan program pendidikan untuk masyarakat umum.',
+image: 'https://picsum.photos/seed/festival2026/800/400.jpg'
+}
 };
-
-let isLoggedIn = false;
-let loginAttempts = 0;
-const MAX_LOGIN_ATTEMPTS = 3;
-let isLocked = false;
-let lockTime = 0;
-let currentLang = 'id';
-
-// Image storage keys
-const IMAGE_KEYS = {
-logo: 'ymjLogo',
-background: 'ymjBackground',
-splashLogo: 'ymjSplashLogo',
-beethoven: 'ymjBeethoven',
-beethovenDetail: 'ymjBeethovenDetail',
-japYeo: 'ymjJapYeo',
-kueiPin: 'ymjKueiPin',
-japTji: 'ymjJapTji',
-gallery: 'ymjGallery'
-};
-
-// Content storage keys
-const CONTENT_KEYS = {
-heroDescription: 'ymjHeroDescription'
-};
-
-// Events storage key
-const EVENTS_KEY = 'ymjEvents';
 
 // Artist data
 const ARTIST_DATA = {
@@ -4364,7 +3800,21 @@ zh: `
 repertoire: {
 id: `
 <ul class="repertoire-list">
-<li>Ludwig van Beethoven - Piano Concerto No. 1-5</li>
+<li>Beethoven Piano Concertos No. 1-5</li>
+<li>Beethoven Piano Sonatas</li>
+<ul class="repertoire-sublist">
+<li>Early Period</li>
+<li>Middle Period</li>
+<li>Late Period</li>
+</ul>
+<div class="repertoire-example">
+<h4>Contoh Program:</h4>
+<ol>
+<li>Ludwig van Beethoven - Piano Sonata No. 3 in C Major, Op. 2 No. 3</li>
+<li>Ludwig van Beethoven - Piano Sonata No. 8 in C Minor, Op. 13 "Pathétique"</li>
+<li>Ludwig van Beethoven - Piano Sonata No. 31 in A-flat Major, Op. 110</li>
+</ol>
+</div>
 <li>Frédéric Chopin - Etudes, Ballades, Scherzos, Polonaises</li>
 <li>Johannes Brahms - Piano Concerto No. 1-2</li>
 <li>Sergei Rachmaninoff - Piano Concerto No. 2-3</li>
@@ -4374,7 +3824,21 @@ id: `
 `,
 en: `
 <ul class="repertoire-list">
-<li>Ludwig van Beethoven - Piano Concertos No. 1-5</li>
+<li>Beethoven Piano Concertos No. 1-5</li>
+<li>Beethoven Piano Sonatas</li>
+<ul class="repertoire-sublist">
+<li>Early Period</li>
+<li>Middle Period</li>
+<li>Late Period</li>
+</ul>
+<div class="repertoire-example">
+<h4>Example Program:</h4>
+<ol>
+<li>Ludwig van Beethoven - Piano Sonata No. 3 in C Major, Op. 2 No. 3</li>
+<li>Ludwig van Beethoven - Piano Sonata No. 8 in C Minor, Op. 13 "Pathétique"</li>
+<li>Ludwig van Beethoven - Piano Sonata No. 31 in A-flat Major, Op. 110</li>
+</ol>
+</div>
 <li>Frédéric Chopin - Etudes, Ballades, Scherzos, Polonaises</li>
 <li>Johannes Brahms - Piano Concertos No. 1-2</li>
 <li>Sergei Rachmaninoff - Piano Concertos No. 2-3</li>
@@ -4384,7 +3848,21 @@ en: `
 `,
 zh: `
 <ul class="repertoire-list">
-<li>路德维希·范·贝多芬 - 第1-5号钢琴协奏曲</li>
+<li>贝多芬钢琴协奏曲第1-5号</li>
+<li>贝多芬钢琴奏鸣曲</li>
+<ul class="repertoire-sublist">
+<li>早期</li>
+<li>中期</li>
+<li>晚期</li>
+</ul>
+<div class="repertoire-example">
+<h4>示例节目：</h4>
+<ol>
+<li>路德维希·范·贝多芬 - C大调第3号钢琴奏鸣曲，作品2之3</li>
+<li>路德维希·范·贝多芬 - C小调第8号钢琴奏鸣曲，作品13"悲怆"</li>
+<li>路德维希·范·贝多芬 - 降A大调第31号钢琴奏鸣曲，作品110</li>
+</ol>
+</div>
 <li>弗雷德里克·肖邦 - 练习曲、叙事曲、谐谑曲、波兰舞曲</li>
 <li>约翰内斯·勃拉姆斯 - 第1-2号钢琴协奏曲</li>
 <li>谢尔盖·拉赫玛尼诺夫 - 第2-3号钢琴协奏曲</li>
@@ -4472,6 +3950,7 @@ zh: `
 repertoire: {
 id: `
 <ul class="repertoire-list">
+<li>Beethoven Complete Early Sonatas for Violin and Piano</li>
 <li>Johann Sebastian Bach - Partita dan Sonata untuk Biola Solo</li>
 <li>Wolfgang Amadeus Mozart - Concerto untuk Biola No. 3-5</li>
 <li>Ludwig van Beethoven - Concerto untuk Biola</li>
@@ -4482,6 +3961,7 @@ id: `
 `,
 en: `
 <ul class="repertoire-list">
+<li>Beethoven Complete Early Sonatas for Violin and Piano</li>
 <li>Johann Sebastian Bach - Partitas and Sonatas for Solo Violin</li>
 <li>Wolfgang Amadeus Mozart - Violin Concertos No. 3-5</li>
 <li>Ludwig van Beethoven - Violin Concerto</li>
@@ -4492,6 +3972,7 @@ en: `
 `,
 zh: `
 <ul class="repertoire-list">
+<li>贝多芬完整早期小提琴与钢琴奏鸣曲</li>
 <li>约翰·塞巴斯蒂安·巴赫 - 小提琴独奏组曲与奏鸣曲</li>
 <li>沃尔夫冈·阿马德乌斯·莫扎特 - 第3-5号小提琴协奏曲</li>
 <li>路德维希·范·贝多芬 - 小提琴协奏曲</li>
@@ -4554,1193 +4035,7 @@ zh: `
 }
 };
 
-// Default events data
-const DEFAULT_EVENTS = {
-2024: [
-{
-id: 'evt202401',
-date: 'Februari 8-12, 2024',
-title: {
-id: 'Beyond the Notes',
-en: 'Beyond the Notes',
-zh: 'Beyond the Notes'
-},
-location: {
-id: 'Jakarta, Indonesia',
-en: 'Jakarta, Indonesia',
-zh: 'Jakarta, Indonesia'
-},
-description: {
-id: 'Perayaan ulang tahun ke-40 YMJ di JIExpo dengan pertunjukan inovatif.',
-en: 'YMJ\'s 40th anniversary celebration at JIExpo featuring innovative performances.',
-zh: 'YMJ\'s 40th anniversary celebration at JIExpo featuring innovative performances.'
-},
-detail: {
-id: 'Beyond the Notes adalah acara khusus yang merayakan ulang tahun ke-40 Yayasan Musik Jakarta.',
-en: 'Beyond the Notes is a special event celebrating the 40th anniversary of Yayasan Musik Jakarta.',
-zh: 'Beyond the Notes is a special event celebrating the 40th anniversary of Yayasan Musik Jakarta.'
-}
-},
-{
-id: 'evt202402',
-date: 'Mei 20-25, 2024',
-title: {
-id: 'Indonesia Open Competition (IOC)',
-en: 'Indonesia Open Competition (IOC)',
-zh: 'Indonesia Open Competition (IOC)'
-},
-location: {
-id: 'Hong Kong',
-en: 'Hong Kong',
-zh: 'Hong Kong'
-},
-description: {
-id: 'Kompetisi tahunan yang menampilkan talenta musik terbaik Indonesia di panggung internasional.',
-en: 'Annual competition showcasing Indonesia\'s finest musical talents on the international stage.',
-zh: 'Annual competition showcasing Indonesia\'s finest musical talents on the international stage.'
-},
-detail: {
-id: 'Indonesia Open Competition (IOC) adalah acara tahunan yang menampilkan talenta musik terbaik Indonesia.',
-en: 'The Indonesia Open Competition (IOC) is an annual event that showcases Indonesia\'s finest musical talents.',
-zh: 'The Indonesia Open Competition (IOC) is an annual event that showcases Indonesia\'s finest musical talents.'
-}
-},
-{
-id: 'evt202403',
-date: 'Agustus 3-8, 2024',
-title: {
-id: 'Konferensi Pendidik Musik',
-en: 'Music Educators Conference',
-zh: 'Music Educators Conference'
-},
-location: {
-id: 'Singapura',
-en: 'Singapore',
-zh: 'Singapore'
-},
-description: {
-id: 'Konferensi yang mengumpulkan pendidik musik dari seluruh Asia Tenggara.',
-en: 'Conference bringing together music educators from across Southeast Asia.',
-zh: 'Conference bringing together music educators from across Southeast Asia.'
-},
-detail: {
-id: 'Konferensi Pendidik Musik adalah pertemuan tahunan yang mengumpulkan pendidik musik.',
-en: 'The Music Educators Conference is an annual meeting that brings together music educators.',
-zh: 'The Music Educators Conference is an annual meeting that brings together music educators.'
-}
-}
-],
-2025: [
-{
-id: 'evt202501',
-date: 'Januari 15-20, 2025',
-title: {
-id: 'New York Audition Franz Liszt Piano Competition',
-en: 'New York Audition Franz Liszt Piano Competition',
-zh: 'New York Audition Franz Liszt Piano Competition'
-},
-location: {
-id: 'New York, USA',
-en: 'New York, USA',
-zh: 'New York, USA'
-},
-description: {
-id: 'Kompetisi piano internasional yang menampilkan pianis muda berbakat dari seluruh dunia.',
-en: 'International piano competition featuring talented young pianists from around the world.',
-zh: 'International piano competition featuring talented young pianists from around the world.'
-},
-detail: {
-id: 'New York Audition Franz Liszt Piano Competition adalah acara internasional bergengsi.',
-en: 'The New York Audition Franz Liszt Piano Competition is a prestigious international event.',
-zh: 'The New York Audition Franz Liszt Piano Competition is a prestigious international event.'
-}
-},
-{
-id: 'evt202502',
-date: 'Maret 10-15, 2025',
-title: {
-id: 'Indonesia Open Competition (IOC)',
-en: 'Indonesia Open Competition (IOC)',
-zh: 'Indonesia Open Competition (IOC)'
-},
-location: {
-id: 'Hong Kong',
-en: 'Hong Kong',
-zh: 'Hong Kong'
-},
-description: {
-id: 'Kompetisi tahunan yang menampilkan talenta musik terbaik Indonesia.',
-en: 'Annual competition showcasing Indonesia\'s finest musical talents.',
-zh: 'Annual competition showcasing Indonesia\'s finest musical talents.'
-},
-detail: {
-id: 'Indonesia Open Competition (IOC) melanjutkan tradisi menampilkan talenta musik terbaik Indonesia.',
-en: 'The Indonesia Open Competition (IOC) continues its tradition of showcasing Indonesia\'s finest musical talents.',
-zh: 'The Indonesia Open Competition (IOC) continues its tradition of showcasing Indonesia\'s finest musical talents.'
-}
-},
-{
-id: 'evt202503',
-date: 'Juni 5-10, 2025',
-title: {
-id: 'Asian Young Artists Showcase',
-en: 'Asian Young Artists Showcase',
-zh: 'Asian Young Artists Showcase'
-},
-location: {
-id: 'Tokyo, Jepang',
-en: 'Tokyo, Japan',
-zh: 'Tokyo, Japan'
-},
-description: {
-id: 'Acara yang menampilkan musisi klasik muda paling menjanjikan dari seluruh Asia.',
-en: 'Event featuring the most promising young classical musicians from across Asia.',
-zh: 'Event featuring the most promising young classical musicians from across Asia.'
-},
-detail: {
-id: 'Asian Young Artists Showcase adalah acara tahunan yang menonjolkan musisi klasik muda Asia.',
-en: 'The Asian Young Artists Showcase is an annual event that highlights Asia\'s most promising young classical musicians.',
-zh: 'The Asian Young Artists Showcase is an annual event that highlights Asia\'s most promising young classical musicians.'
-}
-}
-],
-2026: [
-{
-id: 'evt202601',
-date: 'September 12-18, 2026',
-title: {
-id: 'Seri Konser Peringatan Dua Abad Wafatnya Beethoven',
-en: 'Beethoven Bicentennial Memorial Concert Series',
-zh: 'Beethoven Bicentennial Memorial Concert Series'
-},
-location: {
-id: 'Berbagai Tempat',
-en: 'Multiple Venues',
-zh: 'Multiple Venues'
-},
-description: {
-id: 'Siklus pertunjukan global memperingati 200 tahun wafatnya Beethoven.',
-en: 'A global performance cycle commemorating the 200th anniversary of Beethoven\'s death.',
-zh: 'A global performance cycle commemorating the 200th anniversary of Beethoven\'s death.'
-},
-detail: {
-id: 'Seri Konser Peringatan Dua Abad Wafatnya Beethoven adalah siklus pertunjukan global.',
-en: 'The Beethoven Bicentennial Memorial Concert Series is a global performance cycle.',
-zh: 'The Beethoven Bicentennial Memorial Concert Series is a global performance cycle.'
-}
-},
-{
-id: 'evt202602',
-date: 'TBD',
-title: {
-id: 'Program Pertukaran Artis Internasional',
-en: 'International Artist Exchange Program',
-zh: 'International Artist Exchange Program'
-},
-location: {
-id: 'Indonesia & Eropa',
-en: 'Indonesia & Europe',
-zh: 'Indonesia & Europe'
-},
-description: {
-id: 'Program pertukaran budaya yang menghubungkan musisi Indonesia dengan artis internasional.',
-en: 'Cultural exchange program connecting Indonesian musicians with international artists.',
-zh: 'Cultural exchange program connecting Indonesian musicians with international artists.'
-},
-detail: {
-id: 'Program Pertukaran Artis Internasional adalah inisiatif budaya yang dirancang untuk menghubungkan.',
-en: 'The International Artist Exchange Program is a cultural initiative designed to connect.',
-zh: 'The International Artist Exchange Program is a cultural initiative designed to connect.'
-}
-},
-{
-id: 'evt202603',
-date: 'TBD',
-title: {
-id: 'Festival Musik Klasik Asia Tenggara',
-en: 'Southeast Asian Classical Music Festival',
-zh: 'Southeast Asian Classical Music Festival'
-},
-location: {
-id: 'Jakarta, Indonesia',
-en: 'Jakarta, Indonesia',
-zh: 'Jakarta, Indonesia'
-},
-description: {
-id: 'Festival yang menampilkan musisi klasik terbaik dari seluruh Asia Tenggara.',
-en: 'Festival featuring the finest classical musicians from across Southeast Asia.',
-zh: 'Festival featuring the finest classical musicians from across Southeast Asia.'
-},
-detail: {
-id: 'Festival Musik Klasik Asia Tenggara akan mengumpulkan musisi klasik terbaik.',
-en: 'The Southeast Asian Classical Music Festival will bring together the finest classical musicians.',
-zh: 'The Southeast Asian Classical Music Festival will bring together the finest classical musicians.'
-}
-}
-]
-};
-
-// Check if already logged in
-function checkAdminStatus() {
-const adminStatus = localStorage.getItem('ymjAdminLoggedIn');
-const loginTime = localStorage.getItem('ymjLoginTime');
-  
-if (adminStatus === 'true' && loginTime) {
-  const now = Date.now();
-  const loginTimestamp = parseInt(loginTime);
-  const hoursSinceLogin = (now - loginTimestamp) / (1000 * 60 * 60);
-    
-  if (hoursSinceLogin < 24) {
-    isLoggedIn = true;
-    document.getElementById('adminToggle').classList.add('logged-in');
-  } else {
-    localStorage.removeItem('ymjAdminLoggedIn');
-    localStorage.removeItem('ymjLoginTime');
-  }
-}
-  
-  const lockedUntil = localStorage.getItem('ymjLockedUntil');
-  if (lockedUntil) {
-    const now = Date.now();
-    const lockTimestamp = parseInt(lockedUntil);
-    if (now < lockTimestamp) {
-      isLocked = true;
-      lockTime = lockTimestamp;
-      updateLoginAttempts();
-    } else {
-      localStorage.removeItem('ymjLockedUntil');
-    }
-  }
-}
-
-// Handle admin click
-function handleAdminClick() {
-if (isLoggedIn) {
-toggleAdminDashboard();
-} else {
-if (isLocked) {
-  const remainingTime = Math.ceil((lockTime - Date.now()) / (1000 * 60));
-  alert(`Account locked. Please try again in ${remainingTime} minutes.`);
-  return;
-}
-showAdminLogin();
-}
-}
-
-// Show admin login modal
-function showAdminLogin() {
-document.getElementById('adminLogin').classList.add('active');
-updateLoginAttempts();
-}
-
-// Close admin login modal
-function closeAdminLogin() {
-document.getElementById('adminLogin').classList.remove('active');
-document.getElementById('loginError').style.display = 'none';
-document.getElementById('adminUsername').value = '';
-document.getElementById('adminPassword').value = '';
-}
-
-// Update login attempts display
-function updateLoginAttempts() {
-const attemptsElement = document.getElementById('loginAttempts');
-if (isLocked) {
-  const remainingTime = Math.ceil((lockTime - Date.now()) / (1000 * 60));
-  attemptsElement.textContent = `Account locked. Try again in ${remainingTime} minutes`;
-  attemptsElement.style.color = 'var(--error)';
-} else {
-  const remaining = MAX_LOGIN_ATTEMPTS - loginAttempts;
-  attemptsElement.textContent = `Attempts remaining: ${remaining}`;
-  attemptsElement.style.color = 'var(--text-light)';
-}
-}
-
-// Toggle admin dashboard
-function toggleAdminDashboard() {
-const dashboard = document.getElementById('adminDashboard');
-dashboard.classList.toggle('active');
-
-if (dashboard.classList.contains('active')) {
-loadAllImages();
-loadAllContent();
-loadEvents();
-updateFirebaseStatus();
-}
-}
-
-// Update Firebase status
-function updateFirebaseStatus() {
-const statusElement = document.getElementById('firebaseStatus');
-const storageInfoElement = document.getElementById('storageInfo');
-  
-statusElement.textContent = 'Using Local Storage';
-statusElement.className = 'firebase-status disconnected';
-storageInfoElement.textContent = 'Images are stored in your browser\'s local storage. They will only be visible to you on this device and browser.';
-}
-
-// Admin logout
-function adminLogout() {
-isLoggedIn = false;
-localStorage.setItem('ymjAdminLoggedIn', 'false');
-localStorage.removeItem('ymjLoginTime');
-document.getElementById('adminDashboard').classList.remove('active');
-document.getElementById('adminToggle').classList.remove('logged-in');
-showNotification('Logged out successfully');
-}
-
-// Save image to localStorage
-function saveImage(key, imageData) {
-localStorage.setItem(key, JSON.stringify(imageData));
-updateImageDisplay(key, imageData);
-}
-
-// Load image from localStorage
-function loadImage(key) {
-const data = localStorage.getItem(key);
-return data ? JSON.parse(data) : null;
-}
-
-// Update image display
-function updateImageDisplay(key, imageData) {
-switch(key) {
-case IMAGE_KEYS.logo:
-updateLogoDisplay(imageData);
-break;
-case IMAGE_KEYS.background:
-updateBackgroundDisplay(imageData);
-break;
-case IMAGE_KEYS.splashLogo:
-updateSplashLogoDisplay(imageData);
-break;
-case IMAGE_KEYS.beethoven:
-updateBeethovenDisplay(imageData);
-break;
-case IMAGE_KEYS.beethovenDetail:
-updateBeethovenDetailDisplay(imageData);
-break;
-case IMAGE_KEYS.japYeo:
-updateJapYeoDisplay(imageData);
-break;
-case IMAGE_KEYS.kueiPin:
-updateKueiPinDisplay(imageData);
-break;
-case IMAGE_KEYS.japTji:
-updateJapTjiDisplay(imageData);
-break;
-case IMAGE_KEYS.gallery:
-updateGalleryDisplay(imageData);
-break;
-default:
-console.error('Unknown image key:', key);
-}
-}
-
-// Save text content to localStorage
-function saveTextContent(contentId) {
-const content = document.getElementById(contentId).value;
-const key = CONTENT_KEYS[contentId];
-if (key) {
-localStorage.setItem(key, content);
-updateTextDisplay(contentId, content);
-showNotification('Content saved successfully!');
-}
-}
-
-// Load text content from localStorage
-function loadTextContent(contentId) {
-const key = CONTENT_KEYS[contentId];
-if (key) {
-const content = localStorage.getItem(key);
-if (content) {
-updateTextDisplay(contentId, content);
-return content;
-}
-}
-return document.getElementById(contentId).textContent;
-}
-
-// Update text display
-function updateTextDisplay(contentId, content) {
-const displayElement = document.getElementById(contentId);
-if (displayElement) {
-displayElement.textContent = content;
-}
-}
-
-// Load all text content
-function loadAllContent() {
-Object.keys(CONTENT_KEYS).forEach(key => {
-const content = loadTextContent(key);
-const inputElement = document.getElementById(key);
-if (inputElement && content) {
-inputElement.value = content;
-}
-});
-}
-
-// Event Management Functions
-function loadEvents() {
-const eventsData = localStorage.getItem(EVENTS_KEY);
-let events = eventsData ? JSON.parse(eventsData) : DEFAULT_EVENTS;
-  
-Object.keys(events).forEach(year => {
-if (!Array.isArray(events[year])) {
-events[year] = [];
-}
-});
-  
-displayEvents(events);
-updateEventList(events);
-}
-
-function saveEvents(events) {
-localStorage.setItem(EVENTS_KEY, JSON.stringify(events));
-  
-if (document.getElementById('adminDashboard').classList.contains('active')) {
-displayEvents(events);
-updateEventList(events);
-}
-}
-
-function displayEvents(events) {
-const eventsTimeline = document.getElementById('eventsTimeline');
-if (!eventsTimeline) return;
-  
-eventsTimeline.innerHTML = '';
-
-const sortedYears = Object.keys(events).sort((a, b) => b - a);
-
-if (sortedYears.length === 0) {
-const noEventsMessage = document.createElement('div');
-noEventsMessage.className = 'no-events-message';
-noEventsMessage.textContent = translations[currentLang]['no-events'] || 'No events scheduled at this time.';
-noEventsMessage.style.textAlign = 'center';
-noEventsMessage.style.padding = '3rem';
-noEventsMessage.style.color = 'var(--text-light)';
-noEventsMessage.style.fontSize = '1.2rem';
-eventsTimeline.appendChild(noEventsMessage);
-return;
-}
-
-sortedYears.forEach(year => {
-if (!events[year] || !Array.isArray(events[year])) {
-events[year] = [];
-}
-  
-if (events[year].length === 0) return;
-  
-const yearGroup = document.createElement('div');
-yearGroup.className = 'year-group';
-
-const yearHeader = document.createElement('div');
-yearHeader.className = 'year-header';
-
-const yearBadge = document.createElement('div');
-yearBadge.className = 'year-badge';
-yearBadge.textContent = year;
-
-const yearLine = document.createElement('div');
-yearLine.className = 'year-line';
-
-yearHeader.appendChild(yearBadge);
-yearHeader.appendChild(yearLine);
-
-const eventsGrid = document.createElement('div');
-eventsGrid.className = 'events-grid';
-
-events[year].forEach(event => {
-const eventCard = document.createElement('div');
-eventCard.className = 'event-card fade-in';
-
-const eventDate = document.createElement('div');
-eventDate.className = 'event-date';
-eventDate.textContent = event.date[currentLang] || event.date.id;
-
-const eventTitle = document.createElement('h3');
-eventTitle.className = 'event-title';
-eventTitle.textContent = event.title[currentLang] || event.title.id;
-
-const eventLocation = document.createElement('div');
-eventLocation.className = 'event-location';
-eventLocation.innerHTML = `<i class="fas fa-map-marker-alt"></i><span>${event.location[currentLang] || event.location.id}</span>`;
-
-const eventDescription = document.createElement('p');
-eventDescription.className = 'event-description';
-eventDescription.textContent = event.description[currentLang] || event.description.id;
-
-const eventLink = document.createElement('a');
-eventLink.className = 'event-link';
-eventLink.href = '#';
-eventLink.textContent = translations[currentLang]['event-learn-more'] || 'Learn More ';
-eventLink.innerHTML += '<i class="fas fa-arrow-right"></i>';
-eventLink.onclick = function(e) {
-e.preventDefault();
-showEventDetail(event);
-};
-
-eventCard.appendChild(eventDate);
-eventCard.appendChild(eventTitle);
-eventCard.appendChild(eventLocation);
-eventCard.appendChild(eventDescription);
-eventCard.appendChild(eventLink);
-
-eventsGrid.appendChild(eventCard);
-});
-
-yearGroup.appendChild(yearHeader);
-yearGroup.appendChild(eventsGrid);
-eventsTimeline.appendChild(yearGroup);
-});
-  
-const fadeElements = document.querySelectorAll('.fade-in');
-fadeElements.forEach(element => {
-element.classList.add('visible');
-});
-}
-
-function updateEventList(events) {
-const eventList = document.getElementById('eventList');
-if (!eventList) return;
-  
-eventList.innerHTML = '';
-
-const sortedYears = Object.keys(events).sort((a, b) => b - a);
-
-sortedYears.forEach(year => {
-if (!events[year] || !Array.isArray(events[year])) return;
-  
-events[year].forEach(event => {
-const eventItem = document.createElement('div');
-eventItem.className = 'event-item';
-
-const eventItemHeader = document.createElement('div');
-eventItemHeader.className = 'event-item-header';
-
-const eventItemTitle = document.createElement('div');
-eventItemTitle.className = 'event-item-title';
-eventItemTitle.textContent = `${event.title[currentLang] || event.title.id} (${year})`;
-
-const eventItemDate = document.createElement('div');
-eventItemDate.className = 'event-item-date';
-eventItemDate.textContent = event.date[currentLang] || event.date.id;
-
-const eventItemActions = document.createElement('div');
-eventItemActions.className = 'event-item-actions';
-
-const editButton = document.createElement('button');
-editButton.innerHTML = '<i class="fas fa-edit"></i>';
-editButton.onclick = function() {
-editEvent(year, event.id);
-};
-
-const deleteButton = document.createElement('button');
-deleteButton.innerHTML = '<i class="fas fa-trash"></i>';
-deleteButton.onclick = function() {
-deleteEvent(year, event.id);
-};
-
-eventItemActions.appendChild(editButton);
-eventItemActions.appendChild(deleteButton);
-
-eventItemHeader.appendChild(eventItemTitle);
-eventItemHeader.appendChild(eventItemDate);
-eventItemHeader.appendChild(eventItemActions);
-
-eventItem.appendChild(eventItemHeader);
-eventList.appendChild(eventItem);
-});
-});
-}
-
-function showEventForm() {
-document.getElementById('eventForm').style.display = 'block';
-}
-
-function hideEventForm() {
-document.getElementById('eventForm').style.display = 'none';
-document.getElementById('eventYear').value = '2024';
-document.getElementById('eventDate').value = '';
-document.getElementById('eventTitle').value = '';
-document.getElementById('eventLocation').value = '';
-document.getElementById('eventDescription').value = '';
-document.getElementById('eventDetail').value = '';
-}
-
-function saveEvent() {
-const year = document.getElementById('eventYear').value;
-const date = document.getElementById('eventDate').value;
-const title = document.getElementById('eventTitle').value;
-const location = document.getElementById('eventLocation').value;
-const description = document.getElementById('eventDescription').value;
-const detail = document.getElementById('eventDetail').value;
-
-if (!title || !date || !location || !description) {
-alert('Please fill in all required fields');
-return;
-}
-
-const eventsData = localStorage.getItem(EVENTS_KEY);
-let events = eventsData ? JSON.parse(eventsData) : DEFAULT_EVENTS;
-
-const newEvent = {
-id: 'evt' + year + Math.random().toString(36).substr(2, 9),
-date: { id: date, en: date, zh: date },
-title: { id: title, en: title, zh: title },
-location: { id: location, en: location, zh: location },
-description: { id: description, en: description, zh: description },
-detail: { id: detail, en: detail, zh: detail }
-};
-
-if (!events[year]) {
-events[year] = [];
-}
-events[year].push(newEvent);
-
-events[year].sort((a, b) => {
-return a.date.id.localeCompare(b.date.id);
-});
-
-saveEvents(events);
-hideEventForm();
-showNotification('Event added successfully!');
-}
-
-function editEvent(year, eventId) {
-const eventsData = localStorage.getItem(EVENTS_KEY);
-let events = eventsData ? JSON.parse(eventsData) : DEFAULT_EVENTS;
-
-const event = events[year].find(e => e.id === eventId);
-if (!event) return;
-
-document.getElementById('eventYear').value = year;
-document.getElementById('eventDate').value = event.date.id;
-document.getElementById('eventTitle').value = event.title.id;
-document.getElementById('eventLocation').value = event.location.id;
-document.getElementById('eventDescription').value = event.description.id;
-document.getElementById('eventDetail').value = event.detail.id;
-
-showEventForm();
-
-const saveButton = document.querySelector('#eventForm .btn-save');
-saveButton.textContent = 'Update Event';
-saveButton.onclick = function() {
-updateEvent(year, eventId);
-};
-}
-
-function updateEvent(year, eventId) {
-const date = document.getElementById('eventDate').value;
-const title = document.getElementById('eventTitle').value;
-const location = document.getElementById('eventLocation').value;
-const description = document.getElementById('eventDescription').value;
-const detail = document.getElementById('eventDetail').value;
-
-if (!title || !date || !location || !description) {
-alert('Please fill in all required fields');
-return;
-}
-
-const eventsData = localStorage.getItem(EVENTS_KEY);
-let events = eventsData ? JSON.parse(eventsData) : DEFAULT_EVENTS;
-
-const eventIndex = events[year].findIndex(e => e.id === eventId);
-if (eventIndex !== -1) {
-events[year][eventIndex] = {
-id: eventId,
-date: { id: date, en: date, zh: date },
-title: { id: title, en: title, zh: title },
-location: { id: location, en: location, zh: location },
-description: { id: description, en: description, zh: description },
-detail: { id: detail, en: detail, zh: detail }
-};
-
-events[year].sort((a, b) => {
-return a.date.id.localeCompare(b.date.id);
-});
-
-saveEvents(events);
-hideEventForm();
-showNotification('Event updated successfully!');
-  
-const saveButton = document.querySelector('#eventForm .btn-save');
-saveButton.textContent = 'Save Event';
-saveButton.onclick = function() {
-saveEvent();
-};
-}
-}
-
-function deleteEvent(year, eventId) {
-if (!confirm('Are you sure you want to delete this event?')) return;
-
-const eventsData = localStorage.getItem(EVENTS_KEY);
-let events = eventsData ? JSON.parse(eventsData) : DEFAULT_EVENTS;
-
-events[year] = events[year].filter(e => e.id !== eventId);
-
-if (events[year].length === 0) {
-delete events[year];
-}
-
-saveEvents(events);
-showNotification('Event deleted successfully!');
-}
-
-function showEventDetail(event) {
-const modal = document.getElementById('eventDetailModal');
-const title = document.getElementById('eventDetailTitle');
-const content = document.getElementById('eventDetailContent');
-const image = document.getElementById('eventDetailImage');
-
-title.textContent = event.title[currentLang] || event.title.id;
-
-content.innerHTML = `
-<p><strong>${translations[currentLang]['event-date'] || 'Date'}:</strong> ${event.date[currentLang] || event.date.id}</p>
-<p><strong>${translations[currentLang]['event-location'] || 'Location'}:</strong> ${event.location[currentLang] || event.location.id}</p>
-<p><strong>${translations[currentLang]['event-description'] || 'Description'}:</strong> ${event.description[currentLang] || event.description.id}</p>
-<p><strong>${translations[currentLang]['event-detail'] || 'Details'}:</strong> ${event.detail[currentLang] || event.detail.id}</p>
-`;
-
-image.style.display = 'none';
-modal.style.display = 'block';
-}
-
-function closeEventDetailModal() {
-document.getElementById('eventDetailModal').style.display = 'none';
-}
-
-// Artist Detail Modal Functions
-function showArtistDetail(artistId, section) {
-const modal = document.getElementById('artistDetailModal');
-const title = document.getElementById('artistDetailTitle');
-const content = document.getElementById('artistDetailContent');
-const image = document.getElementById('artistDetailImage');
-  
-const artist = ARTIST_DATA[artistId];
-if (!artist) return;
-  
-let sectionTitle = '';
-switch(section) {
-case 'bio':
-sectionTitle = translations[currentLang]['artist-bio'] || 'Biography';
-break;
-case 'repertoire':
-sectionTitle = translations[currentLang]['artist-repertoire'] || 'Repertoire';
-break;
-case 'media':
-sectionTitle = translations[currentLang]['artist-media'] || 'Media';
-break;
-default:
-sectionTitle = 'Detail';
-}
-  
-title.textContent = `${artist.name[currentLang]} - ${sectionTitle}`;
-  
-if (artistId === 'japYeo') {
-image.src = document.getElementById('japYeoImg').src || '';
-} else if (artistId === 'kueiPin') {
-image.src = document.getElementById('kueiPinImg').src || '';
-} else if (artistId === 'japTji') {
-image.src = document.getElementById('japTjiImg').src || '';
-}
-  
-if (image.src) {
-image.style.display = 'block';
-} else {
-image.style.display = 'none';
-}
-  
-content.innerHTML = artist[section][currentLang] || '<p>Content not available.</p>';
-  
-modal.style.display = 'block';
-}
-
-function closeArtistDetailModal() {
-document.getElementById('artistDetailModal').style.display = 'none';
-}
-
-// Handle file upload
-function handleFileUpload(input, key) {
-const file = input.files[0];
-if (file && file.type.startsWith('image/')) {
-const reader = new FileReader();
-reader.onload = function(e) {
-const imageData = {
-id: Date.now() + Math.random(),
-src: e.target.result,
-name: file.name,
-uploadDate: new Date().toISOString()
-};
-
-saveImage(key, imageData);
-showNotification('Image uploaded successfully!');
-};
-reader.readAsDataURL(file);
-}
-}
-
-// Handle gallery upload (multiple files)
-function handleGalleryUpload(input) {
-const files = input.files;
-  
-if (files.length === 0) return;
-  
-let galleryData = JSON.parse(localStorage.getItem(IMAGE_KEYS.gallery) || '[]');
-let processedCount = 0;
-  
-Array.from(files).forEach(file => {
-if (file.type.startsWith('image/')) {
-const reader = new FileReader();
-reader.onload = function(e) {
-const imageData = {
-id: Date.now() + Math.random(),
-src: e.target.result,
-name: file.name,
-uploadDate: new Date().toISOString()
-};
-
-galleryData.push(imageData);
-processedCount++;
-
-if (processedCount === files.length) {
-localStorage.setItem(IMAGE_KEYS.gallery, JSON.stringify(galleryData));
-updateGalleryDisplay(galleryData);
-
-showNotification(`${files.length} image(s) uploaded successfully!`);
-
-input.value = '';
-}
-};
-reader.readAsDataURL(file);
-}
-});
-}
-
-// Update gallery display
-function updateGalleryDisplay(galleryData) {
-const galleryGrid = document.getElementById('galleryGrid');
-const visibleCount = document.getElementById('visibleCount');
-const totalCount = document.getElementById('totalCount');
-  
-galleryGrid.innerHTML = '';
-  
-if (galleryData && galleryData.length > 0) {
-const displayCount = Math.min(10, galleryData.length);
-    
-for (let i = 0; i < displayCount; i++) {
-const imageData = galleryData[i];
-const galleryItem = document.createElement('div');
-galleryItem.className = 'gallery-item';
-galleryItem.innerHTML = `
-<img src="${imageData.src}" alt="${imageData.name}" onclick="openImageModal('${imageData.src}')">
-<div class="gallery-overlay">
-<h4>${imageData.name}</h4>
-<p>${translations[currentLang]['gallery-image'] || 'Gallery image'} ${i + 1}</p>
-</div>
-`;
-galleryGrid.appendChild(galleryItem);
-}
-    
-visibleCount.textContent = displayCount;
-totalCount.textContent = galleryData.length;
-} else {
-for (let i = 0; i < 4; i++) {
-const galleryItem = document.createElement('div');
-galleryItem.className = 'gallery-item';
-galleryItem.innerHTML = `
-<div class="placeholder-image">
-<span>${translations[currentLang]['no-gallery-image'] || 'No gallery image'} ${i + 1}</span>
-</div>
-`;
-galleryGrid.appendChild(galleryItem);
-}
-    
-visibleCount.textContent = '0';
-totalCount.textContent = '0';
-}
-  
-updateGalleryManager(galleryData);
-}
-
-// Update gallery manager
-function updateGalleryManager(galleryData) {
-const galleryManager = document.getElementById('galleryManager');
-const totalGalleryCount = document.getElementById('totalGalleryCount');
-  
-totalGalleryCount.textContent = galleryData ? galleryData.length : 0;
-  
-galleryManager.innerHTML = '';
-  
-if (galleryData && galleryData.length > 0) {
-galleryData.forEach((imageData, index) => {
-const imageItem = document.createElement('div');
-imageItem.className = 'current-image';
-imageItem.innerHTML = `
-<img src="${imageData.src}" alt="${imageData.name}">
-<div class="image-actions">
-<button onclick="deleteGalleryImage(${index})" title="Delete">
-<i class="fas fa-trash"></i>
-</button>
-</div>
-`;
-galleryManager.appendChild(imageItem);
-});
-} else {
-galleryManager.innerHTML = `<p style="text-align: center; color: var(--text-light); font-size: 0.9rem;">${translations[currentLang]['no-gallery-uploaded'] || 'No gallery images uploaded yet'}</p>`;
-}
-}
-
-// Delete gallery image
-function deleteGalleryImage(index) {
-if (confirm('Are you sure you want to delete this gallery image?')) {
-let galleryData = JSON.parse(localStorage.getItem(IMAGE_KEYS.gallery) || '[]');
-galleryData.splice(index, 1);
-localStorage.setItem(IMAGE_KEYS.gallery, JSON.stringify(galleryData));
-updateGalleryDisplay(galleryData);
-showNotification('Image deleted successfully!');
-}
-}
-
-// Show notification
-function showNotification(message, type = 'success') {
-const notification = document.createElement('div');
-notification.className = type === 'error' ? 'upload-error' : 'upload-success';
-notification.textContent = message;
-notification.style.animation = 'slideDown 0.3s ease';
-notification.style.display = 'block';
-  
-if (type === 'error') {
-notification.style.backgroundColor = 'var(--error)';
-} else if (type === 'info') {
-notification.style.backgroundColor = 'var(--primary)';
-}
-  
-const adminContent = document.querySelector('.admin-content');
-adminContent.appendChild(notification);
-  
-setTimeout(() => {
-notification.style.display = 'none';
-if (notification.parentNode) {
-adminContent.removeChild(notification);
-}
-}, 3000);
-}
-
-// Load all images
-function loadAllImages() {
-Object.values(IMAGE_KEYS).forEach(key => {
-const imageData = loadImage(key);
-if (imageData) {
-updateImageDisplay(key, imageData);
-}
-});
-}
-
-// Update specific image displays
-function updateLogoDisplay(imageData) {
-if (imageData) {
-document.getElementById('currentLogo').src = imageData.src;
-document.getElementById('currentLogo').style.display = 'block';
-document.getElementById('logoPlaceholder').style.display = 'none';
-document.getElementById('logoInfo').textContent = `Uploaded: ${new Date().toLocaleString()}`;
-document.getElementById('logoInfo').style.display = 'block';
-    
-document.getElementById('headerLogo').src = imageData.src;
-document.getElementById('headerLogo').style.display = 'block';
-} else {
-document.getElementById('currentLogo').style.display = 'none';
-document.getElementById('logoPlaceholder').style.display = 'flex';
-document.getElementById('logoInfo').style.display = 'none';
-    
-document.getElementById('headerLogo').style.display = 'none';
-}
-}
-
-function updateBackgroundDisplay(imageData) {
-if (imageData) {
-document.getElementById('currentBackground').src = imageData.src;
-document.getElementById('currentBackground').style.display = 'block';
-document.getElementById('backgroundPlaceholder').style.display = 'none';
-document.getElementById('backgroundInfo').textContent = `Uploaded: ${new Date().toLocaleString()}`;
-document.getElementById('backgroundInfo').style.display = 'block';
-    
-document.getElementById('heroBg').style.backgroundImage = `url(${imageData.src})`;
-} else {
-document.getElementById('currentBackground').style.display = 'none';
-document.getElementById('backgroundPlaceholder').style.display = 'flex';
-document.getElementById('backgroundInfo').style.display = 'none';
-    
-document.getElementById('heroBg').style.backgroundImage = '';
-}
-}
-
-function updateSplashLogoDisplay(imageData) {
-if (imageData) {
-document.getElementById('currentSplashLogo').src = imageData.src;
-document.getElementById('currentSplashLogo').style.display = 'block';
-document.getElementById('splashLogoPlaceholder').style.display = 'none';
-document.getElementById('splashLogoInfo').textContent = `Uploaded: ${new Date().toLocaleString()}`;
-document.getElementById('splashLogoInfo').style.display = 'block';
-    
-document.getElementById('splashLogoImg').src = imageData.src;
-document.getElementById('splashLogoImg').style.display = 'block';
-} else {
-document.getElementById('currentSplashLogo').style.display = 'none';
-document.getElementById('splashLogoPlaceholder').style.display = 'flex';
-document.getElementById('splashLogoInfo').style.display = 'none';
-    
-document.getElementById('splashLogoImg').style.display = 'none';
-}
-}
-
-function updateBeethovenDisplay(imageData) {
-if (imageData) {
-document.getElementById('currentBeethoven').src = imageData.src;
-document.getElementById('currentBeethoven').style.display = 'block';
-document.getElementById('beethovenPlaceholder').style.display = 'none';
-document.getElementById('beethovenInfo').textContent = `Uploaded: ${new Date().toLocaleString()}`;
-document.getElementById('beethovenInfo').style.display = 'block';
-    
-document.getElementById('beethovenProjectImg').src = imageData.src;
-document.getElementById('beethovenProjectImg').style.display = 'block';
-document.getElementById('beethovenProjectPlaceholder').style.display = 'none';
-} else {
-document.getElementById('currentBeethoven').style.display = 'none';
-document.getElementById('beethovenPlaceholder').style.display = 'flex';
-document.getElementById('beethovenInfo').style.display = 'none';
-    
-document.getElementById('beethovenProjectImg').style.display = 'none';
-document.getElementById('beethovenProjectPlaceholder').style.display = 'flex';
-}
-}
-
-function updateBeethovenDetailDisplay(imageData) {
-if (imageData) {
-document.getElementById('currentBeethovenDetail').src = imageData.src;
-document.getElementById('currentBeethovenDetail').style.display = 'block';
-document.getElementById('beethovenDetailPlaceholder').style.display = 'none';
-document.getElementById('beethovenDetailInfo').textContent = `Uploaded: ${new Date().toLocaleString()}`;
-document.getElementById('beethovenDetailInfo').style.display = 'block';
-    
-document.getElementById('beethovenDetailImg').src = imageData.src;
-document.getElementById('beethovenDetailImg').style.display = 'block';
-document.getElementById('beethovenDetailPlaceholder').style.display = 'none';
-} else {
-document.getElementById('currentBeethovenDetail').style.display = 'none';
-document.getElementById('beethovenDetailPlaceholder').style.display = 'flex';
-document.getElementById('beethovenDetailInfo').style.display = 'none';
-    
-document.getElementById('beethovenDetailImg').style.display = 'none';
-document.getElementById('beethovenDetailPlaceholder').style.display = 'flex';
-}
-}
-
-function updateJapYeoDisplay(imageData) {
-if (imageData) {
-document.getElementById('currentJapYeo').src = imageData.src;
-document.getElementById('currentJapYeo').style.display = 'block';
-document.getElementById('japYeoPlaceholder').style.display = 'none';
-document.getElementById('japYeoInfo').textContent = `Uploaded: ${new Date().toLocaleString()}`;
-document.getElementById('japYeoInfo').style.display = 'block';
-    
-document.getElementById('japYeoImg').src = imageData.src;
-document.getElementById('japYeoImg').style.display = 'block';
-document.getElementById('japYeoPlaceholder').style.display = 'none';
-} else {
-document.getElementById('currentJapYeo').style.display = 'none';
-document.getElementById('japYeoPlaceholder').style.display = 'flex';
-document.getElementById('japYeoInfo').style.display = 'none';
-    
-document.getElementById('japYeoImg').style.display = 'none';
-document.getElementById('japYeoPlaceholder').style.display = 'flex';
-}
-}
-
-function updateKueiPinDisplay(imageData) {
-if (imageData) {
-document.getElementById('currentKueiPin').src = imageData.src;
-document.getElementById('currentKueiPin').style.display = 'block';
-document.getElementById('kueiPinPlaceholder').style.display = 'none';
-document.getElementById('kueiPinInfo').textContent = `Uploaded: ${new Date().toLocaleString()}`;
-document.getElementById('kueiPinInfo').style.display = 'block';
-    
-document.getElementById('kueiPinImg').src = imageData.src;
-document.getElementById('kueiPinImg').style.display = 'block';
-document.getElementById('kueiPinPlaceholder').style.display = 'none';
-} else {
-document.getElementById('currentKueiPin').style.display = 'none';
-document.getElementById('kueiPinPlaceholder').style.display = 'flex';
-document.getElementById('kueiPinInfo').style.display = 'none';
-    
-document.getElementById('kueiPinImg').style.display = 'none';
-document.getElementById('kueiPinPlaceholder').style.display = 'flex';
-}
-}
-
-function updateJapTjiDisplay(imageData) {
-if (imageData) {
-document.getElementById('currentJapTji').src = imageData.src;
-document.getElementById('currentJapTji').style.display = 'block';
-document.getElementById('japTjiPlaceholder').style.display = 'none';
-document.getElementById('japTjiInfo').textContent = `Uploaded: ${new Date().toLocaleString()}`;
-document.getElementById('japTjiInfo').style.display = 'block';
-    
-document.getElementById('japTjiImg').src = imageData.src;
-document.getElementById('japTjiImg').style.display = 'block';
-document.getElementById('japTjiPlaceholder').style.display = 'none';
-} else {
-document.getElementById('currentJapTji').style.display = 'none';
-document.getElementById('japTjiPlaceholder').style.display = 'flex';
-document.getElementById('japTjiInfo').style.display = 'none';
-    
-document.getElementById('japTjiImg').style.display = 'none';
-document.getElementById('japTjiPlaceholder').style.display = 'flex';
-}
-}
-
-// Login form handler
-document.getElementById('loginForm').addEventListener('submit', function(e) {
-e.preventDefault();
-  
-if (isLocked) {
-  const remainingTime = Math.ceil((lockTime - Date.now()) / (1000 * 60));
-  alert(`Account locked. Please try again in ${remainingTime} minutes.`);
-  return;
-}
-  
-const username = document.getElementById('adminUsername').value;
-const password = document.getElementById('adminPassword').value;
-const errorElement = document.getElementById('loginError');
-  
-if (username === ADMIN_CREDENTIALS.username && password === ADMIN_CREDENTIALS.password) {
-isLoggedIn = true;
-loginAttempts = 0;
-localStorage.setItem('ymjAdminLoggedIn', 'true');
-localStorage.setItem('ymjLoginTime', Date.now().toString());
-document.getElementById('adminToggle').classList.add('logged-in');
-closeAdminLogin();
-toggleAdminDashboard();
-showNotification('Login successful!', 'success');
-} else {
-loginAttempts++;
-errorElement.textContent = 'Invalid username or password';
-errorElement.style.display = 'block';
-  
-if (loginAttempts >= MAX_LOGIN_ATTEMPTS) {
-  isLocked = true;
-  lockTime = Date.now() + (15 * 60 * 1000);
-  localStorage.setItem('ymjLockedUntil', lockTime.toString());
-  
-  errorElement.textContent = 'Too many failed attempts. Account locked for 15 minutes.';
-  updateLoginAttempts();
-  
-  document.getElementById('adminUsername').value = '';
-  document.getElementById('adminPassword').value = '';
-} else {
-  updateLoginAttempts();
-}
-}
-});
+let currentLang = 'id';
 
 // Language switching functionality
 function switchLanguage(lang) {
@@ -5769,9 +4064,6 @@ if (translations[lang] && translations[lang][key]) {
 element.textContent = translations[lang][key];
 }
 });
-
-// Reload events to update language
-loadEvents();
 }
 
 // Image Modal
@@ -5786,26 +4078,81 @@ function closeImageModal() {
 document.getElementById('imageModal').style.display = 'none';
 }
 
+// Event Detail Modal
+function showEventDetail(eventId) {
+const modal = document.getElementById('eventDetailModal');
+const title = document.getElementById('eventDetailTitle');
+const content = document.getElementById('eventDetailContent');
+const image = document.getElementById('eventDetailImage');
+  
+const event = EVENT_DATA[eventId];
+if (!event) return;
+  
+title.textContent = event.title;
+content.innerHTML = `
+<p><strong>Tanggal:</strong> ${event.date}</p>
+<p><strong>Lokasi:</strong> ${event.location}</p>
+<p><strong>Deskripsi:</strong> ${event.description}</p>
+<p><strong>Detail:</strong> ${event.detail}</p>
+`;
+  
+image.src = event.image;
+image.style.display = 'block';
+modal.style.display = 'block';
+}
+
+function closeEventDetailModal() {
+document.getElementById('eventDetailModal').style.display = 'none';
+}
+
+// Artist Detail Modal
+function showArtistDetail(artistId, section) {
+const modal = document.getElementById('artistDetailModal');
+const title = document.getElementById('artistDetailTitle');
+const content = document.getElementById('artistDetailContent');
+const image = document.getElementById('artistDetailImage');
+  
+const artist = ARTIST_DATA[artistId];
+if (!artist) return;
+  
+let sectionTitle = '';
+switch(section) {
+case 'bio':
+sectionTitle = translations[currentLang]['artist-bio'] || 'Biography';
+break;
+case 'repertoire':
+sectionTitle = translations[currentLang]['artist-repertoire'] || 'Repertoire';
+break;
+case 'media':
+sectionTitle = translations[currentLang]['artist-media'] || 'Media';
+break;
+default:
+sectionTitle = 'Detail';
+}
+  
+title.textContent = `${artist.name[currentLang]} - ${sectionTitle}`;
+  
+if (artistId === 'japYeo') {
+image.src = document.getElementById('japYeoImg').src;
+} else if (artistId === 'kueiPin') {
+image.src = document.getElementById('kueiPinImg').src;
+} else if (artistId === 'japTji') {
+image.src = document.getElementById('japTjiImg').src;
+}
+  
+image.style.display = 'block';
+content.innerHTML = artist[section][currentLang] || '<p>Content not available.</p>';
+  
+modal.style.display = 'block';
+}
+
+function closeArtistDetailModal() {
+document.getElementById('artistDetailModal').style.display = 'none';
+}
+
 // Open full gallery modal
 function openFullGallery() {
 const modal = document.getElementById('full-gallery-modal');
-const fullGalleryGrid = document.getElementById('full-gallery-grid');
-const galleryData = JSON.parse(localStorage.getItem(IMAGE_KEYS.gallery) || '[]');
-  
-fullGalleryGrid.innerHTML = '';
-  
-galleryData.forEach((imageData, index) => {
-const galleryItem = document.createElement('div');
-galleryItem.className = 'full-gallery-item';
-galleryItem.innerHTML = `
-<img src="${imageData.src}" alt="${imageData.name}" onclick="openImageModal('${imageData.src}')">
-<div class="full-gallery-overlay">
-<p>${imageData.name}</p>
-</div>
-`;
-fullGalleryGrid.appendChild(galleryItem);
-});
-  
 modal.style.display = 'block';
 }
 
@@ -5833,9 +4180,6 @@ mainContent.classList.add('active');
 });
 
 // Initialize page
-checkAdminStatus();
-loadAllImages();
-loadEvents();
 switchLanguage('id');
 
 // Add smooth page load
@@ -5954,51 +4298,6 @@ element.classList.add('visible');
 window.addEventListener('scroll', checkFade);
 checkFade();
 });
-
-// Setup file input listeners
-document.addEventListener('DOMContentLoaded', function() {
-checkAdminStatus();
-loadAllImages();
-
-// Setup file inputs
-document.getElementById('logoInput').addEventListener('change', function() {
-handleFileUpload(this, IMAGE_KEYS.logo);
-});
-
-document.getElementById('backgroundInput').addEventListener('change', function() {
-handleFileUpload(this, IMAGE_KEYS.background);
-});
-
-document.getElementById('splashLogoInput').addEventListener('change', function() {
-handleFileUpload(this, IMAGE_KEYS.splashLogo);
-});
-
-document.getElementById('beethovenInput').addEventListener('change', function() {
-handleFileUpload(this, IMAGE_KEYS.beethoven);
-});
-
-document.getElementById('beethovenDetailInput').addEventListener('change', function() {
-handleFileUpload(this, IMAGE_KEYS.beethovenDetail);
-});
-
-document.getElementById('japYeoInput').addEventListener('change', function() {
-handleFileUpload(this, IMAGE_KEYS.japYeo);
-});
-
-document.getElementById('kueiPinInput').addEventListener('change', function() {
-handleFileUpload(this, IMAGE_KEYS.kueiPin);
-});
-
-document.getElementById('japTjiInput').addEventListener('change', function() {
-handleFileUpload(this, IMAGE_KEYS.japTji);
-});
-
-// Gallery upload
-document.getElementById('galleryInput').addEventListener('change', function() {
-handleGalleryUpload(this);
-});
-});
 </script>
 </body>
 </html>
-
