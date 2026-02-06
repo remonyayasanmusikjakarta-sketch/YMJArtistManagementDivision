@@ -2227,82 +2227,6 @@ margin-right: 0.5rem;
 </style>
 </head>
 <body>
-// Fungsi untuk merender semua event dari EVENT_DATA ke dalam HTML
-function renderEvents() {
-    const container = document.getElementById('events-container');
-    if (!container) return; // Keluar jika container tidak ditemukan
-
-    let eventsByYear = {};
-
-    // 1. Kelompokkan event berdasarkan tahun
-    for (const key in EVENT_DATA) {
-        const event = EVENT_DATA[key];
-        // Ambil tahun dari string tanggal (asumsikan tahun adalah 4 digit di akhir)
-        const yearMatch = event.date.match(/\b(20\d{2})\b/);
-        const year = yearMatch ? yearMatch[0] : 'TBD'; // Jika tidak ada tahun, masukkan ke kategori 'TBD'
-
-        if (!eventsByYear[year]) {
-            eventsByYear[year] = [];
-        }
-        // Tambahkan key ke objek event agar bisa diakses nanti
-        event.key = key;
-        eventsByYear[year].push(event);
-    }
-
-    // 2. Urutkan tahun dari yang terbaru ke terlama
-    const sortedYears = Object.keys(eventsByYear).sort((a, b) => {
-        if (a === 'TBD') return 1; // Letakkan 'TBD' di akhir
-        if (b === 'TBD') return -1;
-        return b - a; // Urutkan menurun (2026, 2025, 2024)
-    });
-
-    let finalHtml = '';
-
-    // 3. Bangun HTML untuk setiap tahun
-    sortedYears.forEach(year => {
-        finalHtml += `
-            <div class="year-group">
-                <div class="year-header">
-                    <div class="year-badge">${year}</div>
-                    <div class="year-line"></div>
-                </div>
-                <div class="events-grid">
-        `;
-
-        // 4. Bangun HTML untuk setiap event dalam tahun tersebut
-        eventsByYear[year].forEach(event => {
-            // Hapus tag <i> untuk ikon jika Anda tidak menggunakan Font Awesome
-            finalHtml += `
-                <div class="event-card fade-in">
-                    <div class="event-date">${event.date}</div>
-                    <h3 class="event-title">${event.title}</h3>
-                    <div class="event-location">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <span>${event.location}</span>
-                    </div>
-                    <p class="event-description">
-                        ${event.description}
-                    </p>
-                    <a href="#" class="event-link" onclick="showEventDetail('${event.key}'); return false;">
-                        Pelajari Lebih Lanjut <i class="fas fa-arrow-right"></i>
-                    </a>
-                </div>
-            `;
-        });
-
-        finalHtml += `
-                </div>
-            </div>
-        `;
-    });
-
-    // 5. Tampilkan HTML yang sudah dibangun ke dalam container
-    container.innerHTML = finalHtml;
-}
-
-// Panggil fungsi renderEvents setelah halaman dimuat sepenuhnya
-document.addEventListener('DOMContentLoaded', renderEvents);
-<div class="animated-bg"></div>
 
 <!-- Splash Screen -->
 <div class="splash-screen" id="splashScreen">
@@ -3603,6 +3527,83 @@ zh: {
 'artist-media': '媒体'
 }
 };
+// Fungsi untuk merender semua event dari EVENT_DATA ke dalam HTML
+function renderEvents() {
+    const container = document.getElementById('events-container');
+    if (!container) return; // Keluar jika container tidak ditemukan
+
+    let eventsByYear = {};
+
+    // 1. Kelompokkan event berdasarkan tahun
+    for (const key in EVENT_DATA) {
+        const event = EVENT_DATA[key];
+        // Ambil tahun dari string tanggal (asumsikan tahun adalah 4 digit di akhir)
+        const yearMatch = event.date.match(/\b(20\d{2})\b/);
+        const year = yearMatch ? yearMatch[0] : 'TBD'; // Jika tidak ada tahun, masukkan ke kategori 'TBD'
+
+        if (!eventsByYear[year]) {
+            eventsByYear[year] = [];
+        }
+        // Tambahkan key ke objek event agar bisa diakses nanti
+        event.key = key;
+        eventsByYear[year].push(event);
+    }
+
+    // 2. Urutkan tahun dari yang terbaru ke terlama
+    const sortedYears = Object.keys(eventsByYear).sort((a, b) => {
+        if (a === 'TBD') return 1; // Letakkan 'TBD' di akhir
+        if (b === 'TBD') return -1;
+        return b - a; // Urutkan menurun (2026, 2025, 2024)
+    });
+
+    let finalHtml = '';
+
+    // 3. Bangun HTML untuk setiap tahun
+    sortedYears.forEach(year => {
+        finalHtml += `
+            <div class="year-group">
+                <div class="year-header">
+                    <div class="year-badge">${year}</div>
+                    <div class="year-line"></div>
+                </div>
+                <div class="events-grid">
+        `;
+
+        // 4. Bangun HTML untuk setiap event dalam tahun tersebut
+        eventsByYear[year].forEach(event => {
+            // Hapus tag <i> untuk ikon jika Anda tidak menggunakan Font Awesome
+            finalHtml += `
+                <div class="event-card fade-in">
+                    <div class="event-date">${event.date}</div>
+                    <h3 class="event-title">${event.title}</h3>
+                    <div class="event-location">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>${event.location}</span>
+                    </div>
+                    <p class="event-description">
+                        ${event.description}
+                    </p>
+                    <a href="#" class="event-link" onclick="showEventDetail('${event.key}'); return false;">
+                        Pelajari Lebih Lanjut <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            `;
+        });
+
+        finalHtml += `
+                </div>
+            </div>
+        `;
+    });
+
+    // 5. Tampilkan HTML yang sudah dibangun ke dalam container
+    container.innerHTML = finalHtml;
+}
+
+// Panggil fungsi renderEvents setelah halaman dimuat sepenuhnya
+document.addEventListener('DOMContentLoaded', renderEvents);
+<div class="animated-bg"></div>
+
 
 // Event data
 const EVENT_DATA = {
@@ -4385,6 +4386,7 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 </body>
 </html>
+
 
 
 
