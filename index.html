@@ -1763,7 +1763,15 @@ padding: 1.5rem;
 box-shadow: var(--shadow-lg);
 border-top: 1px solid var(--border);
 }
-
+h1 img {
+/* Reset posisi agar normal di mobile */
+margin-top: 0; 
+/* Gunakan width 100% untuk mencegah horizontal scroll */
+width: 100%; 
+/* Posisikan di tengah tanpa trik margin */
+margin-left: 0;
+transform: none;
+}
 .nav-menu.active {
 display: flex;
 }
@@ -4448,6 +4456,7 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 </body>
 </html>
+
 
 
 
